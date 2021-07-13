@@ -33,7 +33,8 @@ export class Cube {
           this.cube.rotation.y,
           this.cube.rotation.z
         );
-      });
+      })
+      .duration(500);
   }
 }
 
