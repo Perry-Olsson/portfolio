@@ -27,11 +27,10 @@ export const initThree = () => {
   const spaceTexture = new THREE.TextureLoader().load("space.jpg");
   scene.background = spaceTexture;
 
-  const lightHelper1 = new THREE.PointLightHelper(pointLight1);
-
-  const lightHelper2 = new THREE.PointLightHelper(pointLight2);
-  const gridHelper = new THREE.GridHelper(500, 50);
-  scene.add(lightHelper1, lightHelper2, gridHelper);
+  // const lightHelper1 = new THREE.PointLightHelper(pointLight1);
+  // const lightHelper2 = new THREE.PointLightHelper(pointLight2);
+  // const gridHelper = new THREE.GridHelper(500, 50);
+  // scene.add(lightHelper1, lightHelper2, gridHelper);
 
   return { scene, camera, renderer, cameraController };
 };
