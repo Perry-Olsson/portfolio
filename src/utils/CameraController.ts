@@ -23,8 +23,7 @@ export class CameraController {
           this.camera.position.y,
           this.camera.position.z
         );
-      })
-      .duration(200);
+      });
   }
   tweenIn() {
     return new TWEEN.Tween(this.camera.position)
@@ -40,7 +39,7 @@ export class CameraController {
           this.camera.position.z
         );
       })
-      .duration(200);
+      .easing(TWEEN.Easing.Quadratic.In);
   }
 
   getDistanceFromCube() {

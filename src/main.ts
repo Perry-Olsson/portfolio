@@ -5,7 +5,7 @@ import { Cube } from "./cube";
 import * as TWEEN from "@tweenjs/tween.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Router } from "./router";
-import { Navbar } from "./navbar";
+import { Navbar } from "./navigation";
 
 const { scene, camera, renderer, cameraController } = initThree();
 
@@ -29,3 +29,10 @@ handleResize(scene, renderer, cameraController, cube);
 setupDrag();
 
 animate();
+
+document
+  .querySelector<HTMLButtonElement>("#burger")!
+  .addEventListener("click", () => {
+    if (navbar.overlayOpen) navbar.hideOverlay();
+    else navbar.showOverlay();
+  });

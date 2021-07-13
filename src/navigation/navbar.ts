@@ -2,8 +2,13 @@ import { Router } from "../router";
 
 export class Navbar {
   router: Router;
+  overlayOpen: boolean;
+  navtabContainer: HTMLDivElement;
   constructor(router: Router) {
     this.router = router;
+    this.overlayOpen = false;
+    this.navtabContainer =
+      document.querySelector<HTMLDivElement>("#navtab-container")!;
   }
 
   addListeners() {
@@ -19,5 +24,17 @@ export class Navbar {
     document
       .querySelector<HTMLButtonElement>("#contact")!
       .addEventListener("click", () => this.router.contact());
+  }
+
+  hideOverlay() {
+    this.navtabContainer.classList.replace("top-0", "-top-full");
+    this.navtabContainer.classList.replace("bottom-0", "bottom-full");
+    this.overlayOpen = false;
+  }
+
+  showOverlay() {
+    this.navtabContainer.classList.replace("-top-full", "top-0");
+    this.navtabContainer.classList.replace("bottom-full", "bottom-0");
+    this.overlayOpen = true;
   }
 }

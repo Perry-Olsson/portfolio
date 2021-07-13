@@ -1,13 +1,11 @@
 import * as THREE from "three";
 import * as TWEEN from "@tweenjs/tween.js";
 import { cubeDepth, cubeHeight, cubeWidth } from "./constants";
+import { Router } from "./router";
 
 export class Cube {
   cube: THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial[]>;
-  pos1 = 0;
-  pos2 = -Math.PI / 2;
-  pos3 = -Math.PI;
-  pos4 = -Math.PI * 1.5;
+
   constructor() {
     this.cube = createCube();
   }
@@ -17,18 +15,18 @@ export class Cube {
   }
 
   rotateToPos1() {
-    return this.rotate(0, this.getAnimationDuration(this.pos1));
+    return this.rotate(Router.pos1);
   }
   rotateToPos2() {
-    return this.rotate(this.pos2, this.getAnimationDuration(this.pos2));
+    return this.rotate(Router.pos2);
   }
   rotateToPos3() {
-    return this.rotate(-Math.PI, this.getAnimationDuration(this.pos3));
+    return this.rotate(Router.pos3);
   }
   rotateToPos4() {
-    return this.rotate(-Math.PI * 1.5, this.getAnimationDuration(this.pos4));
+    return this.rotate(Router.pos4);
   }
-  rotate(pos: number, dur = 500) {
+  rotate(pos: number) {
     return new TWEEN.Tween(this.cube.rotation)
       .to({ x: 0, y: pos, z: 0 })
       .onUpdate(() => {
@@ -38,16 +36,7 @@ export class Cube {
           this.cube.rotation.z
         );
       })
-      .duration(dur);
-  }
-
-  getAnimationDuration(pos: number) {
-    const amountToRotate = Math.abs(this.cube.rotation.y - pos);
-    return amountToRotate === Math.PI
-      ? 750
-      : amountToRotate > Math.PI
-      ? 1000
-      : 500;
+      .easing(TWEEN.Easing.Quadratic.InOut);
   }
 }
 

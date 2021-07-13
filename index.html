@@ -11,12 +11,47 @@
 
   <body>
     <main id="scrollable">
-      <div class="flex flex-row">
-        <button id="intro" class="bg-gray-400 rounded p-2">Home</button>
-        <button id="work" class="bg-gray-400 rounded p-2 ml-2">Work</button>
-        <button id="about" class="bg-gray-400 rounded p-2 ml-2">About</button>
-        <button id="contact" class="bg-gray-400 rounded p-2 ml-2">
-          Contact
+      <div id="navbar" class="flex flex-row py-8 justify-between">
+        <div class="relative z-50">
+          <button id="intro" class="relative z-50 navtab">Perry Olsson</button>
+        </div>
+        <div
+          id="navtab-container"
+          class="
+            fixed
+            z-40
+            -top-full
+            left-0
+            right-0
+            bottom-full
+            justify-center
+            items-center
+            flex flex-col
+            bg-gray-600 bg-opacity-80
+            transition-all
+            duration-500
+            lg:static lg:flex-row lg:bg-transparent lg:h-auto
+          "
+        >
+          <button id="work" class="navtab">Work</button>
+          <button id="about" class="navtab">About</button>
+          <button id="contact" class="navtab">Contact</button>
+        </div>
+        <button
+          id="burger"
+          class="
+            relative
+            z-50
+            flex flex-col
+            justify-center
+            items-center
+            mx-10
+            lg:hidden
+          "
+        >
+          <div class="burger-bar"></div>
+          <div class="burger-bar"></div>
+          <div class="burger-bar"></div>
         </button>
       </div>
     </main>
