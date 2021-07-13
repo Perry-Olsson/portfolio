@@ -49,23 +49,28 @@ const createCube = () => {
 
   const materials = [
     new THREE.MeshStandardMaterial({
-      color: 0xff0000,
+      //page2
+      color: baseColor,
     }),
     new THREE.MeshStandardMaterial({
-      color: 0x00ff00,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0x0000ff,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0xff0000,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0xc242f5,
+      color: baseColor,
     }),
     new THREE.MeshStandardMaterial({
       color: 0x0000ff,
+    }),
+    new THREE.MeshStandardMaterial({
+      color: baseColor,
+    }),
+    new THREE.MeshStandardMaterial({
+      //page1
+      color: baseColor,
+    }),
+    new THREE.MeshStandardMaterial({
+      //page3
+      color: baseColor,
     }),
   ];
   return new THREE.Mesh(geometry, materials);
 };
+
+const baseColor = 0x252525;

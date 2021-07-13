@@ -4,7 +4,6 @@ export const setupDrag = () => {
     e.preventDefault();
 
     if (isMouseDown) {
-      console.log("hello");
     }
   });
 

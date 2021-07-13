@@ -13,7 +13,7 @@
     <main id="scrollable">
       <div id="navbar" class="flex flex-row py-8 justify-between">
         <div class="relative z-50">
-          <button id="intro" class="relative z-50 navtab">Perry Olsson</button>
+          <button id="intro" class="relative z-50 navtab py-px">Home</button>
         </div>
         <div
           id="navtab-container"
@@ -29,7 +29,7 @@
             flex flex-col
             bg-gray-600 bg-opacity-80
             transition-all
-            duration-500
+            duration-300
             lg:static lg:flex-row lg:bg-transparent lg:h-auto
           "
         >
@@ -49,9 +49,9 @@
             lg:hidden
           "
         >
-          <div class="burger-bar"></div>
-          <div class="burger-bar"></div>
-          <div class="burger-bar"></div>
+          <div id="x-1" class="burger-bar"></div>
+          <div id="x-2" class="burger-bar"></div>
+          <div id="x-none" class="burger-bar"></div>
         </button>
       </div>
     </main>

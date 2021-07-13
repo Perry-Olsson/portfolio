@@ -17,52 +17,77 @@ export class Router {
     this.route = "/intro";
   }
 
-  intro() {
-    this.route = "/intro";
+  goTo(route: string) {
+    switch (route) {
+      case "/intro":
+        this.intro();
+        break;
+      case "/work":
+        this.work();
+        break;
+      case "/about":
+        this.about();
+        break;
+      case "/contact":
+        this.contact();
+        break;
+    }
+  }
 
-    const duration = this.getAnimationDuration(Router.pos1);
-    const cameraDuration = duration / 2;
-    this.controllers.camera
-      .tweenOut()
-      .duration(cameraDuration)
-      .start()
-      .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-    this.controllers.cube.rotateToPos1().duration(duration).start();
+  intro() {
+    if (this.route !== "/intro") {
+      this.route = "/intro";
+
+      const duration = this.getAnimationDuration(Router.pos1);
+      const cameraDuration = duration / 2;
+      this.controllers.camera
+        .tweenOut()
+        .duration(cameraDuration)
+        .start()
+        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      this.controllers.cube.rotateToPos1().duration(duration).start();
+    }
   }
   work() {
-    this.route = "/work";
+    if (this.route !== "/work") {
+      this.route = "/work";
 
-    const duration = this.getAnimationDuration(Router.pos2);
-    const cameraDuration = duration / 2;
-    this.controllers.camera
-      .tweenOut()
-      .duration(cameraDuration)
-      .start()
-      .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-    this.controllers.cube.rotateToPos2().duration(duration).start();
+      const duration = this.getAnimationDuration(Router.pos2);
+      const cameraDuration = duration / 2;
+      this.controllers.camera
+        .tweenOut()
+        .duration(cameraDuration)
+        .start()
+        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      this.controllers.cube.rotateToPos2().duration(duration).start();
+    }
   }
   about() {
-    this.route = "/about";
-    const duration = this.getAnimationDuration(Router.pos3);
-    const cameraDuration = duration / 2;
-    this.controllers.camera
-      .tweenOut()
-      .duration(cameraDuration)
-      .start()
-      .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-    this.controllers.cube.rotateToPos3().duration(duration).start();
+    if (this.route !== "/about") {
+      this.route = "/about";
+      const duration = this.getAnimationDuration(Router.pos3);
+      const cameraDuration = duration / 2;
+      this.controllers.camera
+        .tweenOut()
+        .duration(cameraDuration)
+        .start()
+        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      this.controllers.cube.rotateToPos3().duration(duration).start();
+    }
   }
 
   contact() {
-    this.route = "/contact";
-    const duration = this.getAnimationDuration(Router.pos4);
-    const cameraDuration = duration / 2;
-    this.controllers.camera
-      .tweenOut()
-      .duration(cameraDuration)
-      .start()
-      .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-    this.controllers.cube.rotateToPos4().duration(duration).start();
+    if (this.route !== "/contact") {
+      this.route = "/contact";
+      const duration = this.getAnimationDuration(Router.pos4);
+      const cameraDuration = duration / 2;
+      this.controllers.camera
+        .tweenOut()
+        .duration(cameraDuration)
+        .start()
+        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      this.controllers.cube.rotateToPos4().duration(duration).start();
+    }
   }
 
   getAnimationDuration(pos: number) {

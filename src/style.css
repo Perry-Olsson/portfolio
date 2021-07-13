@@ -28,9 +28,12 @@ main {
 @layer components {
   .navtab {
     @apply bg-transparent;
-    @apply px-10;
+    @apply px-6;
+    @apply py-2;
+    @apply lg:py-px;
+    @apply sm:px-10;
     @apply text-white;
-    @apply text-2xl;
+    @apply text-3xl;
   }
 
   .burger-bar {
@@ -38,5 +41,16 @@ main {
     height: 5px;
     margin: 3px 0;
     @apply bg-white;
+    transition: all 0.3s ease-in-out;
   }
+
+  /* #burger:hover #x-1 {
+    transform: rotate(45deg) translate(7px, 8px);
+  }
+  #burger:hover #x-2 {
+    transform: rotate(-45deg);
+  }
+  #burger:hover #x-none {
+    opacity: 0;
+  } */
 }
