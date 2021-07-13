@@ -1,5 +1,5 @@
 import { initThree } from "./initThree";
-import { handleResize } from "./resizeScene";
+import { handleResize } from "./handleResize";
 import { setupDrag } from "./setupDrag";
 import { Cube } from "./cube";
 import * as TWEEN from "@tweenjs/tween.js";
@@ -24,7 +24,7 @@ function animate() {
   renderer.render(scene, camera);
 }
 
-handleResize(scene, renderer, camera, cube);
+handleResize(scene, renderer, cameraController, cube);
 
 setupDrag();
 

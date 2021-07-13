@@ -4,16 +4,18 @@ import * as TWEEN from "@tweenjs/tween.js";
 
 export class CameraController {
   camera: PerspectiveCamera;
+  distanceFromCube: number;
   constructor(camera: PerspectiveCamera) {
     this.camera = camera;
-    this.camera.position.set(0, 0, getDistanceFromCube());
+    this.distanceFromCube = calculateDistanceFromCube();
+    this.camera.position.set(0, 0, this.getDistanceFromCube());
   }
   tweenOut() {
     return new TWEEN.Tween(this.camera.position)
       .to({
         x: 0,
         y: 0,
-        z: getDistanceFromCube() + zoomOutDistance,
+        z: calculateDistanceFromCube() + zoomOutDistance,
       })
       .onUpdate(() => {
         this.camera.position.set(
@@ -29,7 +31,7 @@ export class CameraController {
       .to({
         x: 0,
         y: 0,
-        z: getDistanceFromCube(),
+        z: calculateDistanceFromCube(),
       })
       .onUpdate(() => {
         this.camera.position.set(
@@ -40,9 +42,17 @@ export class CameraController {
       })
       .duration(200);
   }
+
+  getDistanceFromCube() {
+    return this.distanceFromCube;
+  }
+
+  setDistanceFromCube() {
+    this.distanceFromCube = calculateDistanceFromCube();
+  }
 }
 
-export const getDistanceFromCube = () => {
+export const calculateDistanceFromCube = () => {
   const distance =
     ((window.innerHeight / cubeSizeFactor) * 0.5) /
     Math.tan(75 * 0.5 * (Math.PI / 180));
