@@ -17,17 +17,21 @@ export const initThree = () => {
   renderer.setClearColor(0xffffff);
 
   //lighting
-  const pointLight = new THREE.PointLight(0xffffff);
-  pointLight.position.set(10, 10, 10);
+  const pointLight1 = new THREE.PointLight(0xffffff);
+  pointLight1.position.set(20, 20, 10);
+  const pointLight2 = new THREE.PointLight(0xffffff);
+  pointLight2.position.set(-20, 20, -10);
   const ambientLight = new THREE.AmbientLight(0x404040);
-  scene.add(pointLight, ambientLight);
+  scene.add(pointLight1, pointLight2, ambientLight);
 
   const spaceTexture = new THREE.TextureLoader().load("space.jpg");
   scene.background = spaceTexture;
 
-  const lightHelper = new THREE.PointLightHelper(pointLight);
+  const lightHelper1 = new THREE.PointLightHelper(pointLight1);
+
+  const lightHelper2 = new THREE.PointLightHelper(pointLight2);
   const gridHelper = new THREE.GridHelper(500, 50);
-  scene.add(lightHelper, gridHelper);
+  scene.add(lightHelper1, lightHelper2, gridHelper);
 
   return { scene, camera, renderer, cameraController };
 };

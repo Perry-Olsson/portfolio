@@ -1,28 +1,24 @@
 import { initThree } from "./initThree";
 import { handleResize } from "./resizeScene";
 import { setupDrag } from "./setupDrag";
-// import { setupScrolling } from "./setupScrolling";
 import { Cube } from "./cube";
 import * as TWEEN from "@tweenjs/tween.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-//set scene
 const { scene, camera, renderer, cameraController } = initThree();
 
 const cube = new Cube();
 scene.add(cube.cube);
 
-// const orbitControls = new OrbitControls(camera, renderer.domElement);
+const orbitControls = new OrbitControls(camera, renderer.domElement);
 function animate() {
   requestAnimationFrame(animate);
-  // orbitControls.update();
+  orbitControls.update();
   TWEEN.update();
   renderer.render(scene, camera);
 }
 
 handleResize(scene, renderer, camera, cube);
-// setupScrolling(camera);
-
-console.log(cube.cube.rotation);
 
 document
   .querySelector<HTMLButtonElement>("#position1")!
