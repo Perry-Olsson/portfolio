@@ -5,9 +5,11 @@ export const setupScrolling = (camera: PerspectiveCamera) => {
   document.addEventListener("scroll", () => {
     const newScrollPos =
       window.pageYOffset || document.documentElement.scrollTop;
-    if (newScrollPos > scrollPos) camera.position.z -= newScrollPos - scrollPos;
-    else camera.position.z -= newScrollPos - scrollPos;
-    scrollPos = newScrollPos;
+    camera.position.z -=
+      newScrollPos / scrollSpeedFactor - scrollPos / scrollSpeedFactor;
     console.log(camera.position.z);
+    scrollPos = newScrollPos;
   });
 };
+
+const scrollSpeedFactor = 100;

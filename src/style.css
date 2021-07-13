@@ -5,6 +5,9 @@
 //threeJS
 body {
   margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 canvas {
@@ -15,6 +18,10 @@ canvas {
 
 main {
   height: 500vh;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
 }
 
 #app {
