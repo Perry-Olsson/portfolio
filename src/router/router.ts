@@ -1,8 +1,8 @@
 import { Cube } from "../cube";
-import { CameraController } from "../utils";
+import { Camera } from "../utils";
 
 interface Controllers {
-  camera: CameraController;
+  camera: Camera;
   cube: Cube;
 }
 export class Router {

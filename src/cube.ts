@@ -1,17 +1,17 @@
-import * as THREE from "three";
 import * as TWEEN from "@tweenjs/tween.js";
 import { baseColor, cubeDepth, cubeHeight, cubeWidth } from "./constants";
 import { Router } from "./router";
+import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
+import { IntroTexture, WorkTexture } from "./textures";
 
 export class Cube {
-  cube: THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial[]>;
-
+  cube: Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial[]>;
   constructor() {
-    this.cube = createCube();
+    this.cube = this.createCube();
   }
 
   redraw() {
-    this.cube = createCube();
+    this.cube = this.createCube();
   }
 
   rotateToPos1() {
@@ -38,43 +38,37 @@ export class Cube {
       })
       .easing(TWEEN.Easing.Quadratic.InOut);
   }
-}
 
-const textureLoader = new THREE.TextureLoader();
-const page1Map = textureLoader.load("_metal.jpg");
-const page2Map = textureLoader.load("metal.jpg");
+  createCube() {
+    const geometry = new BoxGeometry(cubeWidth(), cubeHeight(), cubeDepth());
+    return new Mesh(geometry, this.createMaterials());
+  }
 
-const createCube = () => {
-  const geometry = new THREE.BoxGeometry(
-    cubeWidth(),
-    cubeHeight(),
-    cubeDepth()
-  );
-
-  const materials = [
-    new THREE.MeshStandardMaterial({
+  createMaterials() {
+    return [
       //page2
-      color: 0x101010,
-      map: page2Map,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: baseColor,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: 0x0000ff,
-    }),
-    new THREE.MeshStandardMaterial({
-      color: baseColor,
-    }),
-    new THREE.MeshStandardMaterial({
+      new MeshStandardMaterial({
+        color: 0x101010,
+        map: WorkTexture,
+      }),
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
+      new MeshStandardMaterial({
+        color: 0x0000ff,
+      }),
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
       //page1
-      color: 0x151515,
-      map: page1Map,
-    }),
-    new THREE.MeshStandardMaterial({
+      new MeshStandardMaterial({
+        color: 0x151515,
+        map: IntroTexture,
+      }),
       //page3
-      color: baseColor,
-    }),
-  ];
-  return new THREE.Mesh(geometry, materials);
-};
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
+    ];
+  }
+}

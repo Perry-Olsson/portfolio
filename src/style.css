@@ -20,7 +20,6 @@ body {
 
 canvas {
   transition: all 0.8s;
-  z-index: 1;
 }
 
 main {

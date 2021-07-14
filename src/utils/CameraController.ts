@@ -2,42 +2,33 @@ import { PerspectiveCamera } from "three";
 import { cubeSizeFactor, zoomOutDistance } from "../constants";
 import * as TWEEN from "@tweenjs/tween.js";
 
-export class CameraController {
-  camera: PerspectiveCamera;
+export class Camera extends PerspectiveCamera {
   distanceFromCube: number;
-  constructor(camera: PerspectiveCamera) {
-    this.camera = camera;
+  constructor() {
+    super(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     this.distanceFromCube = calculateDistanceFromCube();
-    this.camera.position.set(0, 0, this.getDistanceFromCube());
+    this.position.set(0, 0, this.getDistanceFromCube());
   }
   tweenOut() {
-    return new TWEEN.Tween(this.camera.position)
+    return new TWEEN.Tween(this.position)
       .to({
         x: 0,
         y: 0,
         z: calculateDistanceFromCube() + zoomOutDistance,
       })
       .onUpdate(() => {
-        this.camera.position.set(
-          this.camera.position.x,
-          this.camera.position.y,
-          this.camera.position.z
-        );
+        this.position.set(this.position.x, this.position.y, this.position.z);
       });
   }
   tweenIn() {
-    return new TWEEN.Tween(this.camera.position)
+    return new TWEEN.Tween(this.position)
       .to({
         x: 0,
         y: 0,
         z: calculateDistanceFromCube(),
       })
       .onUpdate(() => {
-        this.camera.position.set(
-          this.camera.position.x,
-          this.camera.position.y,
-          this.camera.position.z
-        );
+        this.position.set(this.position.x, this.position.y, this.position.z);
       })
       .easing(TWEEN.Easing.Quadratic.In);
   }
