@@ -2,17 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --base-color: #252525;
+}
+
 body {
-  margin: 0;
-  position: fixed;
-  top: 0;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
+  transition: all 0.8s;
   z-index: 1;
 }
 
@@ -43,14 +45,56 @@ main {
     @apply bg-white;
     transition: all 0.3s ease-in-out;
   }
+}
+.dot-flashing {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--base-color);
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
 
-  /* #burger:hover #x-1 {
-    transform: rotate(45deg) translate(7px, 8px);
+.dot-flashing::before,
+.dot-flashing::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--base-color);
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--base-color);
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: #252525;
   }
-  #burger:hover #x-2 {
-    transform: rotate(-45deg);
+  50%,
+  100% {
+    background-color: #bbbbbb;
   }
-  #burger:hover #x-none {
-    opacity: 0;
-  } */
 }

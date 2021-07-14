@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import * as TWEEN from "@tweenjs/tween.js";
-import { cubeDepth, cubeHeight, cubeWidth } from "./constants";
+import { baseColor, cubeDepth, cubeHeight, cubeWidth } from "./constants";
 import { Router } from "./router";
 
 export class Cube {
@@ -40,6 +40,9 @@ export class Cube {
   }
 }
 
+const textureLoader = new THREE.TextureLoader();
+const map = textureLoader.load("metal.jpg");
+
 const createCube = () => {
   const geometry = new THREE.BoxGeometry(
     cubeWidth(),
@@ -63,7 +66,8 @@ const createCube = () => {
     }),
     new THREE.MeshStandardMaterial({
       //page1
-      color: baseColor,
+      color: 0x202020,
+      map,
     }),
     new THREE.MeshStandardMaterial({
       //page3
@@ -72,5 +76,3 @@ const createCube = () => {
   ];
   return new THREE.Mesh(geometry, materials);
 };
-
-const baseColor = 0x252525;
