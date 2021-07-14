@@ -6,7 +6,6 @@ import * as TWEEN from "@tweenjs/tween.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { Router } from "./router";
 import { Navbar } from "./navigation";
-import * as THREE from "three";
 
 const { scene, camera, renderer, cameraController } = initThree();
 
