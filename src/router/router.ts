@@ -1,17 +1,6 @@
 import { Cube } from "../cube";
 import { Camera } from "../camera";
 
-interface Controllers {
-  camera: Camera;
-  cube: Cube;
-}
-
-interface Pages {
-  "/intro": HTMLDivElement;
-  "/work": HTMLDivElement;
-  "/about": HTMLDivElement;
-  "/contact": HTMLDivElement;
-}
 export class Router {
   controllers: Controllers;
   route: keyof Pages;
@@ -19,6 +8,7 @@ export class Router {
   static pos2 = -Math.PI / 2;
   static pos3 = -Math.PI;
   static pos4 = -Math.PI * 1.5;
+  navbar = document.querySelector<HTMLDivElement>("#navbar")!;
   pages = {
     "/intro": document.querySelector<HTMLDivElement>("#intro-page")!,
     "/work": document.querySelector<HTMLDivElement>("#work-page")!,
@@ -49,6 +39,7 @@ export class Router {
 
   intro() {
     if (this.route !== "/intro") {
+      this.navbar.style.color = "white";
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/intro";
 
@@ -67,6 +58,7 @@ export class Router {
   }
   work() {
     if (this.route !== "/work") {
+      this.navbar.style.color = "#353535";
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
@@ -83,6 +75,7 @@ export class Router {
   }
   about() {
     if (this.route !== "/about") {
+      this.navbar.style.color = "white";
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/about";
       const duration = this.getAnimationDuration(Router.pos3);
@@ -99,6 +92,7 @@ export class Router {
 
   contact() {
     if (this.route !== "/contact") {
+      this.navbar.style.color = "white";
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/contact";
       const duration = this.getAnimationDuration(Router.pos4);
@@ -114,7 +108,7 @@ export class Router {
   }
 
   fadeInNextPage(element: HTMLDivElement, duration: number) {
-    element.style.display = "flex";
+    element.classList.remove("hidden");
     setTimeout(() => {
       element.style.opacity = "1";
     }, duration);
@@ -123,7 +117,7 @@ export class Router {
   fadeOutCurrentPage(element: HTMLDivElement) {
     element.style.opacity = "0";
     setTimeout(() => {
-      element.style.display = "none";
+      element.classList.add("hidden");
     }, 150);
   }
 
@@ -133,6 +127,18 @@ export class Router {
       ? 750
       : amountToRotate > Math.PI
       ? 1000
-      : 500;
+      : 650;
   }
+}
+
+interface Controllers {
+  camera: Camera;
+  cube: Cube;
+}
+
+interface Pages {
+  "/intro": HTMLDivElement;
+  "/work": HTMLDivElement;
+  "/about": HTMLDivElement;
+  "/contact": HTMLDivElement;
 }

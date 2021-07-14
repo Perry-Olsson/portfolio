@@ -1,7 +1,7 @@
 import * as TWEEN from "@tweenjs/tween.js";
 import { Router } from "../router";
 import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
-import { IntroTexture, WorkTexture } from "../textures";
+import { IntroTexture } from "../textures";
 import { baseColor, cubeSizeFactor } from "../constants";
 
 export class Cube extends Mesh {
@@ -31,8 +31,7 @@ export class Cube extends Mesh {
     return [
       //page2
       new MeshStandardMaterial({
-        color: 0x101010,
-        map: WorkTexture,
+        color: 0xffffff,
       }),
       new MeshStandardMaterial({
         color: baseColor,
@@ -51,6 +50,7 @@ export class Cube extends Mesh {
       //page3
       new MeshStandardMaterial({
         color: baseColor,
+        map: IntroTexture,
       }),
     ];
   }

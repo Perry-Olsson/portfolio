@@ -39,7 +39,6 @@ main {
     @apply py-2;
     @apply lg:py-px;
     @apply sm:px-10;
-    @apply text-white;
     @apply text-3xl;
   }
 
@@ -50,6 +49,33 @@ main {
     @apply bg-white;
     transition: all 0.3s ease-in-out;
   }
+
+  .social-icon {
+    width: 35px;
+    height: 35px;
+    margin-top: 20px;
+    transition: color 0.1s;
+  }
+
+  #facebook:hover {
+    color: #3b5998;
+  }
+
+  #twitter:hover {
+    color: #00acee;
+  }
+
+  #linkedin:hover {
+    color: #0e76a8;
+  }
+
+  #github:hover {
+    color: #4078c0;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
 
 /*loading animation*/
@@ -57,6 +83,7 @@ main {
 .lds-roller {
   display: inline-block;
   position: relative;
+  z-index: 100;
   width: 80px;
   height: 80px;
 }
