@@ -91,9 +91,7 @@ export class Router {
   }
 
   getAnimationDuration(pos: number) {
-    const amountToRotate = Math.abs(
-      this.controllers.cube.cube.rotation.y - pos
-    );
+    const amountToRotate = Math.abs(this.controllers.cube.rotation.y - pos);
     return amountToRotate === Math.PI
       ? 750
       : amountToRotate > Math.PI

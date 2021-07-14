@@ -2,6 +2,8 @@ import * as THREE from "three";
 import { Scene } from "three";
 import { BackgroundTexture } from "./textures";
 import { Camera } from "./camera";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { update } from "@tweenjs/tween.js";
 
 export const initScene = () => {
   const scene = new THREE.Scene();
@@ -28,7 +30,15 @@ export const initScene = () => {
         "none";
     }, 400);
   };
-  return { scene, renderer, camera };
+
+  const orbitControls = new OrbitControls(camera, renderer.domElement);
+  function animate() {
+    requestAnimationFrame(animate);
+    orbitControls.update();
+    update();
+    renderer.render(scene, camera);
+  }
+  return { scene, renderer, camera, animate };
 };
 
 const setLights = (scene: Scene) => {

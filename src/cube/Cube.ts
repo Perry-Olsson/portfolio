@@ -1,17 +1,30 @@
 import * as TWEEN from "@tweenjs/tween.js";
-import { baseColor, cubeDepth, cubeHeight, cubeWidth } from "./constants";
-import { Router } from "./router";
+import { Router } from "../router";
 import { BoxGeometry, Mesh, MeshStandardMaterial } from "three";
-import { IntroTexture, WorkTexture } from "./textures";
+import { IntroTexture, WorkTexture } from "../textures";
+import { baseColor, cubeSizeFactor } from "../constants";
 
-export class Cube {
-  cube: Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial[]>;
+export class Cube extends Mesh {
+  cubeWidth = () => window.innerWidth / cubeSizeFactor;
+  cubeHeight = () => window.innerHeight / cubeSizeFactor;
+  cubeDepth = () => this.cubeWidth();
   constructor() {
-    this.cube = this.createCube();
+    super();
+    this.geometry = this.createGeometry();
+    this.material = this.createMaterials();
+  }
+
+  createGeometry() {
+    return new BoxGeometry(
+      this.cubeWidth(),
+      this.cubeHeight(),
+      this.cubeDepth()
+    );
   }
 
   redraw() {
-    this.cube = this.createCube();
+    this.geometry = this.createGeometry();
+    this.material = this.createMaterials();
   }
 
   rotateToPos1() {
@@ -27,21 +40,12 @@ export class Cube {
     return this.rotate(Router.pos4);
   }
   rotate(pos: number) {
-    return new TWEEN.Tween(this.cube.rotation)
+    return new TWEEN.Tween(this.rotation)
       .to({ x: 0, y: pos, z: 0 })
       .onUpdate(() => {
-        this.cube.rotation.set(
-          this.cube.rotation.x,
-          this.cube.rotation.y,
-          this.cube.rotation.z
-        );
+        this.rotation.set(this.rotation.x, this.rotation.y, this.rotation.z);
       })
       .easing(TWEEN.Easing.Quadratic.InOut);
-  }
-
-  createCube() {
-    const geometry = new BoxGeometry(cubeWidth(), cubeHeight(), cubeDepth());
-    return new Mesh(geometry, this.createMaterials());
   }
 
   createMaterials() {

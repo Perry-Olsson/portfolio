@@ -13,6 +13,7 @@ export class Navbar {
     this.overlayOpen = false;
     this.navtabContainer =
       document.querySelector<HTMLDivElement>("#navtab-container")!;
+    this.addListeners();
   }
 
   addListeners() {
@@ -28,6 +29,12 @@ export class Navbar {
     document
       .querySelector<HTMLButtonElement>("#contact")!
       .addEventListener("click", () => this.go("/contact"));
+    document
+      .querySelector<HTMLButtonElement>("#burger")!
+      .addEventListener("click", () => {
+        if (this.overlayOpen) this.hideOverlay();
+        else this.showOverlay();
+      });
   }
 
   hideOverlay() {
