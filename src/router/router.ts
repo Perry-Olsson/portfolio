@@ -1,5 +1,5 @@
 import { Cube } from "../cube";
-import { Camera } from "../utils";
+import { Camera } from "../camera";
 
 interface Controllers {
   camera: Camera;

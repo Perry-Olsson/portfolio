@@ -1,6 +1,6 @@
 import { WebGLRenderer, Scene } from "three";
 import { Cube } from "./cube";
-import { Camera } from "./utils";
+import { Camera } from "./camera";
 
 let timeoutId: number = 0;
 

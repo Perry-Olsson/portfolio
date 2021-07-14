@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { Scene } from "three";
 import { BackgroundTexture } from "./textures";
-import { Camera } from "./utils";
+import { Camera } from "./camera";
 
 export const initScene = () => {
   const scene = new THREE.Scene();
