@@ -41,7 +41,8 @@ export class Cube {
 }
 
 const textureLoader = new THREE.TextureLoader();
-const map = textureLoader.load("metal.jpg");
+const page1Map = textureLoader.load("_metal.jpg");
+const page2Map = textureLoader.load("metal.jpg");
 
 const createCube = () => {
   const geometry = new THREE.BoxGeometry(
@@ -53,7 +54,8 @@ const createCube = () => {
   const materials = [
     new THREE.MeshStandardMaterial({
       //page2
-      color: baseColor,
+      color: 0x101010,
+      map: page2Map,
     }),
     new THREE.MeshStandardMaterial({
       color: baseColor,
@@ -66,8 +68,8 @@ const createCube = () => {
     }),
     new THREE.MeshStandardMaterial({
       //page1
-      color: 0x202020,
-      map,
+      color: 0x151515,
+      map: page1Map,
     }),
     new THREE.MeshStandardMaterial({
       //page3
