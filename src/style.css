@@ -24,12 +24,12 @@ canvas {
 }
 
 main {
-  height: 500vh;
   position: fixed;
   z-index: 2;
   top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
 }
 
 @layer components {

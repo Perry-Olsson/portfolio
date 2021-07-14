@@ -14,6 +14,11 @@ export class Cube extends Mesh {
     this.material = this.createMaterials();
   }
 
+  redraw() {
+    this.geometry = this.createGeometry();
+    this.material = this.createMaterials();
+  }
+
   createGeometry() {
     return new BoxGeometry(
       this.cubeWidth(),
@@ -22,9 +27,32 @@ export class Cube extends Mesh {
     );
   }
 
-  redraw() {
-    this.geometry = this.createGeometry();
-    this.material = this.createMaterials();
+  createMaterials() {
+    return [
+      //page2
+      new MeshStandardMaterial({
+        color: 0x101010,
+        map: WorkTexture,
+      }),
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
+      new MeshStandardMaterial({
+        color: 0x0000ff,
+      }),
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
+      //page1
+      new MeshStandardMaterial({
+        color: baseColor,
+        map: IntroTexture,
+      }),
+      //page3
+      new MeshStandardMaterial({
+        color: baseColor,
+      }),
+    ];
   }
 
   rotateToPos1() {
@@ -46,33 +74,5 @@ export class Cube extends Mesh {
         this.rotation.set(this.rotation.x, this.rotation.y, this.rotation.z);
       })
       .easing(TWEEN.Easing.Quadratic.InOut);
-  }
-
-  createMaterials() {
-    return [
-      //page2
-      new MeshStandardMaterial({
-        color: 0x101010,
-        map: WorkTexture,
-      }),
-      new MeshStandardMaterial({
-        color: baseColor,
-      }),
-      new MeshStandardMaterial({
-        color: 0x0000ff,
-      }),
-      new MeshStandardMaterial({
-        color: baseColor,
-      }),
-      //page1
-      new MeshStandardMaterial({
-        color: 0x151515,
-        map: IntroTexture,
-      }),
-      //page3
-      new MeshStandardMaterial({
-        color: baseColor,
-      }),
-    ];
   }
 }

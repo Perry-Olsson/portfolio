@@ -5,13 +5,26 @@ interface Controllers {
   camera: Camera;
   cube: Cube;
 }
+
+interface Pages {
+  "/intro": HTMLDivElement;
+  "/work": HTMLDivElement;
+  "/about": HTMLDivElement;
+  "/contact": HTMLDivElement;
+}
 export class Router {
   controllers: Controllers;
-  route: string;
+  route: keyof Pages;
   static pos1 = 0;
   static pos2 = -Math.PI / 2;
   static pos3 = -Math.PI;
   static pos4 = -Math.PI * 1.5;
+  pages = {
+    "/intro": document.querySelector<HTMLDivElement>("#intro-page")!,
+    "/work": document.querySelector<HTMLDivElement>("#work-page")!,
+    "/about": document.querySelector<HTMLDivElement>("#about-page")!,
+    "/contact": document.querySelector<HTMLDivElement>("#contact-page")!,
+  };
   constructor(controllers: Controllers) {
     this.controllers = controllers;
     this.route = "/intro";
@@ -36,20 +49,25 @@ export class Router {
 
   intro() {
     if (this.route !== "/intro") {
+      this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/intro";
 
       const duration = this.getAnimationDuration(Router.pos1);
       const cameraDuration = duration / 2;
+
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos1().duration(duration).start();
+
+      this.fadeInNextPage(this.pages["/intro"], duration);
     }
   }
   work() {
     if (this.route !== "/work") {
+      this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
       const duration = this.getAnimationDuration(Router.pos2);
@@ -60,10 +78,12 @@ export class Router {
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos2().duration(duration).start();
+      this.fadeInNextPage(this.pages["/work"], duration);
     }
   }
   about() {
     if (this.route !== "/about") {
+      this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/about";
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
@@ -73,11 +93,13 @@ export class Router {
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
+      this.fadeInNextPage(this.pages["/about"], duration);
     }
   }
 
   contact() {
     if (this.route !== "/contact") {
+      this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/contact";
       const duration = this.getAnimationDuration(Router.pos4);
       const cameraDuration = duration / 2;
@@ -87,7 +109,22 @@ export class Router {
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos4().duration(duration).start();
+      this.fadeInNextPage(this.pages["/contact"], duration);
     }
+  }
+
+  fadeInNextPage(element: HTMLDivElement, duration: number) {
+    element.style.display = "flex";
+    setTimeout(() => {
+      element.style.opacity = "1";
+    }, duration);
+  }
+
+  fadeOutCurrentPage(element: HTMLDivElement) {
+    element.style.opacity = "0";
+    setTimeout(() => {
+      element.style.display = "none";
+    }, 150);
   }
 
   getAnimationDuration(pos: number) {

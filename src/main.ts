@@ -9,7 +9,7 @@ const { scene, renderer, camera, animate } = initScene();
 const cube = new Cube();
 scene.add(cube);
 
-handleResize(scene, renderer, camera, cube);
+handleResize(renderer, camera, cube);
 setupDrag();
 
 const router = new Router({ camera, cube });
