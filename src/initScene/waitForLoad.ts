@@ -9,7 +9,7 @@ export const waitForLoad = () => {
     setTimeout(() => {
       canvas.style.height = "100%";
       canvas.style.width = "100%";
-      document.querySelector<HTMLDivElement>(".dot-flashing")!.style.display =
+      document.querySelector<HTMLDivElement>(".lds-roller")!.style.display =
         "none";
     }, 400);
   };
