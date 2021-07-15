@@ -1,7 +1,9 @@
 import { Cube } from "../cube";
 import { Camera } from "../camera";
+import { Animator } from "../animations";
 
 export class Router {
+  teardownFunctions: Array<() => void>;
   controllers: Controllers;
   route: keyof Pages;
   static pos1 = 0;
@@ -15,12 +17,15 @@ export class Router {
     "/about": document.querySelector<HTMLDivElement>("#about-page")!,
     "/contact": document.querySelector<HTMLDivElement>("#contact-page")!,
   };
+  static instance: Router;
   constructor(controllers: Controllers) {
     this.controllers = controllers;
     this.route = "/intro";
+    this.teardownFunctions = [Animator.getInstance().removeIntroArrowAnimation];
   }
 
   goTo(route: string) {
+    this.runTeardowns();
     switch (route) {
       case "/intro":
         this.intro();
@@ -35,6 +40,11 @@ export class Router {
         this.contact();
         break;
     }
+  }
+
+  runTeardowns() {
+    this.teardownFunctions.forEach((func) => func());
+    this.teardownFunctions = [];
   }
 
   intro() {
@@ -56,12 +66,12 @@ export class Router {
       this.fadeInNextPage(this.pages["/intro"], duration);
     }
   }
-  work() {
-    if (this.route !== "/work") {
+
+  about() {
+    if (this.route !== "/about") {
       this.navbar.style.color = "#353535";
       this.fadeOutCurrentPage(this.pages[this.route]);
-      this.route = "/work";
-
+      this.route = "/about";
       const duration = this.getAnimationDuration(Router.pos2);
       const cameraDuration = duration / 2;
       this.controllers.camera
@@ -70,14 +80,15 @@ export class Router {
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos2().duration(duration).start();
-      this.fadeInNextPage(this.pages["/work"], duration);
+      this.fadeInNextPage(this.pages["/about"], duration);
     }
   }
-  about() {
-    if (this.route !== "/about") {
+  work() {
+    if (this.route !== "/work") {
       this.navbar.style.color = "white";
       this.fadeOutCurrentPage(this.pages[this.route]);
-      this.route = "/about";
+      this.route = "/work";
+
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
       this.controllers.camera
@@ -86,7 +97,7 @@ export class Router {
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
-      this.fadeInNextPage(this.pages["/about"], duration);
+      this.fadeInNextPage(this.pages["/work"], duration);
     }
   }
 

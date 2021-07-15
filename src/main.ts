@@ -12,7 +12,7 @@ scene.add(cube);
 handleResize(renderer, camera, cube);
 setupDrag();
 
-const router = new Router({ camera, cube });
+export const router = new Router({ camera, cube });
 new Navbar(router);
 
 animate();

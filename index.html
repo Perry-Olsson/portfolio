@@ -35,8 +35,8 @@
             lg:static lg:flex-row lg:bg-transparent lg:h-auto
           "
         >
-          <button id="work" class="navtab">Work</button>
           <button id="about" class="navtab">About</button>
+          <button id="work" class="navtab">Work</button>
           <button id="contact" class="navtab">Contact</button>
         </div>
         <button
@@ -61,7 +61,7 @@
         class="transition-opacity fixed inset-0 grid grid-cols-12 items-center"
       >
         <div
-          id="text-container"
+          id="intro-text-container"
           class="
             text-center
             col-start-2 col-end-12
@@ -91,32 +91,51 @@
               mb-5
             "
           >
-            Front-end Developer
+            Full-stack Developer
           </h2>
           <p
-            class="
-              transition-opacity
-              duration-500
-              opacity-0
-              text-white text-lg
-              py-2
-            "
+            class="transition-opacity duration-500 opacity-0 text-white text-lg"
           >
-            Welcome to my portfolio! I love to create elegant, performant, and
-            powerful web applications.
+            Welcome! I love to create elegant, performant, and powerful web
+            applications.
           </p>
         </div>
         <div
-          class="flex justify-center text-white sm:col-start-11 sm:col-span-12"
+          id="arrow-container"
+          class="flex justify-end mr-12 text-white sm:col-start-12"
         >
-          <div class="center-con">
-            <div class="round">
-              <div id="cta">
-                <span class="arrow primera next"></span>
-                <span class="arrow segunda next"></span>
+          <button id="arrow-button">
+            <div
+              id="arrow-circle"
+              class="
+                flex
+                justify-start
+                items-center
+                border
+                rounded-full
+                w-12
+                h-12
+                circle-bounce
+              "
+            >
+              <div class="arrow">
+                <svg
+                  width="24"
+                  height="24"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  style="margin-left: 11px"
+                >
+                  <path
+                    d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
+                    style="stroke: white"
+                    class="fill-current"
+                  />
+                </svg>
               </div>
             </div>
-          </div>
+          </button>
         </div>
         <div id="social-bar" class="fixed left-0 bottom-5 px-6 flex">
           <a href="https://www.facebook.com/perry.olsson.7" target="_blank">

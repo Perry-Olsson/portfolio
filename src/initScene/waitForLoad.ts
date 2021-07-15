@@ -4,7 +4,7 @@ export const waitForLoad = () => {
   const canvas = document.querySelector("canvas")!;
   canvas.style.height = "0px";
   canvas.style.width = "0px";
-  const introNodes = document.querySelector<any>("#text-container")!;
+  const introNodes = document.querySelector<any>("#intro-text-container")!;
 
   DefaultLoadingManager.onLoad = () => {
     setTimeout(() => {
@@ -23,7 +23,7 @@ export const waitForLoad = () => {
           }, i * 400);
         }
         canvas.style.transition = "none";
-      }, 800);
+      }, 1);
     }, 1000);
   };
 };
