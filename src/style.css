@@ -4,6 +4,7 @@
 
 :root {
   --base-color: #252525;
+  --theme: #4affae;
 }
 
 * {
@@ -46,6 +47,10 @@ main {
     @apply text-3xl;
   }
 
+  .navtab-button {
+    transition: color 0.2s;
+  }
+
   .burger-bar {
     width: 35px;
     height: 5px;
@@ -60,22 +65,35 @@ main {
     margin-right: 20px;
     transition: color 0.1s;
   }
+}
+#facebook:hover {
+  color: #3b5998;
+}
 
-  #facebook:hover {
-    color: #3b5998;
-  }
+#twitter:hover {
+  color: #00acee;
+}
 
-  #twitter:hover {
-    color: #00acee;
-  }
+#linkedin:hover {
+  color: #0e76a8;
+}
 
-  #linkedin:hover {
-    color: #0e76a8;
-  }
+#github:hover {
+  color: #2d333b;
+}
 
-  #github:hover {
-    color: #2d333b;
+@media (hover: hover) {
+  #arrow-button:hover,
+  .navtab-button:hover {
+    color: var(--theme);
   }
+}
+#name span {
+  transition: color 0.1s;
+}
+
+.theme-color {
+  color: var(--theme);
 }
 
 .hidden {
@@ -184,22 +202,6 @@ main {
   animation: circle-bounce 2s infinite;
 }
 
-@keyframes bounce {
-  0%,
-  20%,
-  50%,
-  80%,
-  100% {
-    transform: translateX(0);
-  }
-  40% {
-    transform: translateX(-30px);
-  }
-  60% {
-    transform: translateX(-15px);
-  }
-}
-
 @keyframes circle-bounce {
   0%,
   20%,
@@ -212,6 +214,6 @@ main {
     width: 78px;
   }
   60% {
-    width: 63px;
+    width: 58px;
   }
 }

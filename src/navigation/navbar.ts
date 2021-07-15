@@ -35,6 +35,11 @@ export class Navbar {
         if (this.overlayOpen) this.hideOverlay();
         else this.showOverlay();
       });
+    document
+      .querySelector<HTMLButtonElement>("#arrow-button")!
+      .addEventListener("click", () => {
+        this.go("/about");
+      });
   }
 
   hideOverlay() {

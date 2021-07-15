@@ -14,10 +14,12 @@
       <div
         id="navbar"
         class="flex flex-row py-8 justify-between"
-        style="color: white; transition: color 0.6s 0.6s"
+        style="color: white; transition: color 0.2s 0.4s"
       >
-        <div class="relative z-50">
-          <button id="intro" class="relative z-50 navtab py-px">Home</button>
+        <div class="relative z-50 navtab">
+          <button id="intro" class="relative z-50 navtab-button py-px">
+            Home
+          </button>
         </div>
         <div
           id="navtab-container"
@@ -35,9 +37,15 @@
             lg:static lg:flex-row lg:bg-transparent lg:h-auto
           "
         >
-          <button id="about" class="navtab">About</button>
-          <button id="work" class="navtab">Work</button>
-          <button id="contact" class="navtab">Contact</button>
+          <div class="navtab">
+            <button id="about" class="navtab-button">About</button>
+          </div>
+          <div class="navtab">
+            <button id="work" class="navtab-button">Work</button>
+          </div>
+          <div class="navtab">
+            <button id="contact" class="navtab-button">Contact</button>
+          </div>
         </div>
         <button
           id="burger"
@@ -58,64 +66,86 @@
       </div>
       <div
         id="intro-page"
-        class="transition-opacity fixed inset-0 grid grid-cols-12 items-center"
+        class="
+          transition-opacity
+          fixed
+          inset-0
+          grid grid-cols-12 grid-rows-3
+          items-center
+        "
       >
         <div
           id="intro-text-container"
           class="
             text-center
             col-start-2 col-end-12
+            row-start-2
             sm:text-left sm:col-end-10
             xl:col-end-6
+            text-white
           "
         >
           <h1
+            id="name"
             class="
               transition-opacity
-              duration-500
+              duration-700
               opacity-0
-              text-white text-5xl
+              text-5xl
               mb-5
               sm:text-6xl
               lg:text-7xl
             "
           >
-            Perry Olsson
+            <span>P</span><span>e</span><span>r</span><span>r</span
+            ><span>y</span> <span>O</span><span>l</span><span>s</span
+            ><span>s</span><span>o</span><span>n</span>
           </h1>
-          <h2
-            class="
-              transition-opacity
-              duration-500
-              opacity-0
-              text-white text-3xl
-              mb-5
-            "
-          >
+          <h2 class="transition-opacity duration-700 opacity-0 text-3xl mb-5">
             Full-stack Developer
           </h2>
-          <p
-            class="transition-opacity duration-500 opacity-0 text-white text-lg"
-          >
+          <p class="transition-opacity duration-700 opacity-0 text-lg">
             Welcome! I love to create elegant, performant, and powerful web
             applications.
           </p>
         </div>
         <div
           id="arrow-container"
-          class="flex justify-end mr-12 text-white sm:col-start-12"
+          class="
+            opacity-0
+            transition-opacity
+            flex
+            justify-center
+            self-start
+            col-span-12
+            row-start-3
+            sm:row-start-2 sm:col-start-11 sm:self-center
+            text-white
+          "
+          style="transition-duration: 0.7s; transition-delay: 1.5s"
         >
-          <button id="arrow-button">
+          <button
+            id="arrow-button"
+            class="
+              flex
+              justify-end
+              w-24
+              mr-12
+              transition-colors
+              duration-200
+              sm:mr-0
+            "
+          >
             <div
               id="arrow-circle"
               class="
                 flex
                 justify-start
                 items-center
-                border
+                border border-current
                 rounded-full
                 w-12
                 h-12
-                circle-bounce
               "
             >
               <div class="arrow">
@@ -123,14 +153,11 @@
                   width="24"
                   height="24"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
                   style="margin-left: 11px"
                 >
                   <path
                     d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
-                    style="stroke: white"
-                    class="fill-current"
+                    class="fill-current stroke-current"
                   />
                 </svg>
               </div>
