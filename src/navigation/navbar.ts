@@ -9,6 +9,9 @@ export class Navbar {
   overlayOpen: boolean;
   navtabContainer: HTMLDivElement;
   contentContainer: HTMLDivElement;
+  navbar = document.querySelector<HTMLDivElement>("#navbar")!;
+  burger = document.querySelector<HTMLDivElement>("#burger")!;
+  activeTab = document.querySelector<HTMLButtonElement>("#intro")!;
   constructor(router: Router) {
     this.router = router;
     this.overlayOpen = false;
@@ -21,16 +24,16 @@ export class Navbar {
   addListeners() {
     document
       .querySelector<HTMLButtonElement>("#intro")!
-      .addEventListener("click", () => this.goTo("/intro"));
+      .addEventListener("click", () => this.intro());
     document
       .querySelector<HTMLButtonElement>("#work")!
-      .addEventListener("click", () => this.goTo("/work"));
+      .addEventListener("click", () => this.work());
     document
       .querySelector<HTMLButtonElement>("#about")!
-      .addEventListener("click", () => this.goTo("/about"));
+      .addEventListener("click", () => this.about());
     document
       .querySelector<HTMLButtonElement>("#contact")!
-      .addEventListener("click", () => this.goTo("/contact"));
+      .addEventListener("click", () => this.contact());
     document
       .querySelector<HTMLButtonElement>("#burger")!
       .addEventListener("click", () => {
@@ -62,6 +65,40 @@ export class Navbar {
     x2.style.transform = "rotate(-45deg)";
     xNone.style.opacity = "0";
     this.overlayOpen = true;
+  }
+
+  intro() {
+    this.navbar.style.color = this.burger.style.color = "white";
+    this.removeActiveTab();
+    this.goTo("/intro");
+  }
+
+  about() {
+    this.navbar.style.color = this.burger.style.color = "#353535";
+    this.changeActiveTab("#about");
+    this.goTo("/about");
+  }
+
+  work() {
+    this.navbar.style.color = this.burger.style.color = "white";
+    this.changeActiveTab("#work");
+    this.goTo("/work");
+  }
+
+  contact() {
+    this.navbar.style.color = this.burger.style.color = "white";
+    this.changeActiveTab("#contact");
+    this.goTo("/contact");
+  }
+
+  changeActiveTab(selector: string) {
+    this.removeActiveTab();
+    this.activeTab = this.navbar.querySelector(selector)!;
+    this.activeTab.classList.add("navtab-active");
+  }
+
+  removeActiveTab() {
+    this.activeTab.classList.remove("navtab-active");
   }
 
   goTo(route: string) {

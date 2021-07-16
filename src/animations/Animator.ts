@@ -1,4 +1,7 @@
-export class Animator {
+import { TeardownFunction } from "../types";
+
+const arrowCircle = document.querySelector("#arrow-circle")!;
+export class Animator implements AnimationUtils {
   private static instance: Animator;
   private constructor() {}
 
@@ -10,10 +13,14 @@ export class Animator {
   }
 
   removeIntroArrowAnimation() {
-    setTimeout(() => {
-      document
-        .querySelector<HTMLDivElement>("#arrow-circle")!
-        .classList.remove("circle-bounce");
-    }, 4400);
+    if (arrowCircle.classList.contains("circle-bounce")) {
+      arrowCircle.classList.remove("circle-bounce");
+      return false;
+    }
+    return true;
   }
+}
+
+interface AnimationUtils {
+  removeIntroArrowAnimation: TeardownFunction;
 }
