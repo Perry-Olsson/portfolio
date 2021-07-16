@@ -51,7 +51,8 @@ export class Router {
 
   intro() {
     if (this.route !== "/intro") {
-      this.navbar.style.color = this.burger.style.color = "white";
+      this.navbar.style.color = "white";
+      this.burger.style.color = "white";
       this.removeActiveTab();
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/intro";
