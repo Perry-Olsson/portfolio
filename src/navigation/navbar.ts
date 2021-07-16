@@ -43,7 +43,7 @@ export class Navbar {
     document
       .querySelector<HTMLButtonElement>("#arrow-circle")!
       .addEventListener("click", () => {
-        this.goTo("/about");
+        this.about();
       });
   }
 
@@ -68,25 +68,25 @@ export class Navbar {
   }
 
   intro() {
-    this.navbar.style.color = this.burger.style.color = "white";
+    this.changeTextColor("white");
     this.removeActiveTab();
     this.goTo("/intro");
   }
 
   about() {
-    this.navbar.style.color = this.burger.style.color = "#353535";
+    this.changeTextColor("#252525");
     this.changeActiveTab("#about");
     this.goTo("/about");
   }
 
   work() {
-    this.navbar.style.color = this.burger.style.color = "white";
+    this.changeTextColor("white");
     this.changeActiveTab("#work");
     this.goTo("/work");
   }
 
   contact() {
-    this.navbar.style.color = this.burger.style.color = "white";
+    this.changeTextColor("white");
     this.changeActiveTab("#contact");
     this.goTo("/contact");
   }
@@ -99,6 +99,13 @@ export class Navbar {
 
   removeActiveTab() {
     this.activeTab.classList.remove("navtab-active");
+  }
+
+  changeTextColor(color: string) {
+    this.navbar.style.color = color;
+    this.burger
+      .querySelectorAll<HTMLDivElement>("div")
+      .forEach((bar) => (bar.style.backgroundColor = color));
   }
 
   goTo(route: string) {
