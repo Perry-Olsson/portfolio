@@ -11,12 +11,14 @@ export class Router {
   static pos3 = -Math.PI;
   static pos4 = -Math.PI * 1.5;
   navbar = document.querySelector<HTMLDivElement>("#navbar")!;
+  burger = document.querySelector<HTMLDivElement>("#burger")!;
   pages = {
     "/intro": document.querySelector<HTMLDivElement>("#intro-page")!,
     "/work": document.querySelector<HTMLDivElement>("#work-page")!,
     "/about": document.querySelector<HTMLDivElement>("#about-page")!,
     "/contact": document.querySelector<HTMLDivElement>("#contact-page")!,
   };
+  activeTab = document.querySelector<HTMLButtonElement>("#intro")!;
   static instance: Router;
   constructor(controllers: Controllers) {
     this.controllers = controllers;
@@ -49,7 +51,8 @@ export class Router {
 
   intro() {
     if (this.route !== "/intro") {
-      this.navbar.style.color = "white";
+      this.navbar.style.color = this.burger.style.color = "white";
+      this.removeActiveTab();
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/intro";
 
@@ -69,7 +72,8 @@ export class Router {
 
   about() {
     if (this.route !== "/about") {
-      this.navbar.style.color = "#353535";
+      this.navbar.style.color = this.burger.style.color = "#353535";
+      this.changeActiveTab("#about");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/about";
       const duration = this.getAnimationDuration(Router.pos2);
@@ -85,7 +89,8 @@ export class Router {
   }
   work() {
     if (this.route !== "/work") {
-      this.navbar.style.color = "white";
+      this.navbar.style.color = this.burger.style.color = "white";
+      this.changeActiveTab("#work");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
@@ -103,7 +108,8 @@ export class Router {
 
   contact() {
     if (this.route !== "/contact") {
-      this.navbar.style.color = "white";
+      this.navbar.style.color = this.burger.style.color = "white";
+      this.changeActiveTab("#contact");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/contact";
       const duration = this.getAnimationDuration(Router.pos4);
@@ -116,6 +122,16 @@ export class Router {
       this.controllers.cube.rotateToPos4().duration(duration).start();
       this.fadeInNextPage(this.pages["/contact"], duration);
     }
+  }
+
+  changeActiveTab(selector: string) {
+    this.removeActiveTab();
+    this.activeTab = this.navbar.querySelector(selector)!;
+    this.activeTab.classList.add("navtab-active");
+  }
+
+  removeActiveTab() {
+    this.activeTab.classList.remove("navtab-active");
   }
 
   fadeInNextPage(element: HTMLDivElement, duration: number) {

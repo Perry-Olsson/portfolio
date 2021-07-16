@@ -6,6 +6,9 @@ module.exports = {
       screens: {
         xs: "350px",
       },
+      colors: {
+        theme: "#4affae",
+      },
     },
   },
   variants: {

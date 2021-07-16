@@ -10,8 +10,10 @@ export class Animator {
   }
 
   removeIntroArrowAnimation() {
-    document
-      .querySelector<HTMLDivElement>("#arrow-circle")!
-      .classList.remove("circle-bounce");
+    setTimeout(() => {
+      document
+        .querySelector<HTMLDivElement>("#arrow-circle")!
+        .classList.remove("circle-bounce");
+    }, 4400);
   }
 }

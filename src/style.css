@@ -53,7 +53,8 @@ main {
 
   .burger-bar {
     width: 35px;
-    height: 5px;
+    /* height: 5px; */
+    border-top: solid 5px;
     margin: 3px 0;
     @apply bg-white;
     transition: all 0.3s ease-in-out;
@@ -66,28 +67,15 @@ main {
     transition: color 0.1s;
   }
 }
-#facebook:hover {
-  color: #3b5998;
+
+.navtab-active {
+  color: var(--theme) !important;
 }
 
-#twitter:hover {
-  color: #00acee;
+#navtab-container {
+  transition: top 0.3s, bottom 0.3s;
 }
 
-#linkedin:hover {
-  color: #0e76a8;
-}
-
-#github:hover {
-  color: #2d333b;
-}
-
-@media (hover: hover) {
-  #arrow-button:hover,
-  .navtab-button:hover {
-    color: var(--theme);
-  }
-}
 #name span {
   transition: color 0.1s;
 }
@@ -96,8 +84,35 @@ main {
   color: var(--theme);
 }
 
+.theme-background {
+  background-color: var(--theme);
+}
+
 .hidden {
   display: none !important;
+}
+
+@media (hover: hover) {
+  #arrow-circle:hover,
+  .navtab-button:hover {
+    color: var(--theme);
+  }
+
+  #facebook:hover {
+    color: #3b5998;
+  }
+
+  #twitter:hover {
+    color: #00acee;
+  }
+
+  #linkedin:hover {
+    color: #0e76a8;
+  }
+
+  #github:hover {
+    color: #2d333b;
+  }
 }
 
 /*loading animation*/
