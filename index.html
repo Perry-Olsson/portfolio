@@ -55,7 +55,7 @@
             flex flex-col
             justify-center
             items-center
-            mx-8
+            mx-7
             lg:hidden
           "
         >
@@ -73,6 +73,7 @@
             inset-0
             grid grid-cols-12 grid-rows-3
             items-center
+            justify-center
           "
         >
           <div
@@ -121,7 +122,11 @@
               col-span-12
               row-start-3
               mt-14
-              sm:row-start-2 sm:col-start-11 sm:self-center sm:justify-end
+              sm:row-start-2
+              sm:col-start-11
+              sm:self-center
+              sm:justify-end
+              sm:mt-0
               text-white
             "
             style="transition-duration: 0.7s; transition-delay: 1.5s"
@@ -146,9 +151,8 @@
                   items-center
                   border border-current
                   rounded-full
-                  w-12
-                  h-12
                 "
+                style="width: 48px; height: 48px"
               >
                 <div class="arrow">
                   <svg
@@ -244,16 +248,17 @@
         <div
           id="about-page"
           class="
-            hidden
+            none
             opacity-0
             fixed
             inset-0
             justify-center
-            items-center
             transition-all
+            grid grid-cols-12 grid-rows-3
+            items-center
           "
         >
-          <div class="text-white border w-min m-auto">about</div>
+          <div class="text-center row-start-2 col-start-6 col-end-8">about</div>
         </div>
         <div
           id="contact-page"

@@ -115,7 +115,7 @@ export class Router {
   }
 
   fadeInNextPage(element: HTMLDivElement, duration: number) {
-    element.classList.remove("hidden");
+    element.classList.remove("none");
     setTimeout(() => {
       element.style.opacity = "1";
     }, duration);
@@ -124,7 +124,7 @@ export class Router {
   fadeOutCurrentPage(element: HTMLDivElement) {
     element.style.opacity = "0";
     setTimeout(() => {
-      element.classList.add("hidden");
+      element.classList.add("none");
     }, 150);
   }
 

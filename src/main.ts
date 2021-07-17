@@ -3,6 +3,7 @@ import { handleResize, setupDrag } from "./utils";
 import { Cube } from "./cube";
 import { Router } from "./router";
 import { Navbar } from "./navigation";
+import { Components } from "./components";
 
 const { scene, renderer, camera, animate } = initScene();
 
@@ -13,6 +14,8 @@ handleResize(renderer, camera, cube);
 setupDrag();
 
 export const router = new Router({ camera, cube });
-new Navbar(router);
+const navbar = new Navbar(router);
+
+new Components(navbar).render();
 
 animate();
