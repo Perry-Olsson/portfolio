@@ -40,7 +40,7 @@ const fadeInIntroPage = () => {
   setTimeout(async () => {
     setTimeout(() => {
       arrowCircle.classList.add("circle-bounce");
-    }, 1600);
+    }, 1400);
     for (let i = 0; i < name.children.length; i++) {
       if (i === 0) {
         name.children.item(i)!.classList.add("theme-color");

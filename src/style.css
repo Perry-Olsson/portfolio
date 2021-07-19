@@ -119,6 +119,10 @@ main {
   #github:hover {
     color: #2d333b;
   }
+
+  #arrow-circle:hover {
+    animation: none;
+  }
 }
 
 /*loading animation*/
