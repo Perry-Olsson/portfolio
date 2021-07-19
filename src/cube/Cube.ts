@@ -29,7 +29,11 @@ export class Cube extends Mesh {
 
   createMaterials() {
     return [
-      //page2
+      //page 2
+      new MeshStandardMaterial({
+        color: 0xffffff,
+      }),
+      //page 4
       new MeshStandardMaterial({
         color: 0xffffff,
       }),
@@ -37,17 +41,14 @@ export class Cube extends Mesh {
         color: baseColor,
       }),
       new MeshStandardMaterial({
-        color: 0x0000ff,
-      }),
-      new MeshStandardMaterial({
         color: baseColor,
       }),
-      //page1
+      //page 1
       new MeshStandardMaterial({
         color: baseColor,
         map: IntroTexture,
       }),
-      //page3
+      //page 3
       new MeshStandardMaterial({
         color: baseColor,
         map: IntroTexture,

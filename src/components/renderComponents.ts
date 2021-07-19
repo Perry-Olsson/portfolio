@@ -1,6 +1,6 @@
 import { Navbar } from "../navigation";
-import { aboutPage } from "./elements";
-import { LeftArrow, RightArrow } from "./NavArrows";
+import { aboutPage, contactPage, workPage } from "./elements";
+import { BackHomeArrow, LeftArrow, RightArrow } from "./NavArrows";
 
 export class Components {
   navbar: Navbar;
@@ -8,12 +8,24 @@ export class Components {
     this.navbar = navbar;
   }
 
-  aboutPage() {
+  appendAboutPageComponents() {
     aboutPage.appendChild(LeftArrow(() => this.navbar.intro()));
     aboutPage.appendChild(RightArrow(() => this.navbar.work()));
   }
 
+  appendWorkPageComponents() {
+    workPage.appendChild(LeftArrow(() => this.navbar.about()));
+    workPage.appendChild(RightArrow(() => this.navbar.contact()));
+  }
+
+  appendContactPageComponents() {
+    contactPage.appendChild(LeftArrow(() => this.navbar.work()));
+    contactPage.appendChild(BackHomeArrow(() => this.navbar.intro()));
+  }
+
   render() {
-    this.aboutPage();
+    this.appendAboutPageComponents();
+    this.appendWorkPageComponents();
+    this.appendContactPageComponents();
   }
 }

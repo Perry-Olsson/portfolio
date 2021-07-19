@@ -86,7 +86,7 @@ export class Navbar {
   }
 
   contact() {
-    this.changeTextColor("white");
+    this.changeTextColor("#252525");
     this.changeActiveTab("#contact");
     this.goTo("/contact");
   }

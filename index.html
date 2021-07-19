@@ -232,20 +232,6 @@
           </div>
         </div>
         <div
-          id="work-page"
-          class="
-            hidden
-            opacity-0
-            fixed
-            inset-0
-            justify-center
-            items-center
-            transition-all
-          "
-        >
-          <div class="text-white border w-min m-auto">work</div>
-        </div>
-        <div
           id="about-page"
           class="
             none
@@ -261,18 +247,35 @@
           <div class="text-center row-start-2 col-start-6 col-end-8">about</div>
         </div>
         <div
-          id="contact-page"
+          id="work-page"
           class="
-            hidden
+            none
             opacity-0
             fixed
             inset-0
             justify-center
-            items-center
             transition-all
+            grid grid-cols-12 grid-rows-3
+            items-center
+            text-white
           "
         >
-          <div class="text-white border w-min m-auto">contact</div>
+          <div class="border w-min m-auto">work</div>
+        </div>
+        <div
+          id="contact-page"
+          class="
+            none
+            opacity-0
+            fixed
+            inset-0
+            justify-center
+            transition-all
+            grid grid-cols-12 grid-rows-3
+            items-center
+          "
+        >
+          <div class="border w-min m-auto">contact</div>
         </div>
       </div>
     </main>
