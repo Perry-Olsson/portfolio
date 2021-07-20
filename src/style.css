@@ -126,6 +126,12 @@ main {
   }
 }
 
+@media (max-width: 400px) {
+  #tech-slider span {
+    display: none;
+  }
+}
+
 /*loading animation*/
 
 .lds-roller {

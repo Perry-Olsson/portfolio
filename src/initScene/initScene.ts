@@ -5,8 +5,9 @@ import { update } from "@tweenjs/tween.js";
 import { setLights } from "./setLighting";
 import { waitForLoad } from "./waitForLoad";
 import { Scene, WebGLRenderer } from "three";
+import { Cube } from "../cube";
 
-export const initScene = () => {
+export const initScene = (cube: Cube) => {
   const scene = new Scene();
   scene.background = BackgroundTexture;
   const camera = new Camera();
@@ -19,7 +20,7 @@ export const initScene = () => {
 
   setLights(scene);
 
-  waitForLoad();
+  waitForLoad(cube);
 
   const orbitControls = new OrbitControls(camera, renderer.domElement);
   function animate() {

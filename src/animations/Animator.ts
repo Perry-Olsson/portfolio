@@ -40,6 +40,13 @@ export class Animator implements AnimationUtils {
     this.translateVal -= 0.1;
     if (this.translateVal <= -533) this.translateVal = 0;
   }
+
+  showExclamation(delay = 0) {
+    setTimeout(() => {
+      document.getElementById("exclamation-cover")!.style.transform =
+        "translateY(-80px)";
+    }, delay);
+  }
 }
 
 interface AnimationUtils {

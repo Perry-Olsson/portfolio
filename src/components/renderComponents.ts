@@ -1,6 +1,23 @@
 import { Navbar } from "../navigation";
 import { aboutPage, contactPage, techSlider, workPage } from "./elements";
 import { BackHomeArrow, LeftArrow, RightArrow } from "./NavArrows";
+import {
+  CSS3Svg,
+  DockerSvg,
+  ExpressJsSvg,
+  GitSvg,
+  GraphQLSvg,
+  HTML5Svg,
+  JavaScriptSvg,
+  LinuxSvg,
+  MongoDBSvg,
+  NodeJsSvg,
+  PostgresSvg,
+  PythonSvg,
+  ReactSvg,
+  ReduxSvg,
+  TypeScriptSvg,
+} from "./techSkillsIcons";
 
 export class Components {
   navbar: Navbar;
@@ -32,14 +49,41 @@ export class Components {
 }
 
 const TechSlider = () => {
-  tech.forEach((t) => {
+  tech.forEach((t, i) => {
+    const container = document.createElement("div");
+    container.classList.add("flex", "items-center", "justify-center");
+    container.style.width = "33.33333%";
+    container.style.minWidth = "33.33333%";
     const span = document.createElement("span");
-    span.classList.add("border", "flex", "justify-center");
-    span.style.minWidth = "33.33333%";
+    span.classList.add("flex", "justify-center", "ml-2", "text-gray-600");
     span.textContent = t;
-    techSlider.append(span);
+    container.innerHTML = techIcons[i];
+    container.appendChild(span);
+    techSlider.appendChild(container);
   });
 };
+
+const techIcons = [
+  HTML5Svg,
+  CSS3Svg,
+  JavaScriptSvg,
+  TypeScriptSvg,
+  PythonSvg,
+  ReactSvg,
+  ReduxSvg,
+  ReactSvg,
+  NodeJsSvg,
+  ExpressJsSvg,
+  GraphQLSvg,
+  PostgresSvg,
+  MongoDBSvg,
+  GitSvg,
+  LinuxSvg,
+  DockerSvg,
+  HTML5Svg,
+  CSS3Svg,
+  JavaScriptSvg,
+];
 
 const tech = [
   "HTML",
@@ -55,7 +99,7 @@ const tech = [
   "GraphQL",
   "PostgreSQL",
   "MongoDB",
-  "Version Control",
+  "Git",
   "Linux",
   "Docker",
   "HTML",

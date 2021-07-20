@@ -5,9 +5,10 @@ import { Router } from "./router";
 import { Navbar } from "./navigation";
 import { Components } from "./components";
 
-const { scene, renderer, camera, animate } = initScene();
-
 const cube = new Cube();
+
+const { scene, renderer, camera, animate } = initScene(cube);
+
 scene.add(cube);
 
 handleResize(renderer, camera, cube);

@@ -1,11 +1,13 @@
 import { DefaultLoadingManager } from "three";
+import { Cube } from "../cube";
 
 const canvas = document.querySelector("canvas")!;
 const titleNodes = document.querySelector<any>("#intro-text-container")!;
 const arrow = document.querySelector<HTMLDivElement>("#arrow-container")!;
 const arrowCircle = document.querySelector<HTMLDivElement>("#arrow-circle")!;
 const name = document.querySelector<HTMLHeadElement>("#name")!;
-export const waitForLoad = () => {
+
+export const waitForLoad = (cube: Cube) => {
   canvas.style.height = "0px";
   canvas.style.width = "0px";
 
@@ -18,13 +20,14 @@ export const waitForLoad = () => {
       document
         .querySelector<HTMLDivElement>("main")!
         .classList.replace("hidden", "block");
-      waitForCanvasAnimation();
+      waitForCanvasAnimation(cube);
     }, 400);
   };
 };
 
-const waitForCanvasAnimation = () => {
+const waitForCanvasAnimation = (cube: Cube) => {
   setTimeout(() => {
+    cube.redraw();
     fadeInIntroPage();
     canvas.style.transition = "none";
   }, 800);

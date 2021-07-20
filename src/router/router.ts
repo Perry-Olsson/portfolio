@@ -78,6 +78,7 @@ export class Router {
         animator.stopTechSlide();
         return false;
       });
+      animator.showExclamation(duration + 20);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
