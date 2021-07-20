@@ -34,8 +34,7 @@ export const BackHomeArrow = (destination: () => void) => {
   const button = createArrowButton(destination, RestartIcon());
   return html`
     <div
-      class="fixed hidden justify-end transition-colors duration-200 sm:flex"
-      style="right: 2.5rem; top: 50%"
+      class="static sm:fixed bottom-0 right-10 sm:top-2/4 justify-end transition-colors duration-200 sm:flex"
     >
       ${button}
     </div>

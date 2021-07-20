@@ -55,7 +55,7 @@ export class Components {
     render(
       arrowContainer([
         LeftArrow(() => this.navbar.work()),
-        BackHomeArrow(() => this.navbar.intro),
+        BackHomeArrow(() => this.navbar.intro()),
       ]),
       document.getElementById("contact-components")!
     );
