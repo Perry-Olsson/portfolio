@@ -1,5 +1,5 @@
+import { html, render } from "lit-html";
 import { Navbar } from "../navigation";
-import { aboutPage, contactPage, techSlider, workPage } from "./elements";
 import { BackHomeArrow, LeftArrow, RightArrow } from "./NavArrows";
 import {
   CSS3Svg,
@@ -26,19 +26,39 @@ export class Components {
   }
 
   appendAboutPageComponents() {
-    aboutPage.appendChild(LeftArrow(() => this.navbar.intro()));
-    aboutPage.appendChild(RightArrow(() => this.navbar.work()));
+    render(
+      html`
+        ${LeftArrow(() => this.navbar.intro())}
+        ${RightArrow(() => this.navbar.work())}
+      `,
+
+      document.getElementById("about-components")!
+    );
     TechSlider();
   }
 
   appendWorkPageComponents() {
-    workPage.appendChild(LeftArrow(() => this.navbar.about()));
-    workPage.appendChild(RightArrow(() => this.navbar.contact()));
+    render(
+      html`
+        ${LeftArrow(() => this.navbar.about())}
+        ${RightArrow(() => this.navbar.contact())}
+      `,
+      document.getElementById("work-components")!
+    );
+    // workPage.appendChild(LeftArrow(() => this.navbar.about()));
+    // workPage.appendChild(RightArrow(() => this.navbar.contact()));
   }
 
   appendContactPageComponents() {
-    contactPage.appendChild(LeftArrow(() => this.navbar.work()));
-    contactPage.appendChild(BackHomeArrow(() => this.navbar.intro()));
+    render(
+      html`
+        ${LeftArrow(() => this.navbar.work())}
+        ${BackHomeArrow(() => this.navbar.intro)},
+      `,
+      document.getElementById("contact-components")!
+    );
+    // contactPage.appendChild(LeftArrow(() => this.navbar.work()));
+    // contactPage.appendChild(BackHomeArrow(() => this.navbar.intro()));
   }
 
   render() {
@@ -49,18 +69,24 @@ export class Components {
 }
 
 const TechSlider = () => {
-  tech.forEach((t, i) => {
-    const container = document.createElement("div");
-    container.classList.add("flex", "items-center", "justify-center");
-    container.style.width = "33.33333%";
-    container.style.minWidth = "33.33333%";
-    const span = document.createElement("span");
-    span.classList.add("flex", "justify-center", "ml-2", "text-gray-600");
-    span.textContent = t;
-    container.innerHTML = techIcons[i];
-    container.appendChild(span);
-    techSlider.appendChild(container);
-  });
+  const techItems = html`
+    <div id="tech-slider-inner" class="my-2 relative flex items-center">
+      ${tech.map((t, i) => {
+        return html`
+          <div
+            class="flex items-center justify-center"
+            style="width: 33.3333%; min-width: 33.3333%;"
+          >
+            ${techIcons[i]}
+            <span class="flex justify-center ml-2 text-gray-600">${t}</span>
+          </div>
+        `;
+      })}
+    </div>
+  `;
+  render(techItems, document.getElementById("tech-slider")!);
+  // container.appendChild(span);
+  // document.getElementById("tech-slider")!.appendChild();
 };
 
 const techIcons = [

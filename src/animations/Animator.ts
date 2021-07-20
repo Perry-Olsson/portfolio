@@ -1,4 +1,3 @@
-import { techSlider } from "../components";
 import { TeardownFunction } from "../types";
 
 const arrowCircle = document.querySelector("#arrow-circle")!;
@@ -36,7 +35,9 @@ export class Animator implements AnimationUtils {
 
   animateTechSlide() {
     this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
-    techSlider.style.left = `${this.translateVal}%`;
+    document.getElementById(
+      "tech-slider-inner"
+    )!.style.left = `${this.translateVal}%`;
     this.translateVal -= 0.1;
     if (this.translateVal <= -533) this.translateVal = 0;
   }
