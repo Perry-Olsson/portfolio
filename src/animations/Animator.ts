@@ -3,6 +3,7 @@ import { TeardownFunction } from "../types";
 const arrowCircle = document.querySelector("#arrow-circle")!;
 export class Animator implements AnimationUtils {
   private static instance: Animator;
+  aboutPage = new AboutPageAnimator();
   private constructor() {}
 
   static getInstance() {
@@ -19,12 +20,29 @@ export class Animator implements AnimationUtils {
     }
     return true;
   }
+}
 
+class AboutPageAnimator {
   techSlideId = 0;
   translateVal = 0;
+  hasStarted = false;
+  constructor() {}
+
+  start(baseDelay = 0) {
+    this.startTechSlide(baseDelay);
+    this.showExclamation(baseDelay);
+    this.showDivider(baseDelay);
+  }
 
   startTechSlide(delay = 0) {
-    setTimeout(() => {
+    setTimeout(async () => {
+      if (!this.hasStarted)
+        await new Promise((res) => {
+          setTimeout(() => {
+            this.hasStarted = true;
+            res(true);
+          }, 2000);
+        });
       this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
     }, delay);
   }
@@ -33,7 +51,7 @@ export class Animator implements AnimationUtils {
     cancelAnimationFrame(this.techSlideId);
   }
 
-  animateTechSlide() {
+  private animateTechSlide() {
     this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
     document.getElementById(
       "tech-slider-inner"
@@ -46,6 +64,12 @@ export class Animator implements AnimationUtils {
     setTimeout(() => {
       document.getElementById("exclamation-cover")!.style.transform =
         "translateY(-80px)";
+    }, delay);
+  }
+
+  showDivider(delay = 0) {
+    setTimeout(() => {
+      document.getElementById("about-heading-divider")!.style.width = "100%";
     }, delay);
   }
 }

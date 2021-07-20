@@ -45,8 +45,6 @@ export class Components {
       `,
       document.getElementById("work-components")!
     );
-    // workPage.appendChild(LeftArrow(() => this.navbar.about()));
-    // workPage.appendChild(RightArrow(() => this.navbar.contact()));
   }
 
   appendContactPageComponents() {
@@ -57,8 +55,6 @@ export class Components {
       `,
       document.getElementById("contact-components")!
     );
-    // contactPage.appendChild(LeftArrow(() => this.navbar.work()));
-    // contactPage.appendChild(BackHomeArrow(() => this.navbar.intro()));
   }
 
   render() {
@@ -85,8 +81,6 @@ const TechSlider = () => {
     </div>
   `;
   render(techItems, document.getElementById("tech-slider")!);
-  // container.appendChild(span);
-  // document.getElementById("tech-slider")!.appendChild();
 };
 
 const techIcons = [
