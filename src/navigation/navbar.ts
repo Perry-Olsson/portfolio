@@ -76,6 +76,7 @@ export class Navbar {
   about() {
     this.changeTextColor("#252525");
     this.changeActiveTab("#about");
+
     this.goTo("/about");
   }
 

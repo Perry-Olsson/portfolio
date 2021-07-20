@@ -13,10 +13,10 @@
     <main id="scrollable" class="hidden">
       <div
         id="navbar"
-        class="flex flex-row py-8 justify-between"
+        class="flex flex-row h-24 justify-between"
         style="color: white; transition: color 0.2s 0.4s"
       >
-        <div class="relative z-50 navtab">
+        <div class="relative z-50 navtab flex items-center">
           <button id="intro" class="relative z-50 navtab-button py-px">
             Home
           </button>
@@ -64,7 +64,19 @@
           <div id="x-none" class="burger-bar"></div>
         </button>
       </div>
-      <div id="content-container" class="transition-opacity duration-300">
+      <div
+        id="content-container"
+        class="
+          fixed
+          top-24
+          left-0
+          right-0
+          bottom-0
+          overflow-auto
+          transition-opacity
+          duration-300
+        "
+      >
         <div
           id="intro-page"
           class="
@@ -107,8 +119,7 @@
               Full-stack Developer
             </h2>
             <p class="transition-opacity duration-700 opacity-0 text-lg">
-              Welcome! I love to create elegant, performant, and powerful web
-              applications.
+              I create elegant, performant, and powerful web applications.
             </p>
           </div>
           <div
@@ -235,16 +246,65 @@
           id="about-page"
           class="
             none
+            sm:pt-2
             opacity-0
-            fixed
-            inset-0
             justify-center
             transition-all
-            grid grid-cols-12 grid-rows-3
             items-center
           "
         >
-          <div class="text-center row-start-2 col-start-6 col-end-8">about</div>
+          <div
+            class="w-full sm:pt-20 flex items-center justify-center flex-col"
+          >
+            <div class="w-11/12 sm:w-3/6">
+              <h1 class="text-8xl text-gray-700 font-extrabold text-left my-4">
+                Hey there<span class="text-theme">!</span>
+              </h1>
+              <h4 class="text-3xl text-gray-600">
+                My name is Perry Olsson. I'm from the Seattle area and I'm
+                interested in helping engineer the future of software and web
+                applications.
+              </h4>
+              <div class="h-2 mt-6 mb-14 bg-gray-200"></div>
+              <h2 class="text-5xl text-left text-gray-700 font-extrabold my-4">
+                Technical Specs
+              </h2>
+              <div class="w-full mb-4 max-w-sm overflow-hidden border">
+                <div id="tech-slider" class="relative flex items-center"></div>
+              </div>
+              <p class="text-xl text-gray-600">
+                I've spent the last two years cutting my teeth in full-stack web
+                development taking highly recommended MOOC's and building an
+                array of personal projects some of which you'll see on the next
+                page. I enjoy programming at either end of the tech stack
+                whether it's creating data models and optimizing database
+                queries, or animating SVG's and creating fluid digital
+                experiences.
+              </p>
+              <h2
+                class="
+                  text-5xl text-left text-gray-700
+                  font-extrabold
+                  mt-14
+                  mb-4
+                "
+              >
+                A Brief History<span class="text-theme">...</span>
+              </h2>
+              <p class="text-xl text-gray-600">
+                I've been addicted to programming for a little over two years
+                now. Only kidding (kind of), but I've found an incredible
+                passion for it. I graduated from Cascadia College with an
+                associate's degree in business and an acceptance letter to the
+                University of Washington in hand and decided to drop it all and
+                pursue music. I found myself not as motivated as I'd thought I
+                would feel as time went on and one day decided to try my hand at
+                programming. I started the journey taking Harvard's intro to CS
+                course and haven't looked back since.
+              </p>
+            </div>
+            <!-- <img src="/guitar.jpg" class="my-28 w-5/6" /> -->
+          </div>
         </div>
         <div
           id="work-page"

@@ -1,5 +1,5 @@
 import { Navbar } from "../navigation";
-import { aboutPage, contactPage, workPage } from "./elements";
+import { aboutPage, contactPage, techSlider, workPage } from "./elements";
 import { BackHomeArrow, LeftArrow, RightArrow } from "./NavArrows";
 
 export class Components {
@@ -11,6 +11,7 @@ export class Components {
   appendAboutPageComponents() {
     aboutPage.appendChild(LeftArrow(() => this.navbar.intro()));
     aboutPage.appendChild(RightArrow(() => this.navbar.work()));
+    TechSlider();
   }
 
   appendWorkPageComponents() {
@@ -29,3 +30,35 @@ export class Components {
     this.appendContactPageComponents();
   }
 }
+
+const TechSlider = () => {
+  tech.forEach((t) => {
+    const span = document.createElement("span");
+    span.classList.add("border", "flex", "justify-center");
+    span.style.minWidth = "33.33333%";
+    span.textContent = t;
+    techSlider.append(span);
+  });
+};
+
+const tech = [
+  "HTML",
+  "CSS",
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "React",
+  "Redux",
+  "React Native",
+  "Node.js",
+  "Express",
+  "GraphQL",
+  "PostgreSQL",
+  "MongoDB",
+  "Version Control",
+  "Linux",
+  "Docker",
+  "HTML",
+  "CSS",
+  "JavaScript",
+];

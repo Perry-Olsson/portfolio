@@ -1,3 +1,4 @@
+import { techSlider } from "../components";
 import { TeardownFunction } from "../types";
 
 const arrowCircle = document.querySelector("#arrow-circle")!;
@@ -18,6 +19,26 @@ export class Animator implements AnimationUtils {
       return false;
     }
     return true;
+  }
+
+  techSlideId = 0;
+  translateVal = 0;
+
+  startTechSlide(delay = 0) {
+    setTimeout(() => {
+      this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
+    }, delay);
+  }
+
+  stopTechSlide() {
+    cancelAnimationFrame(this.techSlideId);
+  }
+
+  animateTechSlide() {
+    this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
+    techSlider.style.left = `${this.translateVal}%`;
+    this.translateVal -= 0.1;
+    if (this.translateVal <= -533) this.translateVal = 0;
   }
 }
 

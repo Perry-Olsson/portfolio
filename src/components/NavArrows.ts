@@ -1,15 +1,15 @@
 export const RightArrow = (destination: () => void) => {
   const container = document.createElement("div");
   container.classList.add(
-    "row-start-2",
-    "col-start-12",
+    "fixed",
     "hidden",
     "justify-end",
-    "mr-4",
     "transition-colors",
     "duration-200",
     "sm:flex"
   );
+  container.style.right = "2.5rem";
+  container.style.top = "50%";
 
   const button = createArrowButton(destination, ArrowIcon());
   container.appendChild(button);
@@ -19,15 +19,15 @@ export const RightArrow = (destination: () => void) => {
 export const LeftArrow = (destination: () => void) => {
   const container = document.createElement("div");
   container.classList.add(
+    "fixed",
     "sm:flex",
-    "row-start-2",
-    "col-start-1",
     "hidden",
     "justify-start",
-    "ml-4",
     "transition-colors",
     "duration-200"
   );
+  container.style.left = "2.5rem";
+  container.style.top = "50%";
 
   const button = createArrowButton(destination, ArrowIcon());
   button.style.transform = "rotate(180deg)";
@@ -38,15 +38,16 @@ export const LeftArrow = (destination: () => void) => {
 export const BackHomeArrow = (destination: () => void) => {
   const container = document.createElement("div");
   container.classList.add(
-    "row-start-2",
-    "col-start-12",
+    "fixed",
     "hidden",
     "justify-end",
-    "mr-4",
     "transition-colors",
     "duration-200",
     "sm:flex"
   );
+  container.style.right = "2.5rem";
+  container.style.top = "50%";
+
   const button = createArrowButton(destination, RestartIcon());
   container.appendChild(button);
   return container;

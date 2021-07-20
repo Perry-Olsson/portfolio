@@ -72,6 +72,12 @@ export class Router {
       this.route = "/about";
       const duration = this.getAnimationDuration(Router.pos2);
       const cameraDuration = duration / 2;
+      const animator = Animator.getInstance();
+      animator.startTechSlide(duration);
+      this.teardownFunctions.push(() => {
+        animator.stopTechSlide();
+        return false;
+      });
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
