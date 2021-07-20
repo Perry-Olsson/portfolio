@@ -1,12 +1,15 @@
 import { html, TemplateResult } from "lit-html";
 import { StyleInfo, styleMap } from "lit-html/directives/style-map";
 
+export const arrowContainer = (components: TemplateResult[]) => {
+  return html` <div class="flex justify-center my-10">${components}</div> `;
+};
+
 export const RightArrow = (destination: () => void) => {
   const button = createArrowButton(destination, ArrowIcon());
   return html`
     <div
-      class="fixed hidden justify-end transition-colors duration-200 sm:flex"
-      style="right: 2.5rem; top: 50%"
+      class="static sm:fixed bottom-0 right-10 sm:top-2/4 justify-end transition-colors duration-200 sm:flex"
     >
       ${button}
     </div>
@@ -20,8 +23,7 @@ export const LeftArrow = (destination: () => void) => {
   );
   return html`
     <div
-      class="fixed sm:flex hidden justify-start trnasition-colors duration-200"
-      style="left: 2.5rem; top: 50%"
+      class="hidden sm:fixed bottom-0 left-10 sm:top-2/4  sm:flex  justify-start trnasition-colors duration-200"
     >
       ${button}
     </div>

@@ -1,6 +1,11 @@
 import { html, render } from "lit-html";
 import { Navbar } from "../navigation";
-import { BackHomeArrow, LeftArrow, RightArrow } from "./NavArrows";
+import {
+  arrowContainer,
+  BackHomeArrow,
+  LeftArrow,
+  RightArrow,
+} from "./NavArrows";
 import {
   CSS3Svg,
   DockerSvg,
@@ -27,11 +32,10 @@ export class Components {
 
   appendAboutPageComponents() {
     render(
-      html`
-        ${LeftArrow(() => this.navbar.intro())}
-        ${RightArrow(() => this.navbar.work())}
-      `,
-
+      arrowContainer([
+        LeftArrow(() => this.navbar.intro()),
+        RightArrow(() => this.navbar.work()),
+      ]),
       document.getElementById("about-components")!
     );
     TechSlider();
@@ -39,20 +43,20 @@ export class Components {
 
   appendWorkPageComponents() {
     render(
-      html`
-        ${LeftArrow(() => this.navbar.about())}
-        ${RightArrow(() => this.navbar.contact())}
-      `,
+      arrowContainer([
+        LeftArrow(() => this.navbar.about()),
+        RightArrow(() => this.navbar.contact()),
+      ]),
       document.getElementById("work-components")!
     );
   }
 
   appendContactPageComponents() {
     render(
-      html`
-        ${LeftArrow(() => this.navbar.work())}
-        ${BackHomeArrow(() => this.navbar.intro)},
-      `,
+      arrowContainer([
+        LeftArrow(() => this.navbar.work()),
+        BackHomeArrow(() => this.navbar.intro),
+      ]),
       document.getElementById("contact-components")!
     );
   }
