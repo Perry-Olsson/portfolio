@@ -1,6 +1,7 @@
 import { WebGLRenderer } from "three";
 import { Cube } from "../cube";
 import { Camera } from "../camera";
+import { repositionLights } from "../initScene/setLighting";
 
 let timeoutId: number = 0;
 
@@ -18,6 +19,7 @@ export const handleResize = (
       camera.position.z = camera.getDistanceFromCube();
       renderer.setSize(window.innerWidth, window.innerHeight);
       cube.redraw();
+      repositionLights();
     }, 200);
   });
 };
