@@ -29,8 +29,8 @@ class WorkPageAnimator {
   hasBeenDrawn = false;
   drawTodoSvg(delay = 0) {
     if (!this.hasBeenDrawn) {
-      const todoSvg = document.getElementById("todo-svg")!;
       setTimeout(() => {
+        const todoSvg = document.getElementById("todo-svg")!;
         todoSvg.style.animation = "draw 2.5s linear forwards";
         setTimeout(() => {
           todoSvg.style.fillOpacity = "1";

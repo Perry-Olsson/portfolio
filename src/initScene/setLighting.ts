@@ -11,10 +11,10 @@ export const setLights = (scene: Scene) => {
   pointLight2.position.set(pointLightPosition, 0, 0);
 
   const pointLight3 = new PointLight(0xffffff);
-  pointLight3.position.set(-20, 0, 0);
+  pointLight3.position.set(pointLightPosition, 0, 0);
 
   const pointLight4 = new PointLight(0xffffff);
-  pointLight4.position.set(0, 0, -20);
+  pointLight4.position.set(0, 0, pointLightPosition);
   pointLight4.lookAt(0, 0, 0);
 
   const ambientLight = new AmbientLight(0xaaaaaa);

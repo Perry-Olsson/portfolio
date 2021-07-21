@@ -30,7 +30,7 @@ export class Router {
     this.runTeardowns();
     setTimeout(() => {
       document.getElementById("content-container")!.scrollTo({ top: 0 });
-    }, 250);
+    }, 160);
     switch (route) {
       case "/intro":
         this.intro();
@@ -97,14 +97,14 @@ export class Router {
 
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
-      Animator.getInstance().workPage.drawTodoSvg(duration + 400);
+      Animator.getInstance().workPage.drawTodoSvg(duration + 600);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
-      this.fadeInNextPage(this.pages["/work"], duration);
+      this.fadeInNextPage(this.pages["/work"], duration + 15);
     }
   }
 
