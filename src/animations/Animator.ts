@@ -83,8 +83,11 @@ class AboutPageAnimator {
 
   showExclamation(delay = 0) {
     setTimeout(() => {
-      document.getElementById("exclamation-cover")!.style.transform =
-        "translateY(-80px)";
+      const cover = document.getElementById("exclamation-cover")!;
+      cover.style.transform = "translateY(-80px)";
+      setTimeout(() => {
+        cover.style.transform = "scale(0, 0)";
+      }, 1100);
     }, delay);
   }
 
