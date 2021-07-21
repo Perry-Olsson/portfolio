@@ -29,6 +29,9 @@ const waitForCanvasAnimation = (cube: Cube) => {
   setTimeout(() => {
     cube.redraw();
     fadeInIntroPage();
+    import("../components/renderComponents").then((result) => {
+      result.renderDynamicComponents();
+    });
     canvas.style.transition = "none";
   }, 800);
 };

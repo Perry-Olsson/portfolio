@@ -44,7 +44,6 @@ export class Components {
       ]),
       document.getElementById("about-components")!
     );
-    TechSlider();
   }
 
   appendWorkPageComponents() {
@@ -100,6 +99,10 @@ export class Components {
     this.addIcons();
   }
 }
+
+export const renderDynamicComponents = () => {
+  TechSlider();
+};
 
 const TechSlider = () => {
   const techItems = html`
