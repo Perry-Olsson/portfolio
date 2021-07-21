@@ -81,14 +81,18 @@ class AboutPageAnimator {
     if (this.translateVal <= -533) this.translateVal = 0;
   }
 
+  exclamationShown = false;
   showExclamation(delay = 0) {
-    setTimeout(() => {
-      const cover = document.getElementById("exclamation-cover")!;
-      cover.style.transform = "translateY(-80px)";
+    if (!this.exclamationShown) {
+      this.exclamationShown = true;
       setTimeout(() => {
-        cover.style.transform = "scale(0, 0)";
-      }, 1100);
-    }, delay);
+        const cover = document.getElementById("exclamation-cover")!;
+        cover.style.transform = "translateY(-90px)";
+        setTimeout(() => {
+          cover.style.transform = "scale(0, 0)";
+        }, 1200);
+      }, delay);
+    }
   }
 
   showDivider(delay = 0) {

@@ -37,7 +37,7 @@ export const externalLinkIcon = () => {
 export const todoSvg = () => html`
   <svg
     id="todo-svg"
-    class="stroke-current fill-current "
+    class="stroke-current fill-current mb-1 sm:mb-0"
     style="transition: fill-opacity 0.5s; fill-opacity: 0; stroke-dasharray: 300px; stroke-dashoffset: 300px"
     enable-background="new 0 0 64 64"
     height="65px"

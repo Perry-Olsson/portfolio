@@ -89,21 +89,16 @@
             transition-opacity
             fixed
             inset-0
-            flex
+            flex flex-col
+            sm:flex-row
             items-center
-            justify-around
+            justify-center
+            sm:justify-between
           "
         >
           <div
             id="intro-text-container"
-            class="
-              text-center
-              col-start-2 col-end-12
-              row-start-2
-              sm:text-left sm:col-end-10
-              xl:col-end-6
-              text-white
-            "
+            class="text-center sm:text-left sm:ml-32 text-white"
           >
             <h1
               id="name"
@@ -135,30 +130,16 @@
               transition-opacity
               flex
               justify-center
-              self-start
-              col-span-12
-              row-start-3
               mt-14
-              sm:row-start-2
-              sm:col-start-11
-              sm:self-center
-              sm:justify-end
-              sm:mt-0
+              mr-12
+              sm:justify-end sm:mt-0 sm:mr-28
               text-white
             "
             style="transition-duration: 0.7s; transition-delay: 1.5s"
           >
             <div
               id="arrow-button"
-              class="
-                flex
-                justify-end
-                w-24
-                mr-12
-                transition-colors
-                duration-200
-                sm:mr-10
-              "
+              class="flex justify-end w-24 transition-colors duration-200"
             >
               <button
                 id="arrow-circle"
@@ -258,7 +239,7 @@
               Hey there<span class="text-theme self-end">!</span>
               <span
                 id="exclamation-cover"
-                class="bg-white text-white w-8 relative right-12  inline-block "
+                class="bg-white text-white w-8 relative right-14 inline-block"
                 style="transition: transform 1s 0.1s"
                 >!</span
               >
@@ -320,12 +301,19 @@
           "
         >
           <div class="w-11/12 sm:w-4/6 lg:w-3/6">
-            <h1 class="text-5xl text-gray-600 font-extrabold text-left my-10 flex justify-between items-end">
-              <span>
-
-              What I've Done<span class="text-theme">.</span>
-              </span>
-              <div id="todo-svg-container" class="inline-block "></div>
+            <h1
+              class="
+                text-5xl text-gray-600
+                font-extrabold
+                text-left
+                my-10
+                flex
+                justify-between
+                items-end
+              "
+            >
+              <span> What I've Done<span class="text-theme">.</span> </span>
+              <div id="todo-svg-container" class="inline-block"></div>
             </h1>
             <div>
               <div class="project-container flex flex-col">
@@ -493,9 +481,7 @@
               </div>
               <div class="project-container flex flex-col">
                 <div class="w-11/12 m-auto">
-                  <h5 class="text-theme text-xl pt-3 font-cursive">
-                    Legacy
-                  </h5>
+                  <h5 class="text-theme text-xl pt-3 font-cursive">Legacy</h5>
                   <h2 class="project-title">Javascript Calculator</h2>
                 </div>
                 <div class="image-container">
