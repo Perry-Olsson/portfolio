@@ -1,4 +1,4 @@
-import { html, render } from "lit-html";
+import { html, render, TemplateResult } from "lit-html";
 import { Navbar } from "../navigation";
 import {
   arrowContainer,
@@ -6,7 +6,14 @@ import {
   LeftArrow,
   RightArrow,
 } from "./NavArrows";
-import { externalLinkIcon, gitHubIcon, todoSvg } from "./socialIcons";
+import {
+  ExternalLinkIcon,
+  FacebookIcon,
+  GitHubIcon,
+  LinkedinIcon,
+  TodoSvg,
+  TwitterIcon,
+} from "./Icons";
 import {
   CSS3Svg,
   DockerSvg,
@@ -30,10 +37,6 @@ export class Components {
   navbar: Navbar;
   constructor(navbar: Navbar) {
     this.navbar = navbar;
-  }
-
-  appendIntroPageComponents() {
-    render(gitHubIcon(), document.getElementById("github-personal")!);
   }
 
   appendAboutPageComponents() {
@@ -67,32 +70,26 @@ export class Components {
   }
 
   addIcons() {
-    this.addGitHubIcons();
-    this.addExternalLinkIcons();
+    this.appendIcons("github-icon", GitHubIcon);
+    this.appendIcons("external-link", ExternalLinkIcon);
+    this.appendIcons("facebook-icon", FacebookIcon);
+    this.appendIcons("twitter-icon", TwitterIcon);
+    this.appendIcons("linkedin-icon", LinkedinIcon);
     this.addTodoSvg();
   }
 
-  addGitHubIcons() {
-    const links = document.getElementsByClassName("github-icon");
-    for (let i = 0; i < links.length; i++) {
-      render(gitHubIcon(), links.item(i)!);
-    }
-  }
-
-  addExternalLinkIcons() {
-    const links = document.getElementsByClassName("external-link");
-
-    for (let i = 0; i < links.length; i++) {
-      render(externalLinkIcon(), links.item(i)!);
+  appendIcons(className: string, icon: () => TemplateResult) {
+    const elements = document.getElementsByClassName(className);
+    for (let i = 0; i < elements.length; i++) {
+      render(icon(), elements.item(i)!);
     }
   }
 
   addTodoSvg() {
-    render(todoSvg(), document.getElementById("todo-svg-container")!);
+    render(TodoSvg(), document.getElementById("todo-svg-container")!);
   }
 
   render() {
-    this.appendIntroPageComponents();
     this.appendAboutPageComponents();
     this.appendWorkPageComponents();
     this.appendContactPageComponents();

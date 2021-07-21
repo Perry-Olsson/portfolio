@@ -1,6 +1,6 @@
 import { html } from "lit-html";
 
-export const gitHubIcon = () => {
+export const GitHubIcon = () => {
   return html`
     <svg
       class="social-icon text-white theme-hover fill-current"
@@ -13,7 +13,49 @@ export const gitHubIcon = () => {
     </svg>
   `;
 };
-export const externalLinkIcon = () => {
+
+export const FacebookIcon = () => html`
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 117.7 226.6"
+    class="social-icon text-white theme-hover"
+  >
+    <path
+      d="M76.4 226.6V123.2h34.7l5.2-40.3H76.4V57.2c0-11.7 3.2-19.6 20-19.6h21.3v-36C114 1.1 101.3 0 86.6 0 55.8 0 34.8 18.8 34.8 53.2v29.7H0v40.3h34.8v103.4h41.6z"
+      class="fill-current"
+    ></path>
+  </svg>
+`;
+
+export const TwitterIcon = () => html`
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24"
+    class="social-icon text-white theme-hover"
+  >
+    <path
+      d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+      class="fill-current"
+    />
+  </svg>
+`;
+
+export const LinkedinIcon = () => html`
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 25.8 25.7"
+    class="social-icon text-white theme-hover"
+  >
+    <g fill="#010202">
+      <path
+        d="M.4 8.5h5.3v17.2H.4V8.5zM3.1 0c1.7 0 3.1 1.4 3.1 3.1 0 1.7-1.4 3.1-3.1 3.1C1.4 6.2 0 4.8 0 3.1 0 1.4 1.4 0 3.1 0M9.1 8.5h5.1v2.3h.1C15 9.4 16.8 8 19.4 8c5.4 0 6.4 3.6 6.4 8.2v9.4h-5.3v-8.4c0-2 0-4.6-2.8-4.6s-3.2 2.2-3.2 4.4v8.5H9.1v-17z"
+        class="fill-current"
+      ></path>
+    </g>
+  </svg>
+`;
+
+export const ExternalLinkIcon = () => {
   return html`
     <svg
       class="social-icon text-white theme-hover"
@@ -34,7 +76,7 @@ export const externalLinkIcon = () => {
   `;
 };
 
-export const todoSvg = () => html`
+export const TodoSvg = () => html`
   <svg
     id="todo-svg"
     class="stroke-current fill-current mb-1 sm:mb-0"
