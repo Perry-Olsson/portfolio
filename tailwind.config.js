@@ -9,6 +9,9 @@ module.exports = {
       colors: {
         theme: "#4affae",
       },
+      fontFamily: {
+        cursive: ["lobster", "cursive"],
+      },
     },
   },
   variants: {

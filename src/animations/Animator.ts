@@ -4,6 +4,7 @@ const arrowCircle = document.querySelector("#arrow-circle")!;
 export class Animator implements AnimationUtils {
   private static instance: Animator;
   aboutPage = new AboutPageAnimator();
+  workPage = new WorkPageAnimator();
   private constructor() {}
 
   static getInstance() {
@@ -19,6 +20,26 @@ export class Animator implements AnimationUtils {
       return false;
     }
     return true;
+  }
+}
+
+class WorkPageAnimator {
+  constructor() {}
+
+  hasBeenDrawn = false;
+  drawTodoSvg(delay = 0) {
+    if (!this.hasBeenDrawn) {
+      const todoSvg = document.getElementById("todo-svg")!;
+      setTimeout(() => {
+        todoSvg.style.animation = "draw 2.5s linear forwards";
+        setTimeout(() => {
+          todoSvg.style.fillOpacity = "1";
+          todoSvg.style.strokeDashoffset = "0";
+          todoSvg.style.animation = "";
+          this.hasBeenDrawn = true;
+        }, 2500);
+      }, delay);
+    }
   }
 }
 

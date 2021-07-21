@@ -81,7 +81,7 @@ export class Navbar {
   }
 
   work() {
-    this.changeTextColor("#252525");
+    this.changeTextColor("");
     this.changeActiveTab("#work");
     this.goTo("/work");
   }

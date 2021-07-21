@@ -16,7 +16,7 @@ setupDrag();
 
 export const router = new Router({ camera, cube });
 const navbar = new Navbar(router);
-
-new Components(navbar).render();
+const components = new Components(navbar);
+components.render();
 
 animate();

@@ -6,6 +6,7 @@ import {
   LeftArrow,
   RightArrow,
 } from "./NavArrows";
+import { externalLinkIcon, gitHubIcon, todoSvg } from "./socialIcons";
 import {
   CSS3Svg,
   DockerSvg,
@@ -29,6 +30,10 @@ export class Components {
   navbar: Navbar;
   constructor(navbar: Navbar) {
     this.navbar = navbar;
+  }
+
+  appendIntroPageComponents() {
+    render(gitHubIcon(), document.getElementById("github-personal")!);
   }
 
   appendAboutPageComponents() {
@@ -62,10 +67,37 @@ export class Components {
     );
   }
 
+  addIcons() {
+    this.addGitHubIcons();
+    this.addExternalLinkIcons();
+    this.addTodoSvg();
+  }
+
+  addGitHubIcons() {
+    const links = document.getElementsByClassName("github-icon");
+    for (let i = 0; i < links.length; i++) {
+      render(gitHubIcon(), links.item(i)!);
+    }
+  }
+
+  addExternalLinkIcons() {
+    const links = document.getElementsByClassName("external-link");
+
+    for (let i = 0; i < links.length; i++) {
+      render(externalLinkIcon(), links.item(i)!);
+    }
+  }
+
+  addTodoSvg() {
+    render(todoSvg(), document.getElementById("todo-svg-container")!);
+  }
+
   render() {
+    this.appendIntroPageComponents();
     this.appendAboutPageComponents();
     this.appendWorkPageComponents();
     this.appendContactPageComponents();
+    this.addIcons();
   }
 }
 
