@@ -2,8 +2,12 @@ import { html } from "lit-html";
 
 export const gitHubIcon = () => {
   return html`
+    <style>
+      svg:hover {
+        color: var(--theme);
+      }
+    </style>
     <svg
-      id="github"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
       class="social-icon text-white"

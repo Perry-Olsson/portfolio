@@ -140,10 +140,6 @@ main {
     color: #0e76a8;
   }
 
-  #github:hover {
-    color: #2d333b;
-  }
-
   #arrow-circle:hover {
     animation: none;
   }
