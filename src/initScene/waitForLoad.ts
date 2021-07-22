@@ -8,15 +8,10 @@ const arrowCircle = document.querySelector<HTMLDivElement>("#arrow-circle")!;
 const name = document.querySelector<HTMLHeadElement>("#name")!;
 
 export const waitForLoad = (cube: Cube) => {
-  canvas.style.height = "0px";
-  canvas.style.width = "0px";
-
   DefaultLoadingManager.onLoad = () => {
     setTimeout(() => {
-      canvas.style.height = "100%";
-      canvas.style.width = "100%";
-      document.querySelector<HTMLDivElement>(".lds-roller")!.style.display =
-        "none";
+      document.getElementById("initial-loader")!.style.display = "none";
+      canvas.style.transform = "scale(1, 1)";
       document
         .querySelector<HTMLDivElement>("main")!
         .classList.replace("hidden", "block");
@@ -27,7 +22,9 @@ export const waitForLoad = (cube: Cube) => {
 
 const waitForCanvasAnimation = (cube: Cube) => {
   setTimeout(() => {
-    cube.redraw();
+    setTimeout(() => {
+      cube.redraw();
+    }, 200);
     fadeInIntroPage();
     import("../components/renderComponents").then((result) => {
       result.renderDynamicComponents();

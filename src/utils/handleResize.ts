@@ -13,11 +13,11 @@ export const handleResize = (
   window.addEventListener("resize", () => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       camera.setDistanceFromCube();
       camera.position.z = camera.getDistanceFromCube();
-      renderer.setSize(window.innerWidth, window.innerHeight);
       cube.redraw();
       repositionLights();
     }, 200);

@@ -7,7 +7,6 @@ import { baseColor, cubeSizeFactor } from "../constants";
 export class Cube extends Mesh {
   cubeWidth = () => window.innerWidth / cubeSizeFactor;
   cubeHeight = () => window.innerHeight / cubeSizeFactor;
-  cubeDepth = () => this.cubeWidth();
   constructor() {
     super();
     this.geometry = this.createGeometry();
@@ -20,11 +19,8 @@ export class Cube extends Mesh {
   }
 
   createGeometry() {
-    return new BoxGeometry(
-      this.cubeWidth(),
-      this.cubeHeight(),
-      this.cubeDepth()
-    );
+    const width = this.cubeWidth();
+    return new BoxGeometry(width, this.cubeHeight(), width);
   }
 
   createMaterials() {
