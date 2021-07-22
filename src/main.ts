@@ -7,7 +7,7 @@ import { Components } from "./components";
 
 const cube = new Cube();
 
-const { scene, renderer, camera, animate } = initScene(cube);
+const { scene, renderer, camera, animate } = initScene();
 
 scene.add(cube);
 

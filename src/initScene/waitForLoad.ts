@@ -1,5 +1,4 @@
 import { DefaultLoadingManager } from "three";
-import { Cube } from "../cube";
 
 const canvas = document.querySelector("canvas")!;
 const titleNodes = document.querySelector<any>("#intro-text-container")!;
@@ -7,7 +6,7 @@ const arrow = document.querySelector<HTMLDivElement>("#arrow-container")!;
 const arrowCircle = document.querySelector<HTMLDivElement>("#arrow-circle")!;
 const name = document.querySelector<HTMLHeadElement>("#name")!;
 
-export const waitForLoad = (cube: Cube) => {
+export const waitForLoad = () => {
   DefaultLoadingManager.onLoad = () => {
     setTimeout(() => {
       document.getElementById("initial-loader")!.style.display = "none";
@@ -15,16 +14,13 @@ export const waitForLoad = (cube: Cube) => {
       document
         .querySelector<HTMLDivElement>("main")!
         .classList.replace("hidden", "block");
-      waitForCanvasAnimation(cube);
+      waitForCanvasAnimation();
     }, 400);
   };
 };
 
-const waitForCanvasAnimation = (cube: Cube) => {
+const waitForCanvasAnimation = () => {
   setTimeout(() => {
-    setTimeout(() => {
-      cube.redraw();
-    }, 200);
     fadeInIntroPage();
     import("../components/renderComponents").then((result) => {
       result.renderDynamicComponents();

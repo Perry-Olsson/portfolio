@@ -97,7 +97,7 @@ export class Router {
 
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
-      Animator.getInstance().workPage.drawTodoSvg(duration + 600);
+      Animator.getInstance().workPage.drawTodoSvg(duration);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)

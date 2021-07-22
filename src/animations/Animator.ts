@@ -38,7 +38,7 @@ class WorkPageAnimator {
           todoSvg.style.animation = "";
           this.hasBeenDrawn = true;
         }, 2500);
-      }, delay);
+      }, delay + 500);
     }
   }
 }
