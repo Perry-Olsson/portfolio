@@ -35,13 +35,13 @@ export const NavContent = () => {
     </style>
     <div
       id="nav-box-content"
-      class=" text-white flex flex-col justify-between item-center w-full"
+      class="text-white flex flex-col justify-between item-center w-full"
       style="height: ${window.innerHeight / 3}px;"
     >
       <a
         href="https://www.linkedin.com/in/perry-olsson-94a32217a/"
         target="_blank"
-        class="linkedin-icon  flex justify-center mt-5 sm:mt-3"
+        class="linkedin-icon mx-auto mt-5 sm:mt-3 w-min"
       ></a>
       <div id="middle-row" class="flex justify-between relative top-3">
         <a
