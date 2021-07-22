@@ -1,7 +1,7 @@
 import { Router } from "../router";
 
+const form = document.querySelector<HTMLFormElement>("#contact-form")!;
 export const handleEmailSubmission = () => {
-  const form = document.querySelector<HTMLFormElement>("#contact-form")!;
   const formStatus = document.getElementById("contact-form-status")!;
 
   interface FormData {
@@ -51,6 +51,7 @@ function showError(formStatus: HTMLElement) {
     formStatus.textContent = "Success, thank you!";
     formStatus.classList.replace("text-red-700", "text-theme");
     formStatus.style.transform = "scale(0)";
+    form.reset();
     return false;
   });
 }
