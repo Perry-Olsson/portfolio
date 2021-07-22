@@ -6,7 +6,7 @@ import { TeardownFunction } from "../types";
 //return true to run on next re-route
 
 export class Router {
-  teardownFunctions: Array<TeardownFunction>;
+  static teardownFunctions: Array<TeardownFunction>;
   controllers: Controllers;
   route: keyof Pages;
   static pos1 = 0;
@@ -23,7 +23,9 @@ export class Router {
   constructor(controllers: Controllers) {
     this.controllers = controllers;
     this.route = "/intro";
-    this.teardownFunctions = [Animator.getInstance().removeIntroArrowAnimation];
+    Router.teardownFunctions = [
+      Animator.getInstance().removeIntroArrowAnimation,
+    ];
   }
 
   goTo(route: string) {
@@ -48,7 +50,9 @@ export class Router {
   }
 
   runTeardowns() {
-    this.teardownFunctions = this.teardownFunctions.filter((func) => func());
+    Router.teardownFunctions = Router.teardownFunctions.filter((func) =>
+      func()
+    );
   }
 
   intro() {
@@ -77,7 +81,7 @@ export class Router {
       const cameraDuration = duration / 2;
       const animator = Animator.getInstance();
       animator.aboutPage.start(duration);
-      this.teardownFunctions.push(() => {
+      Router.teardownFunctions.push(() => {
         animator.aboutPage.stopTechSlide();
         return false;
       });
