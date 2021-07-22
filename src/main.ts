@@ -11,12 +11,12 @@ const { scene, renderer, camera, animate } = initScene();
 
 scene.add(cube);
 
-handleResize(renderer, camera, cube);
-setupDrag();
-
 export const router = new Router({ camera, cube });
 const navbar = new Navbar(router);
 const components = new Components(navbar);
 components.render();
+
+handleResize(renderer, camera, cube, components);
+setupDrag();
 
 animate();

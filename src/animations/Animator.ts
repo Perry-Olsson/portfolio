@@ -5,6 +5,7 @@ export class Animator implements AnimationUtils {
   private static instance: Animator;
   aboutPage = new AboutPageAnimator();
   workPage = new WorkPageAnimator();
+  contactPage = new ContactAnimator();
   private constructor() {}
 
   static getInstance() {
@@ -20,6 +21,16 @@ export class Animator implements AnimationUtils {
       return false;
     }
     return true;
+  }
+}
+
+class ContactAnimator {
+  constructor() {}
+
+  showNavBox(delay = 0) {
+    setTimeout(() => {
+      document.getElementById("nav-box")!.style.transform = `translateY(0)`;
+    }, delay);
   }
 }
 

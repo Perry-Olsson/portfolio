@@ -108,12 +108,14 @@ export class Router {
     }
   }
 
+  contentContainer = document.getElementById("content-container")!;
   contact() {
     if (this.route !== "/contact") {
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/contact";
       const duration = this.getAnimationDuration(Router.pos4);
       const cameraDuration = duration / 2;
+      Animator.getInstance().contactPage.showNavBox(duration);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)

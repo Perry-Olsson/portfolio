@@ -7,9 +7,11 @@ import {
   RightArrow,
 } from "./NavArrows";
 import {
+  CodepenIcon,
   ExternalLinkIcon,
   FacebookIcon,
   GitHubIcon,
+  InstagramIcon,
   LinkedinIcon,
   TodoSvg,
   TwitterIcon,
@@ -32,6 +34,7 @@ import {
   ReduxSvg,
   TypeScriptSvg,
 } from "./techSkillsIcons";
+import { NavBox, NavContent } from "./NavBox";
 
 export class Components {
   navbar: Navbar;
@@ -67,6 +70,15 @@ export class Components {
       ]),
       document.getElementById("contact-components")!
     );
+    this.addNavBox();
+  }
+
+  addNavBox() {
+    render(NavBox(), document.getElementById("contact-nav-box-container")!);
+    render(
+      NavContent(),
+      document.getElementById("contact-nav-content-container")!
+    );
   }
 
   addIcons() {
@@ -75,6 +87,8 @@ export class Components {
     this.appendIcons("facebook-icon", FacebookIcon);
     this.appendIcons("twitter-icon", TwitterIcon);
     this.appendIcons("linkedin-icon", LinkedinIcon);
+    this.appendIcons("codepen-icon", CodepenIcon);
+    this.appendIcons("instagram-icon", InstagramIcon);
     this.addTodoSvg();
   }
 
@@ -94,6 +108,10 @@ export class Components {
     this.appendWorkPageComponents();
     this.appendContactPageComponents();
     this.addIcons();
+  }
+
+  reRender() {
+    this.addNavBox();
   }
 }
 

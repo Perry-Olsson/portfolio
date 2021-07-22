@@ -511,16 +511,24 @@
           class="
             none
             opacity-0
-            fixed
-            inset-0
-            justify-center
             transition-all
-            grid grid-cols-12 grid-rows-3
+            flex flex-col
             items-center
+            justify-center
+            border border-red-800
           "
         >
-          <div class="border w-min m-auto">contact</div>
           <div id="contact-components"></div>
+          <div
+            id="contact-nav-box-container"
+            class="fixed bottom-0"
+            style="z-index: 1"
+          ></div>
+          <div
+            id="contact-nav-content-container"
+            class="fixed bottom-0 w-full flex justify-center"
+            style="z-index: 2"
+          ></div>
         </div>
       </div>
     </main>
