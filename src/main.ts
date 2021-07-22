@@ -1,9 +1,10 @@
 import { initScene } from "./initScene";
-import { handleResize, setupDrag } from "./utils";
+import { handleResize } from "./utils";
 import { Cube } from "./cube";
 import { Router } from "./router";
 import { Navbar } from "./navigation";
 import { Components } from "./components";
+import { handleEmailSubmission } from "./contactForm";
 
 const cube = new Cube();
 
@@ -16,7 +17,8 @@ const navbar = new Navbar(router);
 const components = new Components(navbar);
 components.render();
 
+handleEmailSubmission();
+
 handleResize(renderer, camera, cube, components);
-setupDrag();
 
 animate();

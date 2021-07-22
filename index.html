@@ -453,7 +453,7 @@
                   </div>
                 </div>
               </div>
-              <div class="project-container flex flex-col">
+              <div class="project-container flex flex-col" style="margin-bottom: 0">
                 <div class="w-11/12 m-auto">
                   <h5 class="text-theme text-xl pt-3 font-cursive">Legacy</h5>
                   <h2 class="project-title">Javascript Calculator</h2>
@@ -519,23 +519,20 @@
         >
           <div class="w-11/12 sm:w-4/6 lg:w-2/6">
             <h1
-              id="contact-header"
               class="
                 text-5xl text-gray-600
                 font-extrabold
                 text-left
-                my-10
                 flex
-                justify-between
+                my-5
                 items-end
               "
             >
-              <span>Contact<span class="text-theme">.</span> </span>
-              <div id="todo-svg-container" class="inline-block"></div>
+              Contact<span class="text-theme">.</span>
             </h1>
-            <form>
-              <div class="flex flex-col w-full">
+            <form id="contact-form" class="flex flex-col w-full" >
                 <input
+                  name="name"
                   placeholder="Name"
                   type="text"
                   class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
@@ -554,7 +551,7 @@
                   type="text"
                   name="message"
                 ></textarea>
-              </div>
+                <input name="submit" type="submit" value="Submit" class="mt-1 p-2 text-white bg-gray-600 w-1/3 border-2 border-theme rounded-md self-end font-extrabold hover:bg-theme hover:text-gray-600 hover:border-gray-600 cursor-pointer transition-colors duration-300">
             </form>
           </div>
           <div id="contact-components"></div>

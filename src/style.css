@@ -76,6 +76,11 @@ main {
     transition: color 0.1s;
   }
 
+  form input:focus,
+  form textarea:focus {
+    outline: solid 1px var(--theme);
+  }
+
   .project-container {
     @apply w-full;
     @apply rounded-lg;
