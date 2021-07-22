@@ -33,9 +33,7 @@ export const LeftArrow = (destination: () => void) => {
 export const BackHomeArrow = (destination: () => void) => {
   const button = createArrowButton(destination, RestartIcon());
   return html`
-    <div
-      class="static sm:fixed bottom-0 right-10 sm:top-2/4 justify-end transition-colors duration-200 sm:flex"
-    >
+    <div class="relative bottom-2 transition-colors duration-200">
       ${button}
     </div>
   `;
@@ -73,9 +71,19 @@ const ArrowIcon = (style: StyleInfo = {}) => {
 
 const RestartIcon = () => {
   return html`
+    <style>
+      #back-home-arrow {
+        transform: rotate(165deg);
+        transition: transform 0.7s ease-in-out;
+      }
+      #back-home-arrow:hover {
+        transform: rotate(525deg);
+      }
+    </style>
     <div
+      id="back-home-arrow"
       class="w-full flex justify-center"
-      style="transform: rotate(165deg); margin-right: 2px"
+      style=" margin-right: 2px"
     >
       <svg
         version="1.1"

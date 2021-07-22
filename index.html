@@ -515,9 +515,48 @@
             flex flex-col
             items-center
             justify-center
-            border border-red-800
           "
         >
+          <div class="w-11/12 sm:w-4/6 lg:w-2/6">
+            <h1
+              id="contact-header"
+              class="
+                text-5xl text-gray-600
+                font-extrabold
+                text-left
+                my-10
+                flex
+                justify-between
+                items-end
+              "
+            >
+              <span>Contact<span class="text-theme">.</span> </span>
+              <div id="todo-svg-container" class="inline-block"></div>
+            </h1>
+            <form>
+              <div class="flex flex-col w-full">
+                <input
+                  placeholder="Name"
+                  type="text"
+                  class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
+                  required
+                />
+                <input
+                  placeholder="Enter email"
+                  type="text"
+                  name="email"
+                  class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
+                  required
+                />
+                <textarea
+                  class="bg-gray-600 p-2 pb-10 rounded-sm text-white"
+                  placeholder="Enter your message"
+                  type="text"
+                  name="message"
+                ></textarea>
+              </div>
+            </form>
+          </div>
           <div id="contact-components"></div>
           <div
             id="contact-nav-box-container"

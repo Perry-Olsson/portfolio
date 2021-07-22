@@ -63,14 +63,15 @@ export class Components {
   }
 
   appendContactPageComponents() {
+    this.addNavBox();
     render(
-      arrowContainer([
-        LeftArrow(() => this.navbar.work()),
-        BackHomeArrow(() => this.navbar.intro()),
-      ]),
+      arrowContainer([LeftArrow(() => this.navbar.work())]),
       document.getElementById("contact-components")!
     );
-    this.addNavBox();
+    render(
+      BackHomeArrow(() => this.navbar.intro()),
+      document.getElementById("backhome-container")!
+    );
   }
 
   addNavBox() {

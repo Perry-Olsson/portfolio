@@ -27,10 +27,13 @@ export class Animator implements AnimationUtils {
 class ContactAnimator {
   constructor() {}
 
+  hasBeenShown = false;
   showNavBox(delay = 0) {
-    setTimeout(() => {
-      document.getElementById("nav-box")!.style.transform = `translateY(0)`;
-    }, delay);
+    if (!this.hasBeenShown)
+      setTimeout(() => {
+        document.getElementById("nav-box")!.style.transform = `translateY(0)`;
+        this.hasBeenShown = true;
+      }, delay);
   }
 }
 

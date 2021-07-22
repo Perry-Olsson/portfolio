@@ -21,9 +21,21 @@ export const NavBox = () => {
 
 export const NavContent = () => {
   return html`
+    <style>
+      #middle-row {
+        margin-left: 30%;
+        margin-right: 30%;
+      }
+      @media (max-width: 450px) {
+        #middle-row {
+          margin-left: 29%;
+          margin-right: 29%;
+        }
+      }
+    </style>
     <div
       id="nav-box-content"
-      class="border  text-white flex flex-col justify-between item-center w-full"
+      class=" text-white flex flex-col justify-between item-center w-full"
       style="height: ${window.innerHeight / 3}px;"
     >
       <a
@@ -31,12 +43,13 @@ export const NavContent = () => {
         target="_blank"
         class="linkedin-icon  flex justify-center mt-5 sm:mt-3"
       ></a>
-      <div class="flex justify-evenly">
+      <div id="middle-row" class="flex justify-between relative top-3">
         <a
           href="https://github.com/Perry-Olsson"
           target="_blank"
           class="github-icon"
         ></a>
+        <div id="backhome-container"></div>
         <a
           href="https://codepen.io/Perry_O"
           target="_blank"

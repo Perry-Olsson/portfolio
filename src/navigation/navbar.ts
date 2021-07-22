@@ -74,7 +74,7 @@ export class Navbar {
   }
 
   about() {
-    this.changeTextColor("#252525");
+    this.changeTextColor("");
     this.changeActiveTab("#about");
 
     this.goTo("/about");
@@ -87,7 +87,7 @@ export class Navbar {
   }
 
   contact() {
-    this.changeTextColor("#252525");
+    this.changeTextColor("");
     this.changeActiveTab("#contact");
     this.goTo("/contact");
   }
