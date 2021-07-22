@@ -12,6 +12,8 @@ export class Navbar {
   navbar = document.querySelector<HTMLDivElement>("#navbar")!;
   burger = document.querySelector<HTMLDivElement>("#burger")!;
   activeTab = document.querySelector<HTMLButtonElement>("#intro")!;
+  textDark = "rgba(55, 65, 81, 1)";
+  textLight = "white";
   constructor(router: Router) {
     this.router = router;
     this.overlayOpen = false;
@@ -68,26 +70,26 @@ export class Navbar {
   }
 
   intro() {
-    this.changeTextColor("white");
+    this.changeTextColor("white", Router.pos1);
     this.removeActiveTab();
     this.goTo("/intro");
   }
 
   about() {
-    this.changeTextColor("");
+    this.changeTextColor(this.textDark, Router.pos2);
     this.changeActiveTab("#about");
 
     this.goTo("/about");
   }
 
   work() {
-    this.changeTextColor("");
+    this.changeTextColor(this.textDark, Router.pos3);
     this.changeActiveTab("#work");
     this.goTo("/work");
   }
 
   contact() {
-    this.changeTextColor("");
+    this.changeTextColor(this.textDark, Router.pos4);
     this.changeActiveTab("#contact");
     this.goTo("/contact");
   }
@@ -102,11 +104,13 @@ export class Navbar {
     this.activeTab.classList.remove("navtab-active");
   }
 
-  changeTextColor(color: string) {
-    this.navbar.style.color = color;
-    this.burger
-      .querySelectorAll<HTMLDivElement>("div")
-      .forEach((bar) => (bar.style.backgroundColor = color));
+  changeTextColor(color: string, position: number) {
+    setTimeout(() => {
+      this.navbar.style.color = color;
+      this.burger
+        .querySelectorAll<HTMLDivElement>("div")
+        .forEach((bar) => (bar.style.backgroundColor = color));
+    }, this.router.getAnimationDuration(position));
   }
 
   goTo(route: string) {
