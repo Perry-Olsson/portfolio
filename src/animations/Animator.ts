@@ -101,7 +101,7 @@ class AboutPageAnimator {
       this.exclamationShown = true;
       setTimeout(() => {
         const cover = document.getElementById("exclamation-cover")!;
-        cover.style.transform = "translateY(-90px)";
+        cover.style.transform = "translate(-30px, -90px)";
         setTimeout(() => {
           cover.style.transition = "";
           cover.style.transform = "scale(0, 0)";
