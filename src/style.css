@@ -93,6 +93,9 @@ main {
     @apply text-3xl;
     @apply font-extrabold;
     @apply pb-3;
+    @apply hover:text-theme;
+    @apply cursor-pointer;
+    width: fit-content;
   }
 
   .image-container {
@@ -100,6 +103,7 @@ main {
     @apply border-l;
     @apply border-r;
     @apply border-gray-700;
+    cursor: pointer;
   }
 }
 

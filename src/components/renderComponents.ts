@@ -35,6 +35,7 @@ import {
   TypeScriptSvg,
 } from "./techSkillsIcons";
 import { NavBox, NavContent } from "./NavBox";
+import { addProjectInfoListeners } from "../Workpage/WorkPage";
 
 export class Components {
   navbar: Navbar;
@@ -60,6 +61,7 @@ export class Components {
       ]),
       document.getElementById("work-components")!
     );
+    addProjectInfoListeners();
   }
 
   appendContactPageComponents() {
