@@ -103,6 +103,7 @@ class AboutPageAnimator {
         const cover = document.getElementById("exclamation-cover")!;
         cover.style.transform = "translateY(-90px)";
         setTimeout(() => {
+          cover.style.transition = "";
           cover.style.transform = "scale(0, 0)";
         }, 1200);
       }, delay);
