@@ -3,8 +3,6 @@ import { Camera } from "../camera";
 import { Animator } from "../animations";
 import { TeardownFunction } from "../types";
 
-//return true to run on next re-route
-
 export class Router {
   static teardownFunctions: Array<TeardownFunction>;
   controllers: Controllers;
@@ -101,7 +99,7 @@ export class Router {
 
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
-      Animator.getInstance().workPage.drawTodoSvg(duration + 100);
+      Animator.getInstance().workPage.drawTodoSvg(duration);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
@@ -112,7 +110,6 @@ export class Router {
     }
   }
 
-  contentContainer = document.getElementById("content-container")!;
   contact() {
     if (this.route !== "/contact") {
       this.fadeOutCurrentPage(this.pages[this.route]);
@@ -147,10 +144,10 @@ export class Router {
   getAnimationDuration(pos: number) {
     const amountToRotate = Math.abs(this.controllers.cube.rotation.y - pos);
     return amountToRotate === Math.PI
-      ? 900
+      ? 800
       : amountToRotate > Math.PI
-      ? 1100
-      : 750;
+      ? 1000
+      : 600;
   }
 }
 

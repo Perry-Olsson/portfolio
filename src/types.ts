@@ -4,4 +4,5 @@ export interface Coordinate {
   z: number;
 }
 
+//return true to run on next re-route
 export type TeardownFunction = () => boolean;

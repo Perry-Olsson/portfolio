@@ -84,7 +84,7 @@ export class Components {
   }
 
   addIcons() {
-    this.appendIcons("github-icon", GitHubIcon);
+    this.appendIcons("github-icon", () => GitHubIcon("text-white"));
     this.appendIcons("external-link", ExternalLinkIcon);
     this.appendIcons("facebook-icon", FacebookIcon);
     this.appendIcons("twitter-icon", TwitterIcon);

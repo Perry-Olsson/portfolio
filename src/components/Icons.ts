@@ -1,9 +1,9 @@
 import { html } from "lit-html";
 
-export const GitHubIcon = () => {
+export const GitHubIcon = (color = "") => {
   return html`
     <svg
-      class="social-icon text-white theme-hover fill-current"
+      class="social-icon ${color} theme-hover fill-current"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >
@@ -58,8 +58,7 @@ export const LinkedinIcon = () => html`
 export const ExternalLinkIcon = () => {
   return html`
     <svg
-      class="social-icon text-white theme-hover"
-      xmlns="http://www.w3.org/2000/svg"
+      class="social-icon theme-hover stroke-current"
       role="img"
       viewBox="0 0 24 24"
       fill="none"

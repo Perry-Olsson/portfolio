@@ -1,5 +1,6 @@
 import { html, render } from "lit-html";
-import { projectData } from "./projectDescriptions";
+import { ExternalLinkIcon, GitHubIcon } from "../components/Icons";
+import { projectData, ProjectInfoProps } from "./projectDescriptions";
 
 const overlayElement = document.getElementById("overlay-container")!;
 
@@ -18,15 +19,66 @@ const showProjectInfo = (index: number) => {
   overlayElement.classList.remove("none");
   setTimeout(() => {
     overlayElement.style.transform = "scale(1, 1)";
-  });
+  }, 10);
 };
 
-export interface ProjectInfoProps {
-  projectTitle: string;
-}
 export const ProjectInfo = (data: ProjectInfoProps) => {
-  return html` <div>${InfoPageExitButton()}${data.projectTitle}</div> `;
+  return html`
+    <div class="w-full sm:w-3/6 flex flex-col items-center">
+      ${InfoPageExitButton()}
+      <h3 class="text-4xl font-bold m-3 w-11/12 sm:w-full">
+        ${data.projectTitle}<span class="text-theme">.</span>
+      </h3>
+      <div
+        id="image-carousel"
+        class="border border-gray-300 shadow-xl ${data.isMobileApp
+          ? "grid grid-cols-4"
+          : ""}"
+      >
+        ${data.imgUrls.map((img) => html`<img src=${img} class="w-full" />`)}
+      </div>
+      <div class="w-11/12 sm:w-full mt-3  text-gray-600 flex flex-col">
+        <h6 class="text-2xl text-gray-400">${data.headline}</h6>
+        <br class="h-2" />
+        <p class="overflow-auto" style="max-height: 149px;">
+          ${data.description}
+        </p>
+        <div class="flex">
+          ${ViewSiteButton(data.websiteLink)}
+          ${ViewSourceButton(data.githubLink)}
+        </div>
+      </div>
+    </div>
+  `;
 };
+
+export const ViewSiteButton = (href: string) => html`
+  <style>
+    .overlay-website-link:hover span,
+    .overlay-website-link:hover svg {
+      color: white;
+    }
+  </style>
+  <a
+    href=${href}
+    target="_blank"
+    class="overlay-website-link  w-3/6 sm:w-1/6 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+  >
+    ${ExternalLinkIcon()}
+    <span class="ml-3">VIEW SITE</span>
+  </a>
+`;
+
+export const ViewSourceButton = (href: string) => html`
+  <a
+    href=${href}
+    target="_blank"
+    class="overlay-website-link w-3/6 sm:w-1/6 py-2 mt-4 ml-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+  >
+    ${GitHubIcon()}
+    <span class="ml-3">CODE</span>
+  </a>
+`;
 
 export const InfoPageExitButton = () => {
   return html` <style>
@@ -48,7 +100,7 @@ export const InfoPageExitButton = () => {
         setTimeout(() => {
           overlayElement.classList.add("none");
           overlayElement.style.transform = "scale(0, 1)";
-        }, 800);
+        }, 500);
       }}
       id="overlay-close-container"
       class="fixed top-3 right-3 h-9"
