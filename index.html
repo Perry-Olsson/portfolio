@@ -209,18 +209,28 @@
           "
         >
           <div class="w-11/12 sm:w-4/6 lg:w-3/6">
-            <h1 class="text-8xl text-gray-600 font-extrabold text-left my-4">
-              Hey there<span class="text-theme self-end">!</span>
-              <span
-                id="exclamation-cover"
-                class="bg-white text-white w-8 absolute"
-                style="
-                  transition: transform 1s 0.1s;
-                  transform: translate(-30px, 0);
-                "
-                >!</span
-              >
-            </h1>
+            <div class="flex justify-between items-start mt-4">
+              <h1 class="text-8xl text-gray-600 font-extrabold text-left mb-4">
+                Hey<span class="text-theme self-end">!</span>
+                <span
+                  id="exclamation-cover"
+                  class="bg-white text-white w-8 absolute"
+                  style="
+                    transition: transform 1s 0.1s;
+                    transform: translate(-30px, 0);
+                  "
+                  >!</span
+                >
+              </h1>
+              <img
+                id="profile-photo"
+                src="/about-page-photo.png"
+                alt="Profile photo"
+                width="100px"
+                class="rounded-full"
+                style="transform: scale(0); transition: transform 1s 0.5s"
+              />
+            </div>
             <h4 class="text-3xl text-gray-600">
               My name is Perry Olsson. I'm from the Seattle area and I'm
               interested in helping engineer the future of software and web

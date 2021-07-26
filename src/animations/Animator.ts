@@ -67,6 +67,7 @@ class AboutPageAnimator {
     this.startTechSlide(baseDelay);
     this.showExclamation(baseDelay);
     this.showDivider(baseDelay);
+    this.showProfilePhoto(baseDelay);
   }
 
   startTechSlide(delay = 0) {
@@ -113,6 +114,11 @@ class AboutPageAnimator {
   showDivider(delay = 0) {
     setTimeout(() => {
       document.getElementById("about-heading-divider")!.style.width = "100%";
+    }, delay);
+  }
+  showProfilePhoto(delay = 0) {
+    setTimeout(() => {
+      document.getElementById("profile-photo")!.style.transform = "scale(1)";
     }, delay);
   }
 }
