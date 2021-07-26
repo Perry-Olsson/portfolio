@@ -8,12 +8,14 @@ const name = document.querySelector<HTMLHeadElement>("#name")!;
 
 export const waitForLoad = () => {
   DefaultLoadingManager.onLoad = () => {
-    document.getElementById("initial-loader")!.style.display = "none";
-    canvas.style.transform = "scale(1)";
-    document
-      .querySelector<HTMLDivElement>("main")!
-      .classList.replace("hidden", "block");
-    waitForCanvasAnimation();
+    setTimeout(() => {
+      document.getElementById("initial-loader")!.style.display = "none";
+      canvas.style.transform = "scale(1)";
+      document
+        .querySelector<HTMLDivElement>("main")!
+        .classList.replace("hidden", "block");
+      waitForCanvasAnimation();
+    }, 400);
   };
 };
 
