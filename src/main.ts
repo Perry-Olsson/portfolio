@@ -21,6 +21,6 @@ const components = new Components(navbar);
 components.render();
 
 handleResize(renderer, camera, cube, components);
-setupSwipe();
+setupSwipe(navbar);
 
 animate();

@@ -117,4 +117,36 @@ export class Navbar {
     this.hideOverlay();
     this.router.goTo(route);
   }
+
+  goToNext() {
+    switch (this.router.route) {
+      case "/intro":
+        this.about();
+        break;
+      case "/about":
+        this.work();
+        break;
+      case "/work":
+        this.contact();
+        break;
+      case "/contact":
+        break;
+    }
+  }
+
+  goToPrevious() {
+    switch (this.router.route) {
+      case "/intro":
+        break;
+      case "/about":
+        this.intro();
+        break;
+      case "/work":
+        this.about();
+        break;
+      case "/contact":
+        this.work();
+        break;
+    }
+  }
 }
