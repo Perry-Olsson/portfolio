@@ -19,7 +19,7 @@ export const setupSwipe = (navbar: Navbar) => {
     xEnd = e.touches[0].screenX;
     yEnd = e.touches[0].screenY;
   });
-  document.addEventListener("touchend", (e) => {
+  document.addEventListener("touchend", () => {
     touchEnd = Date.now();
     if (isYMovementSmallEnough() && touchIsShortEnough()) {
       if (xEnd - xMin > xStart) {

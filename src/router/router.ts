@@ -101,14 +101,14 @@ export class Router {
 
       const duration = this.getAnimationDuration(Router.pos3);
       const cameraDuration = duration / 2;
-      Animator.getInstance().workPage.drawTodoSvg(duration);
+      Animator.getInstance().workPage.drawTodoSvg(duration + 100);
       this.controllers.camera
         .tweenOut()
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
-      this.fadeInNextPage(this.pages["/work"], duration + 15);
+      this.fadeInNextPage(this.pages["/work"], duration + 50);
     }
   }
 
@@ -147,10 +147,10 @@ export class Router {
   getAnimationDuration(pos: number) {
     const amountToRotate = Math.abs(this.controllers.cube.rotation.y - pos);
     return amountToRotate === Math.PI
-      ? 750
+      ? 900
       : amountToRotate > Math.PI
-      ? 1000
-      : 650;
+      ? 1100
+      : 750;
   }
 }
 
