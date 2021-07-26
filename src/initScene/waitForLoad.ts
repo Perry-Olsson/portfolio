@@ -9,7 +9,7 @@ const name = document.querySelector<HTMLHeadElement>("#name")!;
 export const waitForLoad = () => {
   DefaultLoadingManager.onLoad = () => {
     document.getElementById("initial-loader")!.style.display = "none";
-    canvas.style.transform = "scale(1, 1)";
+    canvas.style.transform = "scale(1)";
     document
       .querySelector<HTMLDivElement>("main")!
       .classList.replace("hidden", "block");
@@ -23,7 +23,6 @@ const waitForCanvasAnimation = () => {
     import("../components/renderComponents").then((result) => {
       result.renderDynamicComponents();
     });
-    canvas.style.transition = "none";
   }, 800);
 };
 

@@ -1,6 +1,5 @@
 import { BackgroundTexture } from "../textures";
 import { Camera } from "../camera";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { update } from "@tweenjs/tween.js";
 import { setLights } from "./setLighting";
 import { waitForLoad } from "./waitForLoad";
@@ -21,10 +20,8 @@ export const initScene = () => {
 
   waitForLoad();
 
-  const orbitControls = new OrbitControls(camera, renderer.domElement);
   function animate() {
     requestAnimationFrame(animate);
-    orbitControls.update();
     update();
     renderer.render(scene, camera);
   }
