@@ -5,6 +5,7 @@ import { Router } from "./router";
 import { Navbar } from "./navigation";
 import { Components } from "./components";
 import { handleEmailSubmission } from "./contactForm";
+import { setupSwipe } from "./utils/setupSwipe";
 
 const cube = new Cube();
 
@@ -20,5 +21,6 @@ const components = new Components(navbar);
 components.render();
 
 handleResize(renderer, camera, cube, components);
+setupSwipe(navbar);
 
 animate();

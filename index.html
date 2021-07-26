@@ -203,29 +203,32 @@
         </div>
         <div
           id="about-page"
-          class="
-            none
-            sm:pt-2
-            opacity-0
-            flex
-            justify-center
-            transition-all
-            items-center
-          "
+          class="none opacity-0 flex justify-center transition-all items-center"
         >
-          <div class="w-11/12 sm:w-4/6 lg:w-3/6">
-            <h1 class="text-8xl text-gray-600 font-extrabold text-left my-4">
-              Hey there<span class="text-theme self-end">!</span>
-              <span
-                id="exclamation-cover"
-                class="bg-white text-white w-8 absolute"
-                style="
-                  transition: transform 1s 0.1s;
-                  transform: translate(-30px, 0);
-                "
-                >!</span
-              >
-            </h1>
+          <div class="w-11/12 sm:w-4/6">
+            <div class="flex justify-between items-start mt-4">
+              <h1 class="text-8xl text-gray-600 font-extrabold text-left mb-4">
+                Hey <span class="hidden lg:inline">there</span
+                ><span class="text-theme self-end">!</span>
+                <span
+                  id="exclamation-cover"
+                  class="bg-white text-white w-8 absolute"
+                  style="
+                    transition: transform 1s 0.1s;
+                    transform: translate(-30px, 0);
+                  "
+                  >!</span
+                >
+              </h1>
+              <img
+                id="profile-photo"
+                src="/about-page-photo.png"
+                alt="Profile photo"
+                width="100px"
+                class="rounded-full"
+                style="transform: scale(0); transition: transform 1s 0.5s"
+              />
+            </div>
             <h4 class="text-3xl text-gray-600">
               My name is Perry Olsson. I'm from the Seattle area and I'm
               interested in helping engineer the future of software and web
@@ -257,15 +260,15 @@
               A Brief History<span class="text-theme">...</span>
             </h2>
             <p class="text-xl text-gray-600">
-              I've been addicted to programming for a little over two years now.
-              Only kidding (kind of), but I've found an incredible passion for
-              it. I graduated from Cascadia College with an associate's degree
-              in business and an acceptance letter to the University of
-              Washington in hand and decided to drop it all and pursue music. I
-              found myself not as motivated as I'd thought I would feel as time
-              went on and one day decided to try my hand at programming. I
-              started the journey taking Harvard's intro to computer science
-              course and haven't looked back since.
+              I graduated from Cascadia College with an associate's degree in
+              business and an acceptance letter to the University of Washington
+              in hand and decided to drop it all and pursue music. I found
+              myself not as motivated as I'd thought I would feel as time went
+              on and one day decided to try my hand at programming. I started
+              the journey taking Harvard's intro to computer science course and
+              haven't looked back since. I'm still a guitar enthusiast and love
+              to write and play music, but I've found my true passion and
+              professional calling in programming.
             </p>
 
             <div id="about-components"></div>
@@ -288,10 +291,10 @@
                 text-5xl text-gray-600
                 font-extrabold
                 text-left
-                my-10
                 flex
                 justify-between
                 items-end
+                mb-8
               "
             >
               <span> What I've Done<span class="text-theme">.</span> </span>
