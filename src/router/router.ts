@@ -26,11 +26,13 @@ export class Router {
     ];
   }
 
+  contentContainer = document.getElementById("content-container")!;
   goTo(route: string) {
     this.runTeardowns();
     setTimeout(() => {
       window.scrollTo({ top: 0 });
-    }, 160);
+      this.contentContainer.scrollTo({ top: 0 });
+    }, 500);
     switch (route) {
       case "/intro":
         this.intro();

@@ -38,7 +38,7 @@ export const ProjectInfo = (data: ProjectInfoProps) => {
         ${data.imgUrls.map((img) => html`<img src=${img} class="w-full" />`)}
       </div>
       <div class="w-11/12 sm:w-full mt-3  text-gray-600 flex flex-col">
-        <h6 class="text-2xl text-gray-400">${data.headline}</h6>
+        <h6 class="text-2xl text-gray-500">${data.headline}</h6>
         <br class="h-2" />
         <p class="overflow-auto" style="max-height: 149px;">
           ${data.description}
