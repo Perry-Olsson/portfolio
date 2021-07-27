@@ -27,7 +27,7 @@ export class Router {
   }
 
   contentContainer = document.getElementById("content-container")!;
-  goTo(route: string) {
+  goTo(route: string, animations: boolean) {
     this.runTeardowns();
     setTimeout(() => {
       window.scrollTo({ top: 0 });
@@ -38,13 +38,13 @@ export class Router {
         this.intro();
         break;
       case "/work":
-        this.work();
+        this.work(animations);
         break;
       case "/about":
-        this.about();
+        this.about(animations);
         break;
       case "/contact":
-        this.contact();
+        this.contact(animations);
         break;
     }
   }
@@ -57,6 +57,7 @@ export class Router {
 
   intro() {
     if (this.route !== "/intro") {
+      history.pushState({}, "", "/");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/intro";
       const duration = this.getAnimationDuration(Router.pos1);
@@ -73,12 +74,13 @@ export class Router {
     }
   }
 
-  about() {
+  about(animations: boolean) {
     if (this.route !== "/about") {
+      const duration = animations ? this.getAnimationDuration(Router.pos2) : 0;
+      const cameraDuration = duration / 2;
+      if (animations) history.pushState({}, "About", "#about");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/about";
-      const duration = this.getAnimationDuration(Router.pos2);
-      const cameraDuration = duration / 2;
       const animator = Animator.getInstance();
       animator.aboutPage.start(duration);
       Router.teardownFunctions.push(() => {
@@ -94,13 +96,14 @@ export class Router {
       this.fadeInNextPage(this.pages["/about"], duration);
     }
   }
-  work() {
+  work(animations: boolean) {
     if (this.route !== "/work") {
+      const duration = animations ? this.getAnimationDuration(Router.pos3) : 0;
+      const cameraDuration = duration / 2;
+      if (animations) history.pushState({}, "Work", "#work");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
-      const duration = this.getAnimationDuration(Router.pos3);
-      const cameraDuration = duration / 2;
       Animator.getInstance().workPage.drawTodoSvg(duration);
       this.controllers.camera
         .tweenOut()
@@ -112,12 +115,13 @@ export class Router {
     }
   }
 
-  contact() {
+  contact(animations: boolean) {
     if (this.route !== "/contact") {
+      const duration = animations ? this.getAnimationDuration(Router.pos4) : 0;
+      const cameraDuration = duration / 2;
+      if (animations) history.pushState({}, "Contact", "#contact");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/contact";
-      const duration = this.getAnimationDuration(Router.pos4);
-      const cameraDuration = duration / 2;
       Animator.getInstance().contactPage.showNavBox(duration);
       this.controllers.camera
         .tweenOut()

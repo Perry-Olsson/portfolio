@@ -1,4 +1,5 @@
 import { Router } from "../router";
+import { hideOverlay } from "../Workpage";
 
 const x1 = document.querySelector<HTMLDivElement>("#x-1")!;
 const x2 = document.querySelector<HTMLDivElement>("#x-2")!;
@@ -21,6 +22,36 @@ export class Navbar {
       document.querySelector<HTMLDivElement>("#navtab-container")!;
     this.contentContainer = document.querySelector("#content-container")!;
     this.addListeners();
+    if (window.location.hash === "#about") {
+      this.about(false);
+      this.router.route = "/about";
+    } else if (window.location.hash === "#work") {
+      this.work(false);
+      this.router.route = "/work";
+    } else if (window.location.hash === "#contact") {
+      this.contact(false);
+      this.router.route = "/contact";
+    }
+    window.onhashchange = (e: HashChangeEvent) => {
+      if (e.oldURL.slice(-7) === "overlay") {
+        hideOverlay();
+      } else {
+        switch (window.location.hash) {
+          case "":
+            this.intro();
+            break;
+          case "#about":
+            this.about();
+            break;
+          case "#work":
+            this.work();
+            break;
+          case "#contact":
+            this.contact();
+            break;
+        }
+      }
+    };
   }
 
   addListeners() {
@@ -69,33 +100,36 @@ export class Navbar {
     this.overlayOpen = true;
   }
 
-  intro() {
+  intro(animations = true) {
     this.changeTextColor("white", Router.pos1);
     this.navbar.style.background = "transparent";
     this.removeActiveTab();
-    this.goTo("/intro");
+    this.goTo("/intro", animations);
   }
 
-  about() {
+  aboutContentChanges() {
     this.changeTextColor(this.textDark, Router.pos2);
     this.changeNavBackground("white", Router.pos2);
     this.changeActiveTab("#about");
-
-    this.goTo("/about");
   }
 
-  work() {
+  about(animations = true) {
+    this.aboutContentChanges();
+    this.goTo("/about", animations);
+  }
+
+  work(animations = true) {
     this.changeTextColor(this.textDark, Router.pos3);
     this.changeNavBackground("white", Router.pos3);
     this.changeActiveTab("#work");
-    this.goTo("/work");
+    this.goTo("/work", animations);
   }
 
-  contact() {
+  contact(animations = true) {
     this.changeTextColor(this.textDark, Router.pos4);
     this.changeNavBackground("white", Router.pos4);
     this.changeActiveTab("#contact");
-    this.goTo("/contact");
+    this.goTo("/contact", animations);
   }
 
   changeActiveTab(selector: string) {
@@ -124,9 +158,9 @@ export class Navbar {
     }, this.router.getAnimationDuration(position));
   }
 
-  goTo(route: string) {
+  goTo(route: string, animations: boolean) {
     this.hideOverlay();
-    this.router.goTo(route);
+    this.router.goTo(route, animations);
   }
 
   goToNext() {

@@ -15,6 +15,7 @@ export const addProjectInfoListeners = () => {
 };
 
 const showProjectInfo = (index: number) => {
+  history.pushState({ overlay: true }, "Overlay", "#overlay");
   render(ProjectInfo(projectData[index]), overlayElement);
   overlayElement.classList.remove("none");
   setTimeout(() => {
@@ -96,6 +97,7 @@ export const InfoPageExitButton = () => {
     </style>
     <button
       @click=${() => {
+        history.back();
         overlayElement.style.transform = "scale(1, 0)";
         setTimeout(() => {
           overlayElement.classList.add("none");
@@ -111,4 +113,12 @@ export const InfoPageExitButton = () => {
       ></div>
       <div class="cross-bar" style="transform: rotate(-45deg);"></div>
     </button>`;
+};
+
+export const hideOverlay = () => {
+  overlayElement.style.transform = "scale(1, 0)";
+  setTimeout(() => {
+    overlayElement.classList.add("none");
+    overlayElement.style.transform = "scale(0, 1)";
+  }, 500);
 };
