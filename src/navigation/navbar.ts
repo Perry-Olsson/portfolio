@@ -71,12 +71,14 @@ export class Navbar {
 
   intro() {
     this.changeTextColor("white", Router.pos1);
+    this.navbar.style.background = "transparent";
     this.removeActiveTab();
     this.goTo("/intro");
   }
 
   about() {
     this.changeTextColor(this.textDark, Router.pos2);
+    this.changeNavBackground("white", Router.pos2);
     this.changeActiveTab("#about");
 
     this.goTo("/about");
@@ -84,12 +86,14 @@ export class Navbar {
 
   work() {
     this.changeTextColor(this.textDark, Router.pos3);
+    this.changeNavBackground("white", Router.pos3);
     this.changeActiveTab("#work");
     this.goTo("/work");
   }
 
   contact() {
     this.changeTextColor(this.textDark, Router.pos4);
+    this.changeNavBackground("white", Router.pos4);
     this.changeActiveTab("#contact");
     this.goTo("/contact");
   }
@@ -105,11 +109,18 @@ export class Navbar {
   }
 
   changeTextColor(color: string, position: number) {
+    this.navbar.style.background = "transparent";
     setTimeout(() => {
       this.navbar.style.color = color;
       this.burger
         .querySelectorAll<HTMLDivElement>("div")
         .forEach((bar) => (bar.style.backgroundColor = color));
+    }, this.router.getAnimationDuration(position));
+  }
+
+  changeNavBackground(color: string, position: number) {
+    setTimeout(() => {
+      this.navbar.style.backgroundColor = color;
     }, this.router.getAnimationDuration(position));
   }
 

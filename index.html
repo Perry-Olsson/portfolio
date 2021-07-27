@@ -38,8 +38,17 @@
     <main id="scrollable" class="hidden">
       <div
         id="navbar"
-        class="flex flex-row h-24 justify-between"
-        style="color: white"
+        class="
+          fixed
+          top-0
+          left-0
+          w-screen
+          z-10
+          flex flex-row
+          h-24
+          justify-between
+        "
+        style="color: white; background-color: transparent"
       >
         <div class="relative z-50 navtab flex items-center">
           <button id="intro" class="relative z-50 navtab-button py-px">
@@ -89,19 +98,7 @@
           <div id="x-none" class="burger-bar"></div>
         </button>
       </div>
-      <div
-        id="content-container"
-        class="
-          fixed
-          top-24
-          left-0
-          right-0
-          bottom-0
-          overflow-auto
-          transition-opacity
-          duration-300
-        "
-      >
+      <div id="content-container" class="mt-24 transition-opacity duration-300">
         <div
           id="intro-page"
           class="

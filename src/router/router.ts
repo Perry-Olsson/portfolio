@@ -29,7 +29,7 @@ export class Router {
   goTo(route: string) {
     this.runTeardowns();
     setTimeout(() => {
-      document.getElementById("content-container")!.scrollTo({ top: 0 });
+      window.scrollTo({ top: 0 });
     }, 160);
     switch (route) {
       case "/intro":
