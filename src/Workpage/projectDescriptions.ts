@@ -42,7 +42,7 @@ export const projectData: ProjectInfoProps[] = [
     headline: "A place to post your favorite blogs",
     description: `
     Like, comment, post, delete, change your theme, 
-    all things most people expect to be able to do in a modern web applications 
+    all things most people expect to be able to do in a modern web application 
     so I went ahead and gave it a try with Blogify. Built as a part of Full-stack Open.`,
     websiteLink: "https://blogify-app-v1.herokuapp.com/",
     githubLink: "https://github.com/Perry-Olsson/Blogify",
