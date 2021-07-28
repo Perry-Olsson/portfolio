@@ -4,7 +4,7 @@ let xStart: number;
 let xEnd: number;
 let yStart: number;
 let yEnd: number;
-const xMin = 60;
+const xMin = 100;
 const yMax = 60;
 const durationMax = 300;
 let touchStart = 0;
@@ -34,7 +34,15 @@ export const setupSwipe = (navbar: Navbar) => {
         navbar.goToNext();
       }
     }
+    resetValues();
   });
+};
+
+const resetValues = () => {
+  xStart = NaN;
+  xEnd = NaN;
+  yStart = NaN;
+  yEnd = NaN;
 };
 
 const isYMovementSmallEnough = () => Math.abs(yEnd - yStart) < yMax;
