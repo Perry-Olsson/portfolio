@@ -63,7 +63,7 @@ export const ViewSiteButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
-    class="overlay-website-link  w-3/6 sm:w-1/6 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+    class="overlay-website-link  w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
   >
     ${ExternalLinkIcon()}
     <span class="ml-3">VIEW SITE</span>
@@ -74,7 +74,7 @@ export const ViewSourceButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
-    class="overlay-website-link w-3/6 sm:w-1/6 py-2 mt-4 ml-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 ml-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
   >
     ${GitHubIcon()}
     <span class="ml-3">CODE</span>
