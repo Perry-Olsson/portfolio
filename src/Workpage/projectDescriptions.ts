@@ -10,7 +10,7 @@ export const projectData: ProjectInfoProps[] = [
     that provide those services. This 
     website rebuild includes an option 
     for registered users to book services fully online. 
-    Currently in Progress.
+    Currently in development. (demo account: john@example.com | johnsPassword)
     `,
     websiteLink: "https://appointment-booking-example.com",
     githubLink: "https://github.com/Perry-Olsson/appointment-booking",

@@ -25,7 +25,7 @@ const showProjectInfo = (index: number) => {
 
 export const ProjectInfo = (data: ProjectInfoProps) => {
   return html`
-    <div class="w-full sm:w-3/6 flex flex-col items-center">
+    <div class="w-full sm:w-3/6 flex flex-col items-center mb-5 pt-12 mx-auto">
       ${InfoPageExitButton()}
       <h3 class="text-4xl font-bold m-3 w-11/12 sm:w-full">
         ${data.projectTitle}<span class="text-theme">.</span>
