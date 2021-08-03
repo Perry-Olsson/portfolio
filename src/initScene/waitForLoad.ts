@@ -15,7 +15,7 @@ export const waitForLoad = () => {
         .querySelector<HTMLDivElement>("main")!
         .classList.replace("hidden", "block");
       waitForCanvasAnimation();
-    }, 400);
+    }, 10);
   };
 };
 
