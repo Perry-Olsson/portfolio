@@ -35,6 +35,7 @@ import {
 } from "./techSkillsIcons";
 import { NavBox, NavContent } from "./NavBox";
 import { addProjectInfoListeners } from "../Workpage/WorkPage";
+import { ProfilePhoto } from "./profilePhoto";
 
 export class Components {
   navbar: Navbar;
@@ -119,6 +120,7 @@ export class Components {
 
 export const renderDynamicComponents = () => {
   TechSlider();
+  render(ProfilePhoto, document.getElementById("profile-photo-container")!);
 };
 
 const TechSlider = () => {

@@ -92,7 +92,7 @@ class AboutPageAnimator {
     document.getElementById(
       "tech-slider-inner"
     )!.style.left = `${this.translateVal}%`;
-    this.translateVal -= 0.1;
+    this.translateVal -= 0.5;
     if (this.translateVal <= -533) this.translateVal = 0;
   }
 
@@ -118,7 +118,8 @@ class AboutPageAnimator {
   }
   showProfilePhoto(delay = 0) {
     setTimeout(() => {
-      document.getElementById("profile-photo")!.style.transform = "scale(1)";
+      document.getElementById("profile-photo-container")!.style.transform =
+        "scale(1)";
     }, delay);
   }
 }
