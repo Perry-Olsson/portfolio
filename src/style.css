@@ -178,6 +178,12 @@ main {
   #arrow-circle:hover {
     animation: none;
   }
+
+  #view-technical-specs-container button {
+    @apply hover:bg-theme;
+    @apply hover:text-gray-600;
+    @apply hover:border-gray-600;
+  }
 }
 
 @media (max-width: 400px) {
