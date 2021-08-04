@@ -87,12 +87,16 @@ class AboutPageAnimator {
     cancelAnimationFrame(this.techSlideId);
   }
 
+  duration = Date.now()
   private animateTechSlide() {
     this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
     document.getElementById(
       "tech-slider-inner"
     )!.style.left = `${this.translateVal}%`;
-    this.translateVal -= 0.5;
+    if (Date.now() - this.duration > 10){
+    this.translateVal -= 0.2;
+    this.duration = Date.now()
+    }
     if (this.translateVal <= -533) this.translateVal = 0;
   }
 
