@@ -36,6 +36,7 @@ import {
 import { NavBox, NavContent } from "./NavBox";
 import { addProjectInfoListeners } from "../Workpage/WorkPage";
 import { ProfilePhoto } from "./profilePhoto";
+import { WorkPage } from "../Workpage";
 
 export class Components {
   navbar: Navbar;
@@ -54,6 +55,7 @@ export class Components {
   }
 
   appendWorkPageComponents() {
+    render(WorkPage(), document.getElementById("work-page")!);
     render(
       arrowContainer([
         LeftArrow(() => this.navbar.about()),
