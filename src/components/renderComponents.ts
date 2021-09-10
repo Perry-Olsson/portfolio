@@ -13,7 +13,6 @@ import {
   GitHubIcon,
   InstagramIcon,
   LinkedinIcon,
-  TodoSvg,
   TwitterIcon,
 } from "./Icons";
 import {
@@ -34,7 +33,7 @@ import {
   TypeScriptSvg,
 } from "./techSkillsIcons";
 import { NavBox, NavContent } from "./NavBox";
-import { addProjectInfoListeners } from "../Workpage/WorkPage";
+import { addProjectInfoListeners } from "../Workpage";
 import { ProfilePhoto } from "./profilePhoto";
 import { WorkPage } from "../Workpage";
 
@@ -94,7 +93,6 @@ export class Components {
     this.appendIcons("linkedin-icon", LinkedinIcon);
     this.appendIcons("codepen-icon", CodepenIcon);
     this.appendIcons("instagram-icon", InstagramIcon);
-    this.addTodoSvg();
   }
 
   appendIcons(className: string, icon: () => TemplateResult) {
@@ -102,10 +100,6 @@ export class Components {
     for (let i = 0; i < elements.length; i++) {
       render(icon(), elements.item(i)!);
     }
-  }
-
-  addTodoSvg() {
-    render(TodoSvg(), document.getElementById("todo-svg-container")!);
   }
 
   render() {

@@ -16,7 +16,7 @@ scene.add(cube);
 handleEmailSubmission();
 
 export const router = new Router({ camera, cube });
-const navbar = new Navbar(router);
+export const navbar = new Navbar(router);
 const components = new Components(navbar);
 components.render();
 

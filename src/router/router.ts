@@ -104,12 +104,12 @@ export class Router {
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
-      Animator.getInstance().workPage.drawTodoSvg(duration);
-      this.controllers.camera
-        .tweenOut()
-        .duration(cameraDuration)
-        .start()
-        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      Animator.getInstance().workPage.drawTodoSvg(duration),
+        this.controllers.camera
+          .tweenOut()
+          .duration(cameraDuration)
+          .start()
+          .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
       this.fadeInNextPage(this.pages["/work"], duration + 50);
     }

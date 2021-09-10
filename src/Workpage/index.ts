@@ -1,2 +1,2 @@
 export * from "./WorkPage";
-export * from "./PersonalWork";
+export * from "./ProjectInfo";

@@ -43,16 +43,19 @@ class WorkPageAnimator {
   hasBeenDrawn = false;
   drawTodoSvg(delay = 0) {
     if (!this.hasBeenDrawn) {
+      //initial timeout allows component to client side render first if work page is refreshed
       setTimeout(() => {
         const todoSvg = document.getElementById("todo-svg")!;
-        todoSvg.style.animation = "draw 2.5s linear forwards";
         setTimeout(() => {
-          todoSvg.style.fillOpacity = "1";
-          todoSvg.style.strokeDashoffset = "0";
-          todoSvg.style.animation = "";
-          this.hasBeenDrawn = true;
-        }, 2500);
-      }, delay + 500);
+          todoSvg.style.animation = "draw 2.5s linear forwards";
+          setTimeout(() => {
+            todoSvg.style.fillOpacity = "1";
+            todoSvg.style.strokeDashoffset = "0";
+            todoSvg.style.animation = "";
+            this.hasBeenDrawn = true;
+          }, 2500);
+        }, delay + 200);
+      }, 0);
     }
   }
 }
@@ -87,15 +90,15 @@ class AboutPageAnimator {
     cancelAnimationFrame(this.techSlideId);
   }
 
-  duration = Date.now()
+  duration = Date.now();
   private animateTechSlide() {
     this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
     document.getElementById(
       "tech-slider-inner"
     )!.style.left = `${this.translateVal}%`;
-    if (Date.now() - this.duration > 10){
-    this.translateVal -= 0.2;
-    this.duration = Date.now()
+    if (Date.now() - this.duration > 10) {
+      this.translateVal -= 0.2;
+      this.duration = Date.now();
     }
     if (this.translateVal <= -533) this.translateVal = 0;
   }

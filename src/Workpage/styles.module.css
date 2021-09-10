@@ -1,0 +1,14 @@
+.navtab {
+  @apply flex;
+  @apply justify-center;
+  @apply text-4xl;
+  @apply cursor-pointer;
+  @apply hover:text-theme;
+  @apply transition-colors;
+}
+
+.container {
+  @apply w-11/12;
+  @apply sm:w-4/6;
+  @apply lg:w-3/6;
+}

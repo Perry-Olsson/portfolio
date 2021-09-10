@@ -1,124 +1,135 @@
 import { html, render } from "lit-html";
-import { ExternalLinkIcon, GitHubIcon } from "../components/Icons";
-import { projectData, ProjectInfoProps } from "./projectDescriptions";
+import { addProjectInfoListeners } from ".";
+import { TodoSvg } from "../components/Icons";
+import { OpenSourceContributions } from "./OpenSourceContributions";
+import { PersonalWork } from "./PersonalWork";
+import { ProfessionalWork } from "./ProfessionalWork";
+import styles from "./styles.module.css";
 
-const overlayElement = document.getElementById("overlay-container")!;
-
-export const addProjectInfoListeners = () => {
-  const titles = document.querySelectorAll<HTMLHeadElement>(".project-title");
-  const images = document.querySelectorAll<HTMLDivElement>(".image-container");
-
-  for (let i = 0; i < titles.length; i++) {
-    titles[i].addEventListener("click", () => showProjectInfo(i));
-    images[i].addEventListener("click", () => showProjectInfo(i));
-  }
-};
-
-const showProjectInfo = (index: number) => {
-  history.pushState({ overlay: true }, "Overlay", "#overlay");
-  render(ProjectInfo(projectData[index]), overlayElement);
-  overlayElement.classList.remove("none");
-  setTimeout(() => {
-    overlayElement.style.transform = "scale(1, 1)";
-  }, 10);
-};
-
-export const ProjectInfo = (data: ProjectInfoProps) => {
+export const WorkPage = (page?: SubPage) => {
   return html`
-    <div class="w-full sm:w-3/6 flex flex-col items-center mb-5 pt-12 mx-auto">
-      ${InfoPageExitButton()}
-      <h3 class="text-4xl font-bold m-3 w-11/12 sm:w-full">
-        ${data.projectTitle}<span class="text-theme">.</span>
-      </h3>
-      <div
-        id="image-carousel"
-        class="border border-gray-300 shadow-xl ${data.isMobileApp
-          ? "grid grid-cols-4"
-          : ""}"
-      >
-        ${data.imgUrls.map((img) => html`<img src=${img} class="w-full" />`)}
-      </div>
-      <div class="w-11/12 sm:w-full mt-3  text-gray-600 flex flex-col">
-        <h6 class="text-2xl text-gray-500">${data.headline}</h6>
-        <br class="h-2" />
-        <p class="overflow-auto" style="max-height: 149px;">
-          ${data.description}
-        </p>
-        <div class="flex">
-          ${ViewSiteButton(data.websiteLink)}
-          ${ViewSourceButton(data.githubLink)}
-        </div>
-      </div>
+    <div class=${styles.container}>
+      ${page ? getTitle(page) : null} ${getPage(page)}
+      <div id="work-components"></div>
     </div>
   `;
 };
 
-export const ViewSiteButton = (href: string) => html`
-  <style>
-    .overlay-website-link:hover span,
-    .overlay-website-link:hover svg {
-      color: white;
-    }
-  </style>
-  <a
-    href=${href}
-    target="_blank"
-    class="overlay-website-link  w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
-  >
-    ${ExternalLinkIcon()}
-    <span class="ml-3">VIEW SITE</span>
-  </a>
-`;
+const getTitle = (page?: SubPage) =>
+  page
+    ? html`
+        <h1
+          class="text-5xl text-gray-600 font-extrabold text-left flex justify-between mb-8"
+        >
+          <span
+            @click=${() => setPage()}
+            class="cursor-pointer hover:text-theme"
+            >${backIcon()}</span
+          ><span>${page}<span class="text-theme">.</span></span>
+        </h1>
+      `
+    : null;
 
-export const ViewSourceButton = (href: string) => html`
-  <a
-    href=${href}
-    target="_blank"
-    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 ml-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+export const WorkPageNav = () => html`
+  <nav
+    class="fixed top-24 bottom-0 right-0 left-0 flex flex-col justify-between  items-center bg-white"
+    style="padding-bottom: 25vh;"
   >
-    ${GitHubIcon()}
-    <span class="ml-3">CODE</span>
-  </a>
-`;
-
-export const InfoPageExitButton = () => {
-  return html` <style>
-      .cross-bar {
-        width: 35px;
-        height: 5px;
-        margin: 3px 0;
-        transition: color 0.1s ease-in-out;
-        background: currentColor;
-        border-radius: 2px;
-      }
-      #overlay-close-container:hover .cross-bar {
-        color: var(--theme);
-      }
-    </style>
-    <button
-      @click=${() => {
-        history.back();
-        overlayElement.style.transform = "scale(1, 0)";
-        setTimeout(() => {
-          overlayElement.classList.add("none");
-          overlayElement.style.transform = "scale(0, 1)";
-        }, 500);
-      }}
-      id="overlay-close-container"
-      class="fixed top-3 right-3 h-9"
+    <div class="${styles.container}">
+      <h1
+        class="
+						text-5xl text-gray-600
+						font-extrabold
+						text-left
+						flex
+						justify-between
+						items-end
+						"
+      >
+        <span>What I've Done<span class="text-theme">.</span></span>
+        <div id="todo-svg-container" class="inline-block relative top-3">
+          ${TodoSvg()}
+        </div>
+      </h1>
+      <div class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full"></div>
+    </div>
+    <h2 @click=${() => setPage("Professional")} class="${styles.navtab}">
+      Professional
+    </h2>
+    <h2 @click=${() => setPage("Open Source")} class="${styles.navtab}">
+      Open Source
+    </h2>
+    <h2
+      @click=${() => setPage("Personal", addProjectInfoListeners)}
+      class="${styles.navtab}"
     >
-      <div
-        class="cross-bar"
-        style="transform: rotate(45deg) translate(6px, 6px);"
-      ></div>
-      <div class="cross-bar" style="transform: rotate(-45deg);"></div>
-    </button>`;
+      Personal
+    </h2>
+  </nav>
+`;
+
+const getPage = (page?: SubPage) => {
+  switch (page) {
+    case "Open Source":
+      return OpenSourceContributions();
+    case "Professional":
+      return ProfessionalWork();
+    case "Personal":
+      return PersonalWork();
+    default:
+      return WorkPageNav();
+  }
 };
 
-export const hideOverlay = () => {
-  overlayElement.style.transform = "scale(1, 0)";
-  setTimeout(() => {
-    overlayElement.classList.add("none");
-    overlayElement.style.transform = "scale(0, 1)";
-  }, 500);
+export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
+  render(WorkPage(newPage), document.getElementById("work-page")!);
+  history.pushState(
+    { newPage },
+    newPage || "#work",
+    `#work${newPage ? `/#${newPage.replace(" ", "").toLowerCase()}` : ""}`
+  );
+  if (addListeners) addListeners();
 };
+
+type SubPage = "Personal" | "Open Source" | "Professional";
+
+const backIcon = () => html`
+  <?xml version="1.0" encoding="iso-8859-1"?>
+  <svg
+    version="1.1"
+    id="Capa_1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    x="0px"
+    y="0px"
+    height="41px"
+    viewBox="0 0 55.753 55.753"
+    style="enable-background:new 0 0 55.753 55.753;"
+    xml:space="preserve"
+    class="fill-current stroke-current"
+  >
+    <g>
+      <path
+        d="M12.745,23.915c0.283-0.282,0.59-0.52,0.913-0.727L35.266,1.581c2.108-2.107,5.528-2.108,7.637,0.001
+		c2.109,2.108,2.109,5.527,0,7.637L24.294,27.828l18.705,18.706c2.109,2.108,2.109,5.526,0,7.637
+		c-1.055,1.056-2.438,1.582-3.818,1.582s-2.764-0.526-3.818-1.582L13.658,32.464c-0.323-0.207-0.632-0.445-0.913-0.727
+		c-1.078-1.078-1.598-2.498-1.572-3.911C11.147,26.413,11.667,24.994,12.745,23.915z"
+      />
+    </g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+    <g></g>
+  </svg>
+`;

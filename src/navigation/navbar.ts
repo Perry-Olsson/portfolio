@@ -1,5 +1,5 @@
 import { Router } from "../router";
-import { hideOverlay } from "../Workpage";
+import { hideOverlay, setPage } from "../Workpage";
 
 const x1 = document.querySelector<HTMLDivElement>("#x-1")!;
 const x2 = document.querySelector<HTMLDivElement>("#x-2")!;
@@ -31,8 +31,14 @@ export class Navbar {
     } else if (window.location.hash === "#contact") {
       this.contact(false);
       this.router.route = "/contact";
+    } else if (window.location.hash !== "") {
+      console.log("hello");
+      this.intro();
+      this.router.route = "/intro";
+      history.pushState({}, "intro", "");
     }
     window.onhashchange = (e: HashChangeEvent) => {
+      console.log(window.location.hash);
       if (e.oldURL.slice(-7) === "overlay") {
         hideOverlay();
       } else {
@@ -119,6 +125,8 @@ export class Navbar {
   }
 
   work(animations = true) {
+    //sets default subpage
+    setPage();
     this.changeTextColor(this.textDark, Router.pos3);
     this.changeNavBackground("white", Router.pos3);
     this.changeActiveTab("#work");

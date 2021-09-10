@@ -1,56 +1,5 @@
-import { html, render } from "lit-html";
+import { html } from "lit-html";
 
-export const WorkPageNav = () => html`
-  <nav class="flex justify-around w-full p-3 mb-4 border-b-2">
-    <div @click=${() => setPage("personal")} class="flex justify-center flex-1">
-      Personal
-    </div>
-    <div
-      @click=${() => setPage("open source")}
-      class="flex justify-center flex-1"
-    >
-      Open Source Contributions
-    </div>
-  </nav>
-`;
-
-const OpenSourceContributions = () => html` <h1>Todo</h1> `;
-
-const getPage = (page: WorkNav) => {
-  switch (page) {
-    case "open source":
-      return OpenSourceContributions();
-    default:
-      return PersonalWork();
-  }
-};
-
-type WorkNav = "personal" | "open source" | "professional";
-const setPage = (newPage: WorkNav) => {
-  render(WorkPage(newPage), document.getElementById("work-page")!);
-};
-export const WorkPage = (page: WorkNav = "personal") => {
-  return html`
-    <div class="w-11/12 sm:w-4/6 lg:w-3/6">
-      <h1
-        class="
-						text-5xl text-gray-600
-						font-extrabold
-						text-left
-						flex
-						justify-between
-						items-end
-						mb-8
-						"
-      >
-        <span>What I've Done<span class="text-theme">.</span> </span>
-        <div id="todo-svg-container" class="inline-block"></div>
-      </h1>
-      ${WorkPageNav()} ${getPage(page)}
-      <div id="work-components"></div>
-    </div>
-  `;
-};
 export const PersonalWork = () => html`
   <div class="project-container flex flex-col">
     <div class="w-11/12 m-auto">
