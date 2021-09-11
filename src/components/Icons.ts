@@ -78,6 +78,7 @@ export const ExternalLinkIcon = () => {
 let firstRender = true;
 export const todoSvgHeight = "90px";
 export const TodoSvg = () => {
+  console.log(firstRender);
   const style = firstRender
     ? "transition: fill-opacity 0.5s; fill-opacity: 0; stroke-dasharray: 300px; stroke-dashoffset: 300px"
     : "";

@@ -33,9 +33,7 @@ import {
   TypeScriptSvg,
 } from "./techSkillsIcons";
 import { NavBox, NavContent } from "./NavBox";
-import { addProjectInfoListeners } from "../Workpage";
 import { ProfilePhoto } from "./profilePhoto";
-import { WorkPage } from "../Workpage";
 
 export class Components {
   navbar: Navbar;
@@ -54,7 +52,6 @@ export class Components {
   }
 
   appendWorkPageComponents() {
-    render(WorkPage(), document.getElementById("work-page")!);
     render(
       arrowContainer([
         LeftArrow(() => this.navbar.about()),
@@ -62,7 +59,6 @@ export class Components {
       ]),
       document.getElementById("work-components")!
     );
-    addProjectInfoListeners();
   }
 
   appendContactPageComponents() {

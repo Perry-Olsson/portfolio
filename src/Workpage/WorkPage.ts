@@ -10,7 +10,6 @@ export const WorkPage = (page?: SubPage) => {
   return html`
     <div class=${styles.container}>
       ${page ? getTitle(page) : null} ${getPage(page)}
-      <div id="work-components"></div>
     </div>
   `;
 };
@@ -42,7 +41,7 @@ const getPage = (page?: SubPage) => {
 };
 
 export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
-  render(WorkPage(newPage), document.getElementById("work-page")!);
+  render(WorkPage(newPage), document.getElementById("work-content")!);
   history.pushState(
     { newPage },
     `work/${newPage ? newPage : ""}`,
