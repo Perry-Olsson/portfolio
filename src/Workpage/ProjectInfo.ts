@@ -15,7 +15,7 @@ export const addProjectInfoListeners = () => {
 };
 
 const showProjectInfo = (index: number) => {
-  history.pushState({ overlay: true }, "Overlay", "#overlay");
+  history.pushState({ overlay: true }, "Overlay", "#work/#overlay");
   render(ProjectInfo(projectData[index]), overlayElement);
   overlayElement.classList.remove("none");
   setTimeout(() => {

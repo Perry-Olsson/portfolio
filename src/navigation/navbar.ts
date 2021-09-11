@@ -25,7 +25,7 @@ export class Navbar {
     if (window.location.hash === "#about") {
       this.about(false);
       this.router.route = "/about";
-    } else if (window.location.hash.match("#work")) {
+    } else if (window.location.hash.match(/^#work/)) {
       this.work(false);
       this.router.route = "/work";
     } else if (window.location.hash === "#contact") {
