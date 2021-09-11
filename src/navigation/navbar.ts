@@ -126,6 +126,7 @@ export class Navbar {
 
   work(animations = true) {
     //sets default subpage
+    //maybe create a wrapper class for the history api that can run runctions on back press
     setPage();
     this.changeTextColor(this.textDark, Router.pos3);
     this.changeNavBackground("white", Router.pos3);
