@@ -76,6 +76,7 @@ export const ExternalLinkIcon = () => {
 };
 
 let firstRender = true;
+export const todoSvgHeight = "90px";
 export const TodoSvg = () => {
   const style = firstRender
     ? "transition: fill-opacity 0.5s; fill-opacity: 0; stroke-dasharray: 300px; stroke-dashoffset: 300px"
@@ -88,7 +89,7 @@ export const TodoSvg = () => {
       class="stroke-current fill-current mb-1 sm:mb-0"
       style=${style}
       enable-background="new 0 0 64 64"
-      height="90px"
+      height=${todoSvgHeight}
       viewBox="0 0 64 64"
       width="65px"
       xmlns="http://www.w3.org/2000/svg"

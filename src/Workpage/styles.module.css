@@ -12,3 +12,13 @@
   @apply sm:w-4/6;
   @apply lg:w-3/6;
 }
+
+.header {
+  @apply text-5xl;
+  @apply text-gray-600;
+  @apply font-extrabold;
+  @apply text-left;
+  @apply flex;
+  @apply justify-between;
+  @apply items-end;
+}

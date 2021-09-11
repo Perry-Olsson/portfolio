@@ -1,6 +1,6 @@
 import { html, render } from "lit-html";
 import { addProjectInfoListeners } from ".";
-import { BackIcon, TodoSvg } from "../components/Icons";
+import { BackIcon, TodoSvg, todoSvgHeight } from "../components/Icons";
 import { OpenSourceContributions } from "./OpenSourceContributions";
 import { PersonalWork } from "./PersonalWork";
 import { ProfessionalWork } from "./ProfessionalWork";
@@ -18,9 +18,7 @@ export const WorkPage = (page?: SubPage) => {
 const getTitle = (page?: SubPage) =>
   page
     ? html`
-        <h1
-          class="text-5xl text-gray-600 font-extrabold text-left flex justify-between mb-8"
-        >
+        <h1 class="${styles.header} mb-8" style="height: ${todoSvgHeight};">
           <span
             @click=${() => setPage()}
             class="cursor-pointer hover:text-theme"
@@ -47,7 +45,7 @@ export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
   render(WorkPage(newPage), document.getElementById("work-page")!);
   history.pushState(
     { newPage },
-    newPage || "#work",
+    `work/${newPage ? newPage : ""}`,
     `#work${newPage ? `/#${newPage.replace(" ", "").toLowerCase()}` : ""}`
   );
   if (addListeners) addListeners();
@@ -55,20 +53,11 @@ export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
 
 export const WorkPageNav = () => html`
   <nav
-    class="fixed top-24 bottom-0 right-0 left-0 flex flex-col justify-between  items-center bg-white"
+    class="fixed top-24 bottom-0 right-0 left-0 flex flex-col justify-between items-center bg-white"
     style="padding-bottom: 25vh;"
   >
     <div class="${styles.container}">
-      <h1
-        class="
-						text-5xl text-gray-600
-						font-extrabold
-						text-left
-						flex
-						justify-between
-						items-end
-						"
-      >
+      <h1 class=${styles.header}>
         <span>What I've Done<span class="text-theme">.</span></span>
         <div id="todo-svg-container" class="inline-block relative top-3">
           ${TodoSvg()}
