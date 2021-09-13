@@ -111,7 +111,7 @@ export class Router {
           .start()
           .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
-      this.fadeInNextPage(this.pages["/work"], duration + 50);
+      this.fadeInNextPage(this.pages["/work"], duration);
     }
   }
 
@@ -141,19 +141,17 @@ export class Router {
   }
 
   fadeOutCurrentPage(element: HTMLDivElement) {
+    element.classList.add("none");
     element.style.opacity = "0";
-    setTimeout(() => {
-      element.classList.add("none");
-    }, 150);
   }
 
   getAnimationDuration(pos: number) {
     const amountToRotate = Math.abs(this.controllers.cube.rotation.y - pos);
     return amountToRotate === Math.PI
-      ? 900
+      ? 1050
       : amountToRotate > Math.PI
-      ? 1150
-      : 800;
+      ? 1250
+      : 900;
   }
 }
 
