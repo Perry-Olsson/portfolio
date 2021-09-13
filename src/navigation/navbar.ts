@@ -36,6 +36,7 @@ export class Navbar {
       this.router.route = "/intro";
       history.pushState({}, "intro", "");
     }
+    // @ts-ignore
     window.onhashchange = (e: HashChangeEvent) => {
       console.log(window.location.hash);
       if (e.oldURL.slice(-7) === "overlay") {
