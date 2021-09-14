@@ -98,18 +98,20 @@ export class Router {
   }
   work(animations: boolean) {
     if (this.route !== "/work") {
+      const animator = Animator.getInstance();
       const duration = animations ? this.getAnimationDuration(Router.pos3) : 0;
       const cameraDuration = duration / 2;
       if (animations) history.pushState({}, "Work", "#work");
       this.fadeOutCurrentPage(this.pages[this.route]);
       this.route = "/work";
 
-      Animator.getInstance().workPage.drawTodoSvg(duration),
-        this.controllers.camera
-          .tweenOut()
-          .duration(cameraDuration)
-          .start()
-          .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
+      animator.workPage.drawTodoSvg(duration);
+      animator.workPage.runTypeAnimationPipe(duration + 500);
+      this.controllers.camera
+        .tweenOut()
+        .duration(cameraDuration)
+        .start()
+        .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
       this.controllers.cube.rotateToPos3().duration(duration).start();
       this.fadeInNextPage(this.pages["/work"], duration);
     }

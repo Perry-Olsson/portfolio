@@ -1,4 +1,5 @@
 import { TeardownFunction } from "../types";
+import { halt } from "../utils";
 
 const arrowCircle = document.querySelector("#arrow-circle")!;
 export class Animator implements AnimationUtils {
@@ -38,6 +39,8 @@ class ContactAnimator {
 }
 
 class WorkPageAnimator {
+  private animationPipe: Array<() => void | Promise<void>> = [];
+  private _hasRanTypeAnimation = false;
   constructor() {}
 
   hasBeenDrawn = false;
@@ -58,6 +61,23 @@ class WorkPageAnimator {
       }, 0);
     }
   }
+
+  addToTypeAnimationPipe(fn: () => void | Promise<void>) {
+    this.animationPipe.push(fn);
+  }
+
+  async runTypeAnimationPipe(delay = 0) {
+    await halt(delay);
+    for (let i = 0; i < this.animationPipe.length; i++) {
+      await this.animationPipe[i]();
+    }
+    this.animationPipe = [];
+    this._hasRanTypeAnimation = true;
+  }
+
+  hasRanTypeAnimation() {
+    return this._hasRanTypeAnimation;
+  }
 }
 
 class AboutPageAnimator {
@@ -75,13 +95,8 @@ class AboutPageAnimator {
 
   startTechSlide(delay = 0) {
     setTimeout(async () => {
-      if (!this.hasStarted)
-        await new Promise((res) => {
-          setTimeout(() => {
-            this.hasStarted = true;
-            res(true);
-          }, 2000);
-        });
+      if (!this.hasStarted) await halt(2000);
+      this.hasStarted = true;
       this.techSlideId = requestAnimationFrame(() => this.animateTechSlide());
     }, delay);
   }

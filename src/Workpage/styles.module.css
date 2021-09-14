@@ -5,6 +5,7 @@
   @apply cursor-pointer;
   @apply hover:text-theme;
   @apply transition-colors;
+  height: 1.5em;
 }
 
 .container {

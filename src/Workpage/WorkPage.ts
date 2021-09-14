@@ -1,6 +1,8 @@
 import { html, render } from "lit-html";
 import { addProjectInfoListeners } from ".";
+import { Animator } from "../animations";
 import { BackIcon, TodoSvg, todoSvgHeight } from "../components/Icons";
+import { halt } from "../utils";
 import { OpenSourceContributions } from "./OpenSourceContributions";
 import { PersonalWork } from "./PersonalWork";
 import { ProfessionalWork } from "./ProfessionalWork";
@@ -64,19 +66,81 @@ export const WorkPageNav = () => html`
       </h1>
       <div class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full"></div>
     </div>
-    <h2 @click=${() => setPage("Professional")} class="${styles.navtab}">
-      Professional
-    </h2>
-    <h2 @click=${() => setPage("Open Source")} class="${styles.navtab}">
-      Open Source
-    </h2>
-    <h2
+    <button @click=${() => setPage("Professional")} class="${styles.navtab}">
+      ${TypeOutTextAnimation("Professional")}
+    </button>
+    <button @click=${() => setPage("Open Source")} class="${styles.navtab}">
+      ${TypeOutTextAnimation("Open Source")}
+    </button>
+    <button
       @click=${() => setPage("Personal", addProjectInfoListeners)}
       class="${styles.navtab}"
     >
-      Personal
-    </h2>
+      ${TypeOutTextAnimation("Personal")}
+    </button>
   </nav>
 `;
+
+const workPageAnimator = Animator.getInstance().workPage;
+
+const Cursor = (text: string) => html`
+  ${text.split("").map(
+    (char) =>
+      //space characters cause a bug on mobile so they are replaced with "s" and and given no opacity
+      html`<span class="none ${char === " " ? "opacity-0" : ""}"
+        >${char === " " ? "s" : char}</span
+      >`
+  )}
+  <span id="cursor" class="text-theme bg-theme opacity-100 absolute">T</span>
+`;
+
+async function typeOut(text: string, renderElementId: string) {
+  render(Cursor(text), document.getElementById(renderElementId)!);
+  await halt(300);
+  for (let i = 1; i <= text.length; i++) {
+    const letter = document.querySelector(
+      `#${renderElementId} span:nth-child(${i})`
+    );
+    letter!.classList.remove("none");
+    await halt(80);
+  }
+  await halt(200);
+  document.getElementById("cursor")!.remove();
+}
+
+const TypeOutTextAnimation = (text: string) => {
+  if (workPageAnimator.hasRanTypeAnimation()) return text;
+  const elementId = `type-anim-${text.replace(" ", "")}`;
+
+  workPageAnimator.addToTypeAnimationPipe(() => typeOut(text, elementId));
+
+  return html`
+    <style>
+      /* @keyframes blink {
+        from {
+          opacity: 1;
+        }
+        40% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        90% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+      .blink {
+        animation-name: blink;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+      } */
+    </style>
+    <div id="${elementId}"></div>
+  `;
+};
 
 type SubPage = "Personal" | "Open Source" | "Professional";
