@@ -18,7 +18,7 @@
   @apply text-5xl;
   @apply text-gray-600;
   @apply font-extrabold;
-  @apply text-left;
+  @apply text-right;
   @apply flex;
   @apply justify-between;
   @apply items-end;

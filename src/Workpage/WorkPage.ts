@@ -59,10 +59,10 @@ export const WorkPageNav = () => html`
   >
     <div class="${styles.container}">
       <h1 class=${styles.header}>
-        <span>What I've Done<span class="text-theme">.</span></span>
         <div id="todo-svg-container" class="inline-block relative top-3">
           ${TodoSvg()}
         </div>
+        <span>What I've Done<span class="text-theme">.</span></span>
       </h1>
       <div class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full"></div>
     </div>
