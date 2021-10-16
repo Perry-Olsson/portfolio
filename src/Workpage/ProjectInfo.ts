@@ -32,11 +32,7 @@ export const showWorkInfo = (
   }, 10);
 };
 
-const WorkInfoOverlay = (
-  data: ProjectInfoProps,
-  show_site_button = true,
-  show_code_button = true
-) => {
+const WorkInfoOverlay = (data: ProjectInfoProps) => {
   return html`
     <div class="w-full sm:w-3/6 flex flex-col items-center mb-5 pt-12 mx-auto">
       ${InfoPageExitButton()}
