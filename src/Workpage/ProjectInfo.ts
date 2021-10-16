@@ -1,29 +1,42 @@
 import { html, render } from "lit-html";
 import { ExternalLinkIcon, GitHubIcon } from "../components/Icons";
-import { projectData, ProjectInfoProps } from "./projectDescriptions";
+import { personal_project_data, ProjectInfoProps } from "./projectDescriptions";
 
 const overlayElement = document.getElementById("overlay-container")!;
 
-export const addProjectInfoListeners = () => {
+export const add_open_source_contribution_listenters = () => {};
+
+export const add_personal_project_listeners = () => {
   const titles = document.querySelectorAll<HTMLHeadElement>(".project-title");
   const images = document.querySelectorAll<HTMLDivElement>(".image-container");
 
   for (let i = 0; i < titles.length; i++) {
-    titles[i].addEventListener("click", () => showProjectInfo(i));
-    images[i].addEventListener("click", () => showProjectInfo(i));
+    titles[i].addEventListener("click", () =>
+      showWorkInfo(personal_project_data, i)
+    );
+    images[i].addEventListener("click", () =>
+      showWorkInfo(personal_project_data, i)
+    );
   }
 };
 
-const showProjectInfo = (index: number) => {
+export const showWorkInfo = (
+  project_data: ProjectInfoProps[],
+  index: number
+) => {
   history.pushState({ overlay: true }, "Overlay", "#work/#overlay");
-  render(ProjectInfo(projectData[index]), overlayElement);
+  render(WorkInfoOverlay(project_data[index]), overlayElement);
   overlayElement.classList.remove("none");
   setTimeout(() => {
     overlayElement.style.transform = "scale(1, 1)";
   }, 10);
 };
 
-export const ProjectInfo = (data: ProjectInfoProps) => {
+const WorkInfoOverlay = (
+  data: ProjectInfoProps,
+  show_site_button = true,
+  show_code_button = true
+) => {
   return html`
     <div class="w-full sm:w-3/6 flex flex-col items-center mb-5 pt-12 mx-auto">
       ${InfoPageExitButton()}
@@ -53,7 +66,7 @@ export const ProjectInfo = (data: ProjectInfoProps) => {
   `;
 };
 
-export const ViewSiteButton = (href: string) => html`
+const ViewSiteButton = (href: string) => html`
   <style>
     .overlay-website-link:hover span,
     .overlay-website-link:hover svg {
@@ -70,7 +83,7 @@ export const ViewSiteButton = (href: string) => html`
   </a>
 `;
 
-export const ViewSourceButton = (href: string) => html`
+const ViewSourceButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
@@ -81,7 +94,7 @@ export const ViewSourceButton = (href: string) => html`
   </a>
 `;
 
-export const InfoPageExitButton = () => {
+const InfoPageExitButton = () => {
   return html` <style>
       .cross-bar {
         width: 35px;

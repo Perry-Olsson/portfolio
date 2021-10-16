@@ -1,10 +1,13 @@
 import { html } from "lit-html";
+import { showWorkInfo } from ".";
+import { open_source_contribution_data } from "./projectDescriptions";
 
 export const OpenSourceContributions = () => html`${OpenSourceCard()}`;
 
 export const OpenSourceCard = () => html`
   <div
-    class="project-container flex item-center justify-center p-10 hover:text-theme"
+    class="project-container flex item-center justify-center p-10 hover:text-theme cursor-pointer mt-10"
+    @click=${() => showWorkInfo(open_source_contribution_data, 0)}
   >
     ${next_js_logo()}
   </div>

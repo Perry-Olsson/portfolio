@@ -1,5 +1,5 @@
 import { html, render } from "lit-html";
-import { addProjectInfoListeners } from ".";
+import { add_personal_project_listeners } from ".";
 import { Animator } from "../animations";
 import { BackIcon, TodoSvg, todoSvgHeight } from "../components/Icons";
 import { halt } from "../utils";
@@ -20,9 +20,7 @@ const getTitle = (page?: SubPage) =>
   page
     ? html`
         <h1 class="${styles.header} mb-8" style="height: ${todoSvgHeight};">
-          <span
-            @click=${() => setPage()}
-            class="cursor-pointer hover:text-theme"
+          <span @click=${setPage} class="cursor-pointer hover:text-theme"
             >${BackIcon()}</span
           ><span>${page}<span class="text-theme">.</span></span>
         </h1>
@@ -73,7 +71,7 @@ export const WorkPageNav = () => html`
       ${TypeOutTextAnimation("Open Source")}
     </button>
     <button
-      @click=${() => setPage("Personal", addProjectInfoListeners)}
+      @click=${() => setPage("Personal", add_personal_project_listeners)}
       class="${styles.navtab}"
     >
       ${TypeOutTextAnimation("Personal")}
@@ -114,33 +112,7 @@ const TypeOutTextAnimation = (text: string) => {
 
   workPageAnimator.addToTypeAnimationPipe(() => typeOut(text, elementId));
 
-  return html`
-    <style>
-      /* @keyframes blink {
-        from {
-          opacity: 1;
-        }
-        40% {
-          opacity: 1;
-        }
-        50% {
-          opacity: 0;
-        }
-        90% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-      .blink {
-        animation-name: blink;
-        animation-duration: 1.2s;
-        animation-iteration-count: infinite;
-      } */
-    </style>
-    <div id="${elementId}"></div>
-  `;
+  return html` <div id="${elementId}"></div> `;
 };
 
 type SubPage = "Personal" | "Open Source" | "Professional";

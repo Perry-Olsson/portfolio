@@ -1,5 +1,15 @@
 //must be in the order the projects are in the dom
-export const projectData: ProjectInfoProps[] = [
+export const open_source_contribution_data: ProjectInfoProps[] = [
+  {
+    projectTitle: "Next.js Webpack Rule",
+    imgUrls: ["/nextjs-logo.png"],
+    headline: "A custom webpack rule to block unusable static image imports",
+    description: "@TODO",
+    websiteLink: "#",
+    githubLink: "#",
+  },
+];
+export const personal_project_data: ProjectInfoProps[] = [
   {
     projectTitle: "Online Booking System",
     imgUrls: ["/online-booking.png"],
