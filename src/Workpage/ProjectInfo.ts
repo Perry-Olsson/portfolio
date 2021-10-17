@@ -1,5 +1,9 @@
 import { html, render } from "lit-html";
-import { ExternalLinkIcon, GitHubIcon } from "../components/Icons";
+import {
+  ExternalLinkIcon,
+  GitHubIcon,
+  GitMergeIcon,
+} from "../components/Icons";
 import { personal_project_data, ProjectInfoProps } from "./projectDescriptions";
 
 const overlayElement = document.getElementById("overlay-container")!;
@@ -54,21 +58,39 @@ const WorkInfoOverlay = (data: ProjectInfoProps) => {
           ${data.description}
         </p>
         <div class="flex">
-          ${ViewSiteButton(data.websiteLink)}
-          ${ViewSourceButton(data.githubLink)}
+          ${ButtonStyle()}
+          ${data.pullRequestLink
+            ? ViewPullRequestButton(data.pullRequestLink)
+            : null}
+          ${data.websiteLink ? ViewSiteButton(data.websiteLink) : null}
+          ${data.githubLink ? ViewSourceButton(data.githubLink) : null}
         </div>
       </div>
     </div>
   `;
 };
 
-const ViewSiteButton = (href: string) => html`
+const ButtonStyle = () => html`
   <style>
     .overlay-website-link:hover span,
     .overlay-website-link:hover svg {
       color: white;
     }
   </style>
+`;
+
+const ViewPullRequestButton = (href: string) => html`
+  <a
+    href=${href}
+    target="_blank"
+    class="overlay-website-link  w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+  >
+    ${GitMergeIcon()}
+    <span class="ml-3">Pull Request</span>
+  </a>
+`;
+
+const ViewSiteButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"

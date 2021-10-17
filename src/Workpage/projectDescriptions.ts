@@ -5,8 +5,7 @@ export const open_source_contribution_data: ProjectInfoProps[] = [
     imgUrls: ["/nextjs-logo.png"],
     headline: "A custom webpack rule to block unusable static image imports",
     description: "@TODO",
-    websiteLink: "#",
-    githubLink: "#",
+    pullRequestLink: "https://github.com/vercel/next.js/pull/28475",
   },
 ];
 export const personal_project_data: ProjectInfoProps[] = [
@@ -74,7 +73,8 @@ export interface ProjectInfoProps {
   imgUrls: string[];
   headline: string;
   description: string;
-  websiteLink: string;
-  githubLink: string;
+  pullRequestLink?: string;
+  websiteLink?: string;
+  githubLink?: string;
   isMobileApp?: boolean;
 }
