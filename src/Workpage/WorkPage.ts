@@ -19,11 +19,12 @@ export const WorkPage = (page?: SubPage) => {
 const getTitle = (page?: SubPage) =>
   page
     ? html`
-        <h1 class="${styles.header} mb-8" style="height: ${todoSvgHeight};">
+        <h1 class="${styles.header}" style="height: ${todoSvgHeight};">
           <span @click=${setPage} class="cursor-pointer hover:text-theme"
             >${BackIcon()}</span
           ><span>${page}<span class="text-theme">.</span></span>
         </h1>
+        <hr class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full" />
       `
     : null;
 
@@ -62,7 +63,7 @@ export const WorkPageNav = () => html`
         </div>
         <span>What I've Done<span class="text-theme">.</span></span>
       </h1>
-      <div class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full"></div>
+      <hr class="bg-gray-400 h-2 rounded mt-2 mb-6 w-full" />
     </div>
     <button @click=${() => setPage("Professional")} class="${styles.navtab}">
       ${TypeOutTextAnimation("Professional")}

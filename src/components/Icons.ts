@@ -136,7 +136,7 @@ export const BackIcon = () => html`
     viewBox="0 0 55.753 55.753"
     style="enable-background:new 0 0 55.753 55.753;"
     xml:space="preserve"
-    class="fill-current stroke-current"
+    class="fill-current stroke-current relative bottom-1"
   >
     <g>
       <path
