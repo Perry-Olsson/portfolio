@@ -27,7 +27,8 @@ export class Cube extends Mesh {
     return [
       //page 2
       new MeshStandardMaterial({
-        color: 0xffffff,
+        color: 0x1b1b1b,
+        map: IntroTexture
       }),
       //page 4
       new MeshStandardMaterial({

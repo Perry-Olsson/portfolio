@@ -23,7 +23,7 @@ export const LeftArrow = (destination: () => void) => {
   );
   return html`
     <div
-      class="hidden sm:fixed bottom-0 left-10 sm:top-2/4  sm:flex  justify-start trnasition-colors duration-200"
+      class="hidden sm:fixed bottom-0 left-10 sm:top-2/4  sm:flex  justify-start transition-colors duration-200"
     >
       ${button}
     </div>

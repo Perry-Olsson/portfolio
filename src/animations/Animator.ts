@@ -7,7 +7,7 @@ export class Animator implements AnimationUtils {
   aboutPage = new AboutPageAnimator();
   workPage = new WorkPageAnimator();
   contactPage = new ContactAnimator();
-  private constructor() {}
+  private constructor() { }
 
   static getInstance() {
     if (!Animator.instance) {
@@ -26,7 +26,7 @@ export class Animator implements AnimationUtils {
 }
 
 class ContactAnimator {
-  constructor() {}
+  constructor() { }
 
   hasBeenShown = false;
   showNavBox(delay = 0) {
@@ -41,7 +41,7 @@ class ContactAnimator {
 class WorkPageAnimator {
   private animationPipe: Array<() => void | Promise<void>> = [];
   private _hasRanTypeAnimation = false;
-  constructor() {}
+  constructor() { }
 
   hasBeenDrawn = false;
   drawTodoSvg(delay = 0) {
@@ -84,7 +84,7 @@ class AboutPageAnimator {
   techSlideId = 0;
   translateVal = 0;
   hasStarted = false;
-  constructor() {}
+  constructor() { }
 
   start(baseDelay = 0) {
     this.startTechSlide(baseDelay);
@@ -124,11 +124,11 @@ class AboutPageAnimator {
       this.exclamationShown = true;
       setTimeout(() => {
         const cover = document.getElementById("exclamation-cover")!;
-        cover.style.transform = "translate(-30px, -90px)";
-        setTimeout(() => {
-          cover.style.transition = "";
-          cover.style.transform = "scale(0, 0)";
-        }, 1200);
+        cover.style.opacity = "100";
+        // setTimeout(() => {
+        //   cover.style.transition = "";
+        //   cover.style.transform = "scale(0, 0)";
+        // }, 1200);
       }, delay);
     }
   }

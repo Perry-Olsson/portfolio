@@ -114,8 +114,8 @@ export class Navbar {
   }
 
   aboutContentChanges() {
-    this.changeTextColor(this.textDark, Router.pos2);
-    this.changeNavBackground("white", Router.pos2);
+    this.changeTextColor("white", Router.pos2);
+    this.navbar.style.background = "transparent";
     this.changeActiveTab("#about");
   }
 

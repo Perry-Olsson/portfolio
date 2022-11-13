@@ -1,34 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link rel="stylesheet" href="/src/style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
-      rel="stylesheet"
-    />
-    <script type="module" src="/src/main.ts" async></script>
-    <title>Perry Olsson</title>
-  </head>
 
-  <body>
-    <div
-      id="overlay-container"
-      class="none fixed inset-0 z-10 bg-white overflow-auto"
-      style="
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="/src/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
+  <script type="module" src="/src/main.ts" async></script>
+  <title>Perry Olsson</title>
+</head>
+
+<body>
+  <div id="overlay-container" class="none fixed inset-0 z-10 bg-white overflow-auto" style="
         transform: scale(0, 1);
         transition: transform 0.5s ease-in-out;
         max-height: 100vh;
-      "
-    ></div>
-    <main id="scrollable" class="hidden">
-      <nav
-        id="navbar"
-        class="
+      "></div>
+  <main id="scrollable" class="hidden">
+    <nav id="navbar" class="
           fixed
           top-0
           left-0
@@ -37,17 +29,13 @@
           flex flex-row
           h-24
           justify-between
-        "
-        style="color: white; background-color: transparent"
-      >
-        <div class="relative z-50 navtab flex items-center">
-          <button id="intro" class="relative z-50 navtab-button py-px">
-            Home
-          </button>
-        </div>
-        <div
-          id="navtab-container"
-          class="
+        " style="color: white; background-color: transparent">
+      <div class="relative z-50 navtab flex items-center">
+        <button id="intro" class="relative z-50 navtab-button py-px">
+          Home
+        </button>
+      </div>
+      <div id="navtab-container" class="
             fixed
             z-40
             -top-full
@@ -59,21 +47,18 @@
             flex flex-col
             bg-transparent
             lg:static lg:flex-row lg:bg-transparent lg:h-auto
-          "
-        >
-          <div class="navtab">
-            <button id="about" class="navtab-button">About</button>
-          </div>
-          <div class="navtab">
-            <button id="work" class="navtab-button">Work</button>
-          </div>
-          <div class="navtab">
-            <button id="contact" class="navtab-button">Contact</button>
-          </div>
+          ">
+        <div class="navtab">
+          <button id="about" class="navtab-button">About</button>
         </div>
-        <button
-          id="burger"
-          class="
+        <div class="navtab">
+          <button id="work" class="navtab-button">Work</button>
+        </div>
+        <div class="navtab">
+          <button id="contact" class="navtab-button">Contact</button>
+        </div>
+      </div>
+      <button id="burger" class="
             relative
             z-50
             flex flex-col
@@ -81,17 +66,14 @@
             items-center
             mx-7
             lg:hidden
-          "
-        >
-          <div id="x-1" class="burger-bar"></div>
-          <div id="x-2" class="burger-bar"></div>
-          <div id="x-none" class="burger-bar"></div>
-        </button>
-      </nav>
-      <div id="content-container" class="mt-24 transition-opacity duration-300">
-        <div
-          id="intro-page"
-          class="
+          ">
+        <div id="x-1" class="burger-bar"></div>
+        <div id="x-2" class="burger-bar"></div>
+        <div id="x-none" class="burger-bar"></div>
+      </button>
+    </nav>
+    <div id="content-container" class="mt-24 transition-opacity duration-300">
+      <div id="intro-page" class="
             transition-opacity
             duration-500
             fixed
@@ -101,15 +83,9 @@
             items-center
             justify-center
             sm:justify-between
-          "
-        >
-          <div
-            id="intro-text-container"
-            class="text-white text-center mx-4 sm:text-left sm:ml-32"
-          >
-            <h1
-              id="name"
-              class="
+          ">
+        <div id="intro-text-container" class="text-white text-center mx-4 sm:text-left sm:ml-32">
+          <h1 id="name" class="
                 transition-opacity
                 duration-700
                 opacity-0
@@ -117,22 +93,18 @@
                 mb-5
                 sm:text-6xl
                 lg:text-7xl
-              "
-            >
-              <span>P</span><span>e</span><span>r</span><span>r</span
-              ><span>y</span> <span>O</span><span>l</span><span>s</span
-              ><span>s</span><span>o</span><span>n</span>
-            </h1>
-            <h2 class="transition-opacity duration-700 opacity-0 text-3xl mb-5">
-              Full-stack Developer
-            </h2>
-            <p class="transition-opacity duration-700 opacity-0 text-lg">
-              Engineering elegant, performant, and powerful web applications.
-            </p>
-          </div>
-          <div
-            id="arrow-container"
-            class="
+              ">
+            <span>P</span><span>e</span><span>r</span><span>r</span><span>y</span>
+            <span>O</span><span>l</span><span>s</span><span>s</span><span>o</span><span>n</span>
+          </h1>
+          <h2 class="transition-opacity duration-700 opacity-0 text-3xl mb-5">
+            Full-stack Developer
+          </h2>
+          <p class="transition-opacity duration-700 opacity-0 text-lg">
+            Engineering elegant, performant, and powerful web applications.
+          </p>
+        </div>
+        <div id="arrow-container" class="
               opacity-0
               transition-opacity
               flex
@@ -141,71 +113,37 @@
               mr-11
               sm:justify-end sm:mt-0 sm:mr-28
               text-white
-            "
-            style="transition-duration: 0.7s; transition-delay: 1.5s"
-          >
-            <div
-              id="arrow-button"
-              class="flex justify-end w-24 transition-colors duration-200"
-            >
-              <button
-                id="arrow-circle"
-                class="
+            " style="transition-duration: 0.7s; transition-delay: 1.5s">
+          <div id="arrow-button" class="flex justify-end w-24 transition-colors duration-200">
+            <button id="arrow-circle" class="
                   flex
                   justify-start
                   items-center
                   border border-current
                   rounded-full
-                "
-                style="width: 48px; height: 48px"
-              >
-                <div class="arrow">
-                  <svg
-                    width="24"
-                    height="24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    style="margin-left: 11px"
-                  >
-                    <path
-                      d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
-                      class="fill-current stroke-current"
-                    />
-                  </svg>
-                </div>
-              </button>
-            </div>
-          </div>
-          <div id="social-bar" class="fixed left-0 bottom-5 px-5 flex">
-            <a
-              class="linkedin-icon mr-5"
-              href="https://www.linkedin.com/in/perry-olsson-94a32217a/"
-              target="_blank"
-            >
-            </a>
-
-            <a
-              class="github-icon mr-3"
-              href="https://github.com/Perry-Olsson"
-              target="_blank"
-            >
-            </a>
-            <a
-              class="facebook-icon mr-4"
-              href="https://www.facebook.com/perry.olsson.7"
-              target="_blank"
-            >
-            </a>
-            <a
-              class="twitter-icon mr-4"
-              href="https://twitter.com/Perry_A_Olsson"
-              target="_blank"
-            >
-            </a>
+                " style="width: 48px; height: 48px">
+              <div class="arrow">
+                <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 11px">
+                  <path d="M21.883 12l-7.527 6.235.644.765 9-7.521-9-7.479-.645.764 7.529 6.236h-21.884v1h21.883z"
+                    class="fill-current stroke-current" />
+                </svg>
+              </div>
+            </button>
           </div>
         </div>
-        <div
-          id="about-page"
-          class="
+        <div id="social-bar" class="fixed left-0 bottom-5 px-5 flex">
+          <a class="linkedin-icon mr-5" href="https://www.linkedin.com/in/perry-olsson-94a32217a/" target="_blank">
+          </a>
+
+          <a class="github-icon mr-3" href="https://github.com/Perry-Olsson" target="_blank">
+          </a>
+          <a class="facebook-icon mr-4" href="https://www.facebook.com/perry.olsson.7" target="_blank">
+          </a>
+          <a class="twitter-icon mr-4" href="https://twitter.com/Perry_A_Olsson" target="_blank">
+          </a>
+        </div>
+      </div>
+      <div id="about-page" class="
             none
             opacity-0
             flex
@@ -213,76 +151,58 @@
             transition-all
             duration-500
             items-center
-          "
-        >
-          <div class="w-11/12 sm:w-4/6">
-            <div class="flex justify-between items-start mt-4">
-              <h1 class="text-8xl text-gray-600 font-extrabold text-left mb-4">
-                Hey <span class="hidden lg:inline">there</span
-                ><span class="text-theme self-end">!</span>
-                <span
-                  id="exclamation-cover"
-                  class="bg-white text-white w-8 absolute"
-                  style="
-                    transition: transform 1s 0.1s;
-                    transform: translate(-30px, 0);
-                  "
-                  >!</span
-                >
-              </h1>
-              <div
-                id="profile-photo-container"
-                style="transform: scale(0); transition: transform 1s 0.5s"
-              ></div>
-            </div>
-            <h4 class="text-3xl text-gray-600">
-              My name is Perry Olsson. I'm from the Seattle area and I'm
-              interested in helping engineer the future of software and web
-              applications.
-            </h4>
-            <div
-              id="about-heading-divider"
-              class="h-2 mt-6 mb-14 bg-gray-400 w-0 rounded-md"
-              style="transition: width 1s 1s"
-            ></div>
-            <h2 class="text-5xl text-left text-gray-600 font-extrabold my-4">
-              Technical Specs<span class="text-theme">.</span>
-            </h2>
-            <div
-              id="tech-slider"
-              class="w-full mb-4 max-w-lg overflow-hidden"
-            ></div>
-            <p class="text-xl text-gray-600">
-              I've spent the last two years cutting my teeth in full-stack web
-              development going through highly recommended online courses and
-              building an array of personal projects some of which you'll see on
-              the next page. I enjoy programming at either end of the tech stack
-              whether it's creating data models and optimizing database queries,
-              or animating SVG's and creating fluid digital experiences.
-            </p>
-            <h2
-              class="text-5xl text-left text-gray-600 font-extrabold mt-14 mb-4"
-            >
-              A Brief History<span class="text-theme">...</span>
-            </h2>
-            <p class="text-xl text-gray-600">
-              I graduated from Cascadia College with an associate's degree in
-              business and an acceptance letter to the University of Washington
-              in hand and decided to drop it all and pursue music. I found
-              myself not as motivated as I'd thought I would feel as time went
-              on and one day decided to try my hand at programming. I started
-              the journey taking Harvard's intro to computer science course and
-              haven't looked back since. I'm still a guitar enthusiast and love
-              to write and play music, but I've found my true passion and
-              professional calling in programming.
-            </p>
-
-            <div id="about-components"></div>
+            text-white
+          ">
+        <div class="w-11/12 sm:w-4/6">
+          <div class="flex justify-between items-start mt-4">
+            <h1 class="text-8xl font-extrabold text-left mb-4">
+              Hey <span class="hidden lg:inline">there</span><span id="exclamation-cover" class="text-theme self-end"
+                style="opacity: 0; transition: opacity 1s 0.1s;">!</span>
+              <!-- <span id="exclamation-cover" class="bg-white w-8 absolute" style=" -->
+              <!--       transition: transform 1s 0.1s; -->
+              <!--       transform: translate(-30px, 0); -->
+              <!--     ">!</span> -->
+            </h1>
+            <div id="profile-photo-container" style="transform: scale(0); transition: transform 1s 0.5s"></div>
           </div>
+          <h4 class="text-3xl">
+            My name is Perry Olsson. I'm from the Seattle area and I'm
+            interested in helping engineer the future of software and web
+            applications.
+          </h4>
+          <div id="about-heading-divider" class="h-2 mt-6 mb-14 bg-gray-300 w-0 rounded-md"
+            style="transition: width 1s 1s"></div>
+          <h2 class="text-5xl text-left font-extrabold my-4">
+            Technical Specs<span class="text-theme">.</span>
+          </h2>
+          <div id="tech-slider" class="w-full mb-4 max-w-lg overflow-hidden"></div>
+          <p class="text-xl">
+            I've spent the last two years cutting my teeth in full-stack web
+            development going through highly recommended online courses and
+            building an array of personal projects some of which you'll see on
+            the next page. I enjoy programming at either end of the tech stack
+            whether it's creating data models and optimizing database queries,
+            or animating SVG's and creating fluid digital experiences.
+          </p>
+          <h2 class="text-5xl text-left font-extrabold mt-14 mb-4">
+            A Brief History<span class="text-theme">...</span>
+          </h2>
+          <p class="text-xl">
+            I graduated from Cascadia College with an associate's degree in
+            business and an acceptance letter to the University of Washington
+            in hand and decided to drop it all and pursue music. I found
+            myself not as motivated as I'd thought I would feel as time went
+            on and one day decided to try my hand at programming. I started
+            the journey taking Harvard's intro to computer science course and
+            haven't looked back since. I'm still a guitar enthusiast and love
+            to write and play music, but I've found my true passion and
+            professional calling in programming.
+          </p>
+
+          <div id="about-components"></div>
         </div>
-        <div
-          id="work-page"
-          class="
+      </div>
+      <div id="work-page" class="
             none
             opacity-0
             transition-all
@@ -290,17 +210,11 @@
             flex flex-col
             items-center
             justify-center
-          "
-        >
-          <div
-            id="work-content"
-            class="flex flex-col items-center justify-center w-full"
-          ></div>
-          <div id="work-components"></div>
-        </div>
-        <div
-          id="contact-page"
-          class="
+          ">
+        <div id="work-content" class="flex flex-col items-center justify-center w-full"></div>
+        <div id="work-components"></div>
+      </div>
+      <div id="contact-page" class="
             none
             opacity-0
             transition-all
@@ -308,11 +222,9 @@
             flex flex-col
             items-center
             justify-center
-          "
-        >
-          <div class="w-11/12 sm:w-4/6 lg:w-2/6">
-            <h1
-              class="
+          ">
+        <div class="w-11/12 sm:w-4/6 lg:w-2/6">
+          <h1 class="
                 text-5xl text-gray-600
                 font-extrabold
                 text-left
@@ -320,45 +232,23 @@
                 my-5
                 justify-between
                 items-end
-              "
-            >
-              <span>Contact<span class="text-theme">.</span></span>
-            </h1>
-            <form id="contact-form" class="flex flex-col w-full">
-              <input
-                name="name"
-                placeholder="Name"
-                type="text"
-                class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
-                required
-              />
-              <input
-                placeholder="Enter email"
-                type="text"
-                name="email"
-                class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
-                required
-              />
-              <textarea
-                class="bg-gray-600 p-2 pb-10 rounded-sm text-white"
-                placeholder="Enter your message"
-                type="text"
-                name="message"
-              ></textarea>
-              <div class="pt-1 flex justify-between items-center">
-                <p
-                  id="contact-form-status"
-                  style="transition: transform 1s; transform: scale(0)"
-                  class="text-theme font-cursive text-2xl"
-                >
-                  Success, Thank You!
-                </p>
+              ">
+            <span>Contact<span class="text-theme">.</span></span>
+          </h1>
+          <form id="contact-form" class="flex flex-col w-full">
+            <input name="name" placeholder="Name" type="text" class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
+              required />
+            <input placeholder="Enter email" type="text" name="email" class="bg-gray-600 mb-1 p-2 rounded-sm text-white"
+              required />
+            <textarea class="bg-gray-600 p-2 pb-10 rounded-sm text-white" placeholder="Enter your message" type="text"
+              name="message"></textarea>
+            <div class="pt-1 flex justify-between items-center">
+              <p id="contact-form-status" style="transition: transform 1s; transform: scale(0)"
+                class="text-theme font-cursive text-2xl">
+                Success, Thank You!
+              </p>
 
-                <input
-                  name="submit"
-                  type="submit"
-                  value="Submit"
-                  class="
+              <input name="submit" type="submit" value="Submit" class="
                     p-2
                     text-white
                     bg-gray-600
@@ -371,28 +261,21 @@
                     cursor-pointer
                     transition-colors
                     duration-300
-                  "
-                />
-              </div>
-            </form>
-          </div>
-          <div id="contact-components"></div>
-          <div
-            id="contact-nav-box-container"
-            class="fixed bottom-0"
-            style="z-index: 1"
-          ></div>
-          <div
-            id="contact-nav-content-container"
-            class="fixed bottom-0 w-full flex justify-center"
-            style="z-index: 2"
-          ></div>
+                  " />
+            </div>
+          </form>
+        </div>
+        <div id="contact-components"></div>
+        <div id="contact-nav-box-container" class="fixed bottom-0" style="z-index: 1"></div>
+        <div id="contact-nav-content-container" class="fixed bottom-0 w-full flex justify-center" style="z-index: 2">
         </div>
       </div>
-    </main>
-    <div id="initial-loader" class="fixed top-2/4 left-2/4">
-      <div class="loading">Loading&#8230;</div>
     </div>
-    <canvas id="scene" style="transform: scale(0)"></canvas>
-  </body>
+  </main>
+  <div id="initial-loader" class="fixed top-2/4 left-2/4">
+    <div class="loading">Loading&#8230;</div>
+  </div>
+  <canvas id="scene" style="transform: scale(0)"></canvas>
+</body>
+
 </html>
