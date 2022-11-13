@@ -119,16 +119,16 @@ const TechSlider = () => {
   const techItems = html`
     <div id="tech-slider-inner" class="my-2 relative flex items-center">
       ${tech.map((t, i) => {
-        return html`
+    return html`
           <div
             class="flex items-center justify-center"
             style="width: 33.3333%; min-width: 33.3333%;"
           >
             ${techIcons[i]}
-            <span class="flex justify-center ml-2 text-gray-600">${t}</span>
+            <span class="flex justify-center ml-2 text-white">${t}</span>
           </div>
         `;
-      })}
+  })}
     </div>
   `;
   render(techItems, document.getElementById("tech-slider")!);
