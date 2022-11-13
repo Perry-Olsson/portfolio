@@ -8,6 +8,7 @@ module.exports = {
       },
       colors: {
         theme: "#4affae",
+        text: "#ffffff",
       },
       fontFamily: {
         cursive: ["lobster", "cursive"],

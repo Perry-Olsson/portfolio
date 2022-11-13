@@ -125,10 +125,6 @@ class AboutPageAnimator {
       setTimeout(() => {
         const cover = document.getElementById("exclamation-cover")!;
         cover.style.opacity = "100";
-        // setTimeout(() => {
-        //   cover.style.transition = "";
-        //   cover.style.transform = "scale(0, 0)";
-        // }, 1200);
       }, delay);
     }
   }
