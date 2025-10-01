@@ -1,5 +1,4 @@
 import * as TWEEN from "@tweenjs/tween.js";
-import { Router } from "../router";
 import { BoxGeometry, Mesh, MeshBasicMaterial } from "three";
 import { IntroTexture } from "../textures";
 import { baseColor, cubeSizeFactor } from "../constants";
