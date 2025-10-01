@@ -8,6 +8,16 @@ import { PersonalWork } from "./PersonalWork";
 import { ProfessionalWork } from "./ProfessionalWork";
 import styles from "./styles.module.css";
 
+export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
+  render(WorkPage(newPage), document.getElementById("work-content")!);
+  history.pushState(
+    { newPage },
+    `work/${newPage ? newPage : ""}`,
+    `#work${newPage ? `/#${newPage.replace(" ", "").toLowerCase()}` : ""}`
+  );
+  if (addListeners) addListeners();
+};
+
 export const WorkPage = (page?: SubPage) => {
   return html`
     <div class=${styles.container}>
@@ -20,7 +30,7 @@ const getTitle = (page?: SubPage) =>
   page
     ? html`
         <h1 class="${styles.header}" style="height: ${todoSvgHeight};">
-          <span @click=${setPage} class="cursor-pointer hover:text-theme"
+          <span @click=${() => setPage()} class="cursor-pointer hover:text-theme"
             >${BackIcon()}</span
           ><span>${page}<span class="text-theme">.</span></span>
         </h1>
@@ -41,19 +51,9 @@ const getPage = (page?: SubPage) => {
   }
 };
 
-export const setPage = (newPage?: SubPage, addListeners?: () => void) => {
-  render(WorkPage(newPage), document.getElementById("work-content")!);
-  history.pushState(
-    { newPage },
-    `work/${newPage ? newPage : ""}`,
-    `#work${newPage ? `/#${newPage.replace(" ", "").toLowerCase()}` : ""}`
-  );
-  if (addListeners) addListeners();
-};
-
 export const WorkPageNav = () => html`
   <nav
-    class="fixed top-24 bottom-0 right-0 left-0 flex flex-col justify-between items-center bg-white"
+    class="fixed top-24 bottom-0 right-0 left-0 flex flex-col justify-between items-center"
     style="padding-bottom: 25vh;"
   >
     <div class="${styles.container}">

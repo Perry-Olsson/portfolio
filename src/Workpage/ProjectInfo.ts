@@ -51,8 +51,8 @@ const WorkInfoOverlay = (data: ProjectInfoProps) => {
       >
         ${data.imgUrls.map((img) => html`<img src=${img} class="w-full" />`)}
       </div>
-      <div class="w-11/12 sm:w-full mt-3  text-gray-600 flex flex-col">
-        <h6 class="text-2xl text-gray-500">${data.headline}</h6>
+      <div class="w-11/12 sm:w-full mt-3 text-white flex flex-col">
+        <h6 class="text-2xl">${data.headline}</h6>
         <br class="h-2" />
         <p class="overflow-auto" style="max-height: 149px;">
           ${data.description}
@@ -74,7 +74,7 @@ const ButtonStyle = () => html`
   <style>
     .overlay-website-link:hover span,
     .overlay-website-link:hover svg {
-      color: white;
+      color: #1b1b1b;
     }
   </style>
 `;
@@ -83,7 +83,7 @@ const ViewPullRequestButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
-    class="overlay-website-link  w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-gray-600 hover:bg-theme border-2 border-gray-600 rounded-md transition-colors duration-300"
   >
     ${GitMergeIcon()}
     <span class="ml-3">Pull Request</span>
@@ -94,7 +94,7 @@ const ViewSiteButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
-    class="overlay-website-link  w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 flex items-center justify-center bg-gray-600 hover:bg-theme border-2 border-gray-600 rounded-md transition-colors duration-300"
   >
     ${ExternalLinkIcon()}
     <span class="ml-3">VIEW SITE</span>
@@ -105,7 +105,7 @@ const ViewSourceButton = (href: string) => html`
   <a
     href=${href}
     target="_blank"
-    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 ml-4 flex items-center justify-center bg-theme hover:bg-gray-600 border-2 border-gray-600 rounded-md transition-colors duration-300"
+    class="overlay-website-link w-3/6 sm:w-1/4 py-2 mt-4 ml-4 flex items-center justify-center bg-gray-600 hover:bg-theme border-2 border-gray-600 rounded-md transition-colors duration-300"
   >
     ${GitHubIcon()}
     <span class="ml-3">CODE</span>

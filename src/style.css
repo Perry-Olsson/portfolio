@@ -154,6 +154,10 @@ main {
   color: var(--theme);
 }
 
+.dark-background {
+    background-color: #1b1b1b
+}
+
 .theme-background {
   background-color: var(--theme);
 }

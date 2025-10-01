@@ -1,7 +1,7 @@
 import * as TWEEN from "@tweenjs/tween.js";
 import { BoxGeometry, Mesh, MeshBasicMaterial } from "three";
 import { IntroTexture } from "../textures";
-import { baseColor, cubeSizeFactor } from "../constants";
+import { dark, baseColor, cubeSizeFactor } from "../constants";
 
 export class Cube extends Mesh {
   cubeWidth = () => window.innerWidth / cubeSizeFactor;
@@ -26,8 +26,7 @@ export class Cube extends Mesh {
     return [
       //page 2
       new MeshBasicMaterial({
-        color: 0x1b1b1b,
-        map: IntroTexture
+        color: dark,
       }),
       //page 4
       new MeshBasicMaterial({
@@ -41,12 +40,12 @@ export class Cube extends Mesh {
       }),
       //page 1
       new MeshBasicMaterial({
-        color: 0x1b1b1b,
+        color: dark,
         map: IntroTexture,
       }),
       //page 3
       new MeshBasicMaterial({
-        color: 0xffffff,
+        color: dark,
       }),
     ];
   }
