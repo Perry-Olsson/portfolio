@@ -22,7 +22,7 @@ export const waitForLoad = () => {
 const waitForCanvasAnimation = () => {
   setTimeout(() => {
     fadeInIntroPage();
-    import("../components/renderComponents").then((result) => {
+    import("../components/renderDynamicComponents").then((result) => {
       result.renderDynamicComponents();
     });
   }, 800);

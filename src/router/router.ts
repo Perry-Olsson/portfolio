@@ -68,7 +68,7 @@ export class Router {
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-      this.controllers.cube.rotateToPos1().duration(duration).start();
+      this.controllers.cube.rotate(Router.pos1).duration(duration).start();
 
       this.fadeInNextPage(this.pages["/intro"], duration);
     }
@@ -92,7 +92,7 @@ export class Router {
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-      this.controllers.cube.rotateToPos2().duration(duration).start();
+      this.controllers.cube.rotate(Router.pos2).duration(duration).start();
       this.fadeInNextPage(this.pages["/about"], duration);
     }
   }
@@ -112,7 +112,7 @@ export class Router {
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-      this.controllers.cube.rotateToPos3().duration(duration).start();
+      this.controllers.cube.rotate(Router.pos3).duration(duration).start();
       this.fadeInNextPage(this.pages["/work"], duration);
     }
   }
@@ -130,7 +130,7 @@ export class Router {
         .duration(cameraDuration)
         .start()
         .chain(this.controllers.camera.tweenIn().duration(cameraDuration));
-      this.controllers.cube.rotateToPos4().duration(duration).start();
+      this.controllers.cube.rotate(Router.pos4).duration(duration).start();
       this.fadeInNextPage(this.pages["/contact"], duration);
     }
   }
