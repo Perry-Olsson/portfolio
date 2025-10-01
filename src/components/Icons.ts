@@ -25,7 +25,7 @@ export const GitMergeIcon = () => html`
 export const GitHubIcon = (color = "") => {
   return html`
     <svg
-      class="social-icon ${color} fill-current"
+      class="social-icon ${color} fill-current theme-hover"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
     >

@@ -30,7 +30,7 @@ export class Cube extends Mesh {
       }),
       //page 4
       new MeshBasicMaterial({
-        color: 0xffffff,
+        color: dark,
       }),
       new MeshBasicMaterial({
         color: baseColor,

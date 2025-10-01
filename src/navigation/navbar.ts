@@ -135,8 +135,8 @@ export class Navbar {
   }
 
   contact(animations = true) {
-    this.changeTextColor(this.textDark, Router.pos4);
-    this.changeNavBackground("white", Router.pos4);
+    this.changeTextColor("white", Router.pos4);
+    this.changeNavBackground("#1b1b1b", Router.pos4);
     this.changeActiveTab("#contact");
     this.goTo("/contact", animations);
   }

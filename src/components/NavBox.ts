@@ -11,6 +11,7 @@ export const NavBox = () => {
         border-left: ${halfWidth}px solid transparent;
         border-right: ${halfWidth}px solid transparent;
         border-bottom: ${quarterHeight}px solid;
+        border-bottom-color: rgba(75, 85, 99, 1); 
         transform: translateY(${quarterHeight}px);
         transition: transform 1s ease-in-out;
       }
