@@ -16,7 +16,6 @@ import {
   TwitterIcon,
 } from "./Icons";
 import { NavBox, NavContent } from "./NavBox";
-import { addProjectInfoListeners } from "../Workpage/WorkPage";
 
 export class Components {
   navbar: Navbar;
