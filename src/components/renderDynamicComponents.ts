@@ -33,7 +33,7 @@ const TechSlider = () => {
             style="width: 33.3333%; min-width: 33.3333%;"
           >
             ${techIcons[i]}
-            <span class="flex justify-center ml-2 text-gray-600">${t}</span>
+            <span class="flex justify-center ml-2 text-white-600">${t}</span>
           </div>
         `;
       })}
