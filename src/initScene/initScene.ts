@@ -4,10 +4,12 @@ import { setLights } from "./setLighting";
 import { waitForLoad } from "./waitForLoad";
 import { Scene, WebGLRenderer, Color, Fog } from "three";
 
+const color = 0xbfbfbf
+
 export const initScene = () => {
   const scene = new Scene();
-  scene.background = new Color( 0x5e5d5d );
-  scene.fog = new Fog( 0x5e5d5d, 2, 30 );
+  scene.background = new Color( color );
+  scene.fog = new Fog( color, 2, 30 );
   const camera = new Camera();
   const renderer = new WebGLRenderer({
     canvas: document.querySelector<HTMLCanvasElement>("#scene")!,
