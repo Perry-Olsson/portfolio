@@ -1,4 +1,3 @@
-import { BackgroundTexture } from "../textures";
 import { Camera } from "../camera";
 import { update } from "@tweenjs/tween.js";
 import { setLights } from "./setLighting";
