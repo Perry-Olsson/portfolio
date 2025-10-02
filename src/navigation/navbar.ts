@@ -129,14 +129,12 @@ export class Navbar {
     //maybe create a wrapper class for the history api that can run runctions on back press
     setPage();
     this.changeTextColor("white", Router.pos3);
-    this.changeNavBackground("#1b1b1b", Router.pos3);
     this.changeActiveTab("#work");
     this.goTo("/work", animations);
   }
 
   contact(animations = true) {
     this.changeTextColor("white", Router.pos4);
-    this.changeNavBackground("#1b1b1b", Router.pos4);
     this.changeActiveTab("#contact");
     this.goTo("/contact", animations);
   }

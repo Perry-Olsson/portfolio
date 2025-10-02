@@ -1,13 +1,13 @@
-import { BackgroundTexture } from "../textures";
 import { Camera } from "../camera";
 import { update } from "@tweenjs/tween.js";
 import { setLights } from "./setLighting";
 import { waitForLoad } from "./waitForLoad";
-import { Scene, WebGLRenderer } from "three";
+import { Scene, WebGLRenderer, Color, Fog } from "three";
 
 export const initScene = () => {
   const scene = new Scene();
-  scene.background = BackgroundTexture;
+  scene.background = new Color( 0x5e5d5d );
+  scene.fog = new Fog( 0x5e5d5d, 2, 20 );
   const camera = new Camera();
   const renderer = new WebGLRenderer({
     canvas: document.querySelector<HTMLCanvasElement>("#scene")!,
