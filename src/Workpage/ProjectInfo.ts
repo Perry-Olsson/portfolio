@@ -74,7 +74,7 @@ const ButtonStyle = () => html`
   <style>
     .overlay-website-link:hover span,
     .overlay-website-link:hover svg {
-      color: #1b1b1b;
+      color: #4b4b4b;
     }
   </style>
 `;
