@@ -37,7 +37,7 @@ export class Cube extends Mesh {
       normalMap,
       roughnessMap,
       displacementMap,
-      // color: 0x9b9b9b 
+      color: 0x9b9b9b 
     })
     return [
       //page 2
