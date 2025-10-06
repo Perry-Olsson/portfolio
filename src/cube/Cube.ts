@@ -26,18 +26,18 @@ export class Cube extends Mesh {
   createMaterials() {
     let textureName = "MetalGalvanizedSteelWorn001"
     let map, metalnessMap, normalMap, roughnessMap, displacementMap;
-    map = textureLoader.load(`${textureName}/${textureName}_COL_2K_METALNESS.jpg`)
-    metalnessMap = textureLoader.load(`${textureName}/${textureName}_METALNESS_2K_METALNESS.jpg`)
-    normalMap = textureLoader.load(`${textureName}/${textureName}_NRM_2K_METALNESS.jpg`)
-    roughnessMap = textureLoader.load(`${textureName}/${textureName}_ROUGHNESS_2K_METALNESS.jpg`)
-    displacementMap = textureLoader.load(`${textureName}/${textureName}_DISP_2K_METALNESS.jpg`)
+    map = textureLoader.load(`${textureName}/${textureName}_COL_4K_METALNESS.jpg`)
+    metalnessMap = textureLoader.load(`${textureName}/${textureName}_METALNESS_4K_METALNESS.jpg`)
+    normalMap = textureLoader.load(`${textureName}/${textureName}_NRM_4K_METALNESS.jpg`)
+    roughnessMap = textureLoader.load(`${textureName}/${textureName}_ROUGHNESS_4K_METALNESS.jpg`)
+    displacementMap = textureLoader.load(`${textureName}/${textureName}_DISP_4K_METALNESS.jpg`)
     const meshStandardMaterial = new MeshStandardMaterial({
       map,
       metalnessMap,
       normalMap,
       roughnessMap,
       displacementMap,
-      color: 0x9b9b9b 
+      // color: 0x9b9b9b 
     })
     return [
       //page 2
