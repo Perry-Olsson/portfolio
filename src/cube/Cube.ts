@@ -1,7 +1,8 @@
 import * as TWEEN from "@tweenjs/tween.js";
-import { BoxGeometry, Mesh, MeshBasicMaterial } from "three";
-import { loadCubeTexture } from "../textures";
-import { dark, baseColor, cubeSizeFactor } from "../constants";
+import { BoxGeometry, Mesh, MeshStandardMaterial, TextureLoader } from "three";
+import { cubeSizeFactor } from "../constants";
+
+const textureLoader = new TextureLoader();
 
 export class Cube extends Mesh {
   cubeWidth = () => window.innerWidth / cubeSizeFactor;
@@ -23,34 +24,32 @@ export class Cube extends Mesh {
   }
 
   createMaterials() {
-    let IntroTexture = loadCubeTexture()
+    let textureName = "MetalGalvanizedSteelWorn001"
+    let map, metalnessMap, normalMap, roughnessMap, displacementMap;
+    map = textureLoader.load(`${textureName}/${textureName}_COL_2K_METALNESS.jpg`)
+    metalnessMap = textureLoader.load(`${textureName}/${textureName}_METALNESS_2K_METALNESS.jpg`)
+    normalMap = textureLoader.load(`${textureName}/${textureName}_NRM_2K_METALNESS.jpg`)
+    roughnessMap = textureLoader.load(`${textureName}/${textureName}_ROUGHNESS_2K_METALNESS.jpg`)
+    displacementMap = textureLoader.load(`${textureName}/${textureName}_DISP_2K_METALNESS.jpg`)
+    const meshStandardMaterial = new MeshStandardMaterial({
+      map,
+      metalnessMap,
+      normalMap,
+      roughnessMap,
+      displacementMap,
+      color: 0x9b9b9b 
+    })
     return [
       //page 2
-      new MeshBasicMaterial({
-        color: dark,
-        map: IntroTexture
-      }),
+      meshStandardMaterial.clone(),
       //page 4
-      new MeshBasicMaterial({
-        color: dark,
-        map: IntroTexture
-      }),
-      new MeshBasicMaterial({
-        color: baseColor,
-      }),
-      new MeshBasicMaterial({
-        color: baseColor,
-      }),
+      meshStandardMaterial.clone(),
+      meshStandardMaterial.clone(),
+      meshStandardMaterial.clone(),
       //page 1
-      new MeshBasicMaterial({
-        color: dark,
-        map: IntroTexture,
-      }),
+      meshStandardMaterial.clone(),
       //page 3
-      new MeshBasicMaterial({
-        color: dark,
-        map: IntroTexture
-      }),
+      meshStandardMaterial.clone(),
     ];
   }
 
